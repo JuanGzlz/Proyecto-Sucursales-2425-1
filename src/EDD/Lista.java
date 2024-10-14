@@ -9,8 +9,8 @@ package EDD;
  * @author Admin
  */
 public class Lista {
-    private Nodo pFirst;
-    private Nodo pLast;
+    private Aristas pFirst;
+    private Aristas pLast;
     private int size;
 
     public Lista() {
@@ -19,19 +19,19 @@ public class Lista {
         this.size = 0;
     }
 
-    public Nodo getpFirst() {
+    public Aristas getpFirst() {
         return pFirst;
     }
 
-    public void setpFirst(Nodo pFirst) {
+    public void setpFirst(Aristas pFirst) {
         this.pFirst = pFirst;
     }
 
-    public Nodo getpLast() {
+    public Aristas getpLast() {
         return pLast;
     }
 
-    public void setpLast(Nodo pLast) {
+    public void setpLast(Aristas pLast) {
         this.pLast = pLast;
     }
 
@@ -43,5 +43,35 @@ public class Lista {
         this.size = size;
     }
     
+    public boolean isEmpty(){
+        return getpFirst() == null;
+    }
     
+    public void addLast (String nombre){
+        Aristas NuevoNodo = new Aristas(nombre);
+        if (isEmpty()){
+            setpFirst(NuevoNodo);
+            setpLast(NuevoNodo);
+        } else{
+            getpLast().setpNext(NuevoNodo);
+            setpLast(NuevoNodo);
+        }
+        setSize(getSize()+1);
+    }
+    
+    public void eliminate(String nombre){
+        if (getpFirst().getNombre().equals(nombre)){
+            setpFirst(getpFirst().getpNext());
+        }else{
+            Aristas aux = getpFirst();
+            Aristas prev = getpFirst();
+            while (!aux.getNombre().equals(nombre)){
+                prev = aux;
+                aux = aux.getpNext();
+            }
+            prev.setpNext(aux.getpNext());
+            aux.setpNext(null);
+        }
+        setSize(getSize()-1);
+    }
 }
