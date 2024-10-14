@@ -10,12 +10,14 @@ package EDD;
 public class Aristas {
     private String nombre;
     private boolean Covered;
+    private boolean Sucursal;
     private Lista Adyacencia;
     private Aristas pNext;
 
     public Aristas(String nombre) {
         this.nombre = nombre;
         this.Covered = false;
+        this.Sucursal = false;
         this.Adyacencia = new Lista();
         this.pNext = null;
     }
@@ -50,6 +52,14 @@ public class Aristas {
 
     public void setpNext(Aristas pNext) {
         this.pNext = pNext;
+    }
+
+    public boolean isSucursal() {
+        return Sucursal;
+    }
+
+    public void setSucursal(boolean Sucursal) {
+        this.Sucursal = Sucursal;
     }
     
     
