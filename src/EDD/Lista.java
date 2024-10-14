@@ -47,6 +47,17 @@ public class Lista {
         return getpFirst() == null;
     }
     
+    public void addArista (Aristas myArista){
+        if (isEmpty()){
+            setpFirst(myArista);
+            setpLast(myArista);
+        } else{
+            getpLast().setpNext(myArista);
+            setpLast(myArista);
+        }
+        setSize(getSize()+1);
+    }
+    
     public void addLast (String nombre){
         Aristas NuevoNodo = new Aristas(nombre);
         if (isEmpty()){
