@@ -4,13 +4,15 @@
  */
 package EDD;
 
+import Grafo.Vertice;
+
 /**
  *
  * @author Admin
  */
 public class Lista {
-    private Aristas pFirst;
-    private Aristas pLast;
+    private Vertice pFirst;
+    private Vertice pLast;
     private int size;
 
     public Lista() {
@@ -19,19 +21,19 @@ public class Lista {
         this.size = 0;
     }
 
-    public Aristas getpFirst() {
+    public Vertice getpFirst() {
         return pFirst;
     }
 
-    public void setpFirst(Aristas pFirst) {
+    public void setpFirst(Vertice pFirst) {
         this.pFirst = pFirst;
     }
 
-    public Aristas getpLast() {
+    public Vertice getpLast() {
         return pLast;
     }
 
-    public void setpLast(Aristas pLast) {
+    public void setpLast(Vertice pLast) {
         this.pLast = pLast;
     }
 
@@ -47,19 +49,19 @@ public class Lista {
         return getpFirst() == null;
     }
     
-    public void addArista (Aristas myArista){
+    public void addVertice (Vertice myVertice){
         if (isEmpty()){
-            setpFirst(myArista);
-            setpLast(myArista);
+            setpFirst(myVertice);
+            setpLast(myVertice);
         } else{
-            getpLast().setpNext(myArista);
-            setpLast(myArista);
+            getpLast().setpNext(myVertice);
+            setpLast(myVertice);
         }
         setSize(getSize()+1);
     }
     
     public void addLast (String nombre){
-        Aristas NuevoNodo = new Aristas(nombre);
+        Vertice NuevoNodo = new Vertice(nombre);
         if (isEmpty()){
             setpFirst(NuevoNodo);
             setpLast(NuevoNodo);
@@ -74,8 +76,8 @@ public class Lista {
         if (getpFirst().getNombre().equals(nombre)){
             setpFirst(getpFirst().getpNext());
         }else{
-            Aristas aux = getpFirst();
-            Aristas prev = getpFirst();
+            Vertice aux = getpFirst();
+            Vertice prev = getpFirst();
             while (!aux.getNombre().equals(nombre)){
                 prev = aux;
                 aux = aux.getpNext();

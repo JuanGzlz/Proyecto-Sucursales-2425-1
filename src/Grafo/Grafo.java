@@ -2,41 +2,51 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package EDD;
+package Grafo;
 
 /**
  *
  * @author Admin
  */
 public class Grafo {
-    private Aristas pFirst;
-    private Aristas pLast;
+    private int NumVer;
+    private Vertice pFirst;
+    private Vertice pLast;
 
-    public Grafo(Aristas pFirst, Aristas pLast) {
-        this.pFirst = pFirst;
-        this.pLast = pLast;
+    public Grafo() {
+        this.NumVer = 0;
+        this.pFirst = null;
+        this.pLast = null;
     }
 
-    public Aristas getpFirst() {
+    public int getNumVer() {
+        return NumVer;
+    }
+
+    public void setNumVer(int NumVer) {
+        this.NumVer = NumVer;
+    }
+    
+    public Vertice getpFirst() {
         return pFirst;
     }
 
-    public void setpFirst(Aristas pFirst) {
+    public void setpFirst(Vertice pFirst) {
         this.pFirst = pFirst;
     }
 
-    public Aristas getpLast() {
+    public Vertice getpLast() {
         return pLast;
     }
 
-    public void setpLast(Aristas pLast) {
+    public void setpLast(Vertice pLast) {
         this.pLast = pLast;
     }
     
     
     
-    public Aristas busquedaInicial(String nombre){
-        Aristas current = getpFirst();
+    public Vertice busquedaInicial(String nombre){
+        Vertice current = getpFirst();
         while (current != null){
         if (current.getNombre().equals(nombre)){
             return current;

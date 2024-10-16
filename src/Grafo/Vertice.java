@@ -2,19 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package EDD;
+package Grafo;
+
+import EDD.Lista;
+
 /**
  *
  * @author Admin
  */
-public class Aristas {
+public class Vertice {
     private String nombre;
     private boolean Covered;
     private boolean Sucursal;
     private Lista Adyacencia;
-    private Aristas pNext;
+    private Vertice pNext;
 
-    public Aristas(String nombre) {
+    public Vertice(String nombre) {
         this.nombre = nombre;
         this.Covered = false;
         this.Sucursal = false;
@@ -46,11 +49,11 @@ public class Aristas {
         this.Adyacencia = Adyacencia;
     }
 
-    public Aristas getpNext() {
+    public Vertice getpNext() {
         return pNext;
     }
 
-    public void setpNext(Aristas pNext) {
+    public void setpNext(Vertice pNext) {
         this.pNext = pNext;
     }
 

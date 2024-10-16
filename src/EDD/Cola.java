@@ -8,12 +8,12 @@ package EDD;
  *
  * @author Admin
  */
-public class ColaBFS {
+public class Cola {
     private Nodo pFirst;
     private Nodo pLast;
     private int size;
 
-    public ColaBFS() {
+    public Cola() {
         this.pFirst = null;
         this.pLast = null;
         this.size = 0;
