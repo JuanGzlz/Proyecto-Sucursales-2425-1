@@ -11,6 +11,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+//import com.google.gson.Gson;
 /**
  *
  * @author Admin
@@ -20,32 +21,10 @@ public class LeerJSON {
         JFileChooser fc = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("archivos de json", "json");
         fc.setFileFilter(filter);
-//        int selection = fc.showOpenDialog(this);
-//        
-//        if (selection == JFileChooser.APPROVE_OPTION){
-//            File fichero = fc.getSelectedFile();
-//            
-//            try (FileReader fr = new FileReader(fichero)){
-//                String cadena = "";
-//                int valor = fr.read();
-//                while (valor != -1){
-//                    cadena += (char) valor;
-//                    valor = fr.read();
-//                }
-//                
-//                String txtArreglado = archivotxt.comprobacionTXT(cadena);
-//                
-//                if("".equals(txtArreglado)){
-//                    //JOptionPane.showMessageDialog(null, "Archivo de texto no válido");
-//                }else{
-//                    this.sopaletras = new SopaLetras(4, 4);
-//                    this.sopaletras.armarSopa(txtArreglado);
-//                    func.mostrarLetras();
-//                    func.colorReset();
-//                }
-//                
-//            }
-//            catch (IOException el){}
+//        String[] mystr = new String[100];
+//        for(int i = 0; i < mystr.length; i++){
+//            crearvertice(mystr[i]);
 //        }
+
     }
 }

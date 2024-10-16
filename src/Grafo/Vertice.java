@@ -14,15 +14,15 @@ public class Vertice {
     private String nombre;
     private boolean Covered;
     private boolean Sucursal;
-    private Lista Adyacencia;
+    private Arista aristas;
     private Vertice pNext;
 
     public Vertice(String nombre) {
         this.nombre = nombre;
         this.Covered = false;
         this.Sucursal = false;
-        this.Adyacencia = new Lista();
         this.pNext = null;
+        this.aristas = new Arista(this);
     }
 
     public String getNombre() {
@@ -41,12 +41,12 @@ public class Vertice {
         this.Covered = Covered;
     }
 
-    public Lista getAdyacencia() {
-        return Adyacencia;
+    public boolean isSucursal() {
+        return Sucursal;
     }
 
-    public void setAdyacencia(Lista Adyacencia) {
-        this.Adyacencia = Adyacencia;
+    public void setSucursal(boolean Sucursal) {
+        this.Sucursal = Sucursal;
     }
 
     public Vertice getpNext() {
@@ -57,15 +57,9 @@ public class Vertice {
         this.pNext = pNext;
     }
 
-    public boolean isSucursal() {
-        return Sucursal;
+    public Arista getAristas() {
+        return aristas;
     }
-
-    public void setSucursal(boolean Sucursal) {
-        this.Sucursal = Sucursal;
-    }
-    
-    
     
     
 }
