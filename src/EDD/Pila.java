@@ -8,35 +8,24 @@ package EDD;
  *
  * @author Admin
  */
-public class PilaDFS {
+public class Pila {
     private Nodo pCima;
     private int size;
 
-    public PilaDFS() {
+    public Pila() {
         this.pCima = null;
         this.size = 0;
     }
 
-    public Nodo getpCima() {
-        return pCima;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
     
     public boolean isEmpty(){
-        return getpCima() == null;
+        return pCima == null;
     }
     
     public void apilar(String nombre){
         Nodo NewNodo = new Nodo(nombre);
-        if (isEmpty()){
-            pCima = NewNodo;
+        if (this.isEmpty()){
+            this.pCima = NewNodo;
         } else{
             NewNodo.setpNext(pCima);
             pCima = NewNodo;
@@ -54,4 +43,9 @@ public class PilaDFS {
             return NewNodo;
         }
     } 
+    
+    public void VaciarPila(){
+        pCima = null;
+        size = 0;
+    }
 }

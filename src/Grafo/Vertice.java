@@ -2,24 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package EDD;
+package Grafo;
+
 /**
  *
  * @author Admin
  */
-public class Aristas {
+public class Vertice {
     private String nombre;
     private boolean Covered;
     private boolean Sucursal;
-    private Lista Adyacencia;
-    private Aristas pNext;
+    private Arista aristas;
+    private Vertice pNext;
 
-    public Aristas(String nombre) {
+    public Vertice(String nombre) {
         this.nombre = nombre;
         this.Covered = false;
         this.Sucursal = false;
-        this.Adyacencia = new Lista();
         this.pNext = null;
+        this.aristas = new Arista(this);
     }
 
     public String getNombre() {
@@ -38,22 +39,6 @@ public class Aristas {
         this.Covered = Covered;
     }
 
-    public Lista getAdyacencia() {
-        return Adyacencia;
-    }
-
-    public void setAdyacencia(Lista Adyacencia) {
-        this.Adyacencia = Adyacencia;
-    }
-
-    public Aristas getpNext() {
-        return pNext;
-    }
-
-    public void setpNext(Aristas pNext) {
-        this.pNext = pNext;
-    }
-
     public boolean isSucursal() {
         return Sucursal;
     }
@@ -61,8 +46,17 @@ public class Aristas {
     public void setSucursal(boolean Sucursal) {
         this.Sucursal = Sucursal;
     }
-    
-    
-    
-    
+
+    public Vertice getpNext() {
+        return pNext;
+    }
+
+    public void setpNext(Vertice pNext) {
+        this.pNext = pNext;
+    }
+
+    public Arista getAristas() {
+        return aristas;
+    }   
+   
 }

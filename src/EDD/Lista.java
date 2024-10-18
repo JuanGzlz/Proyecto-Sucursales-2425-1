@@ -4,13 +4,15 @@
  */
 package EDD;
 
+import Grafo.Vertice;
+
 /**
  *
  * @author Admin
  */
 public class Lista {
-    private Aristas pFirst;
-    private Aristas pLast;
+    private Vertice pFirst;
+    private Vertice pLast;
     private int size;
 
     public Lista() {
@@ -19,19 +21,19 @@ public class Lista {
         this.size = 0;
     }
 
-    public Aristas getpFirst() {
+    public Vertice getpFirst() {
         return pFirst;
     }
 
-    public void setpFirst(Aristas pFirst) {
+    public void setpFirst(Vertice pFirst) {
         this.pFirst = pFirst;
     }
 
-    public Aristas getpLast() {
+    public Vertice getpLast() {
         return pLast;
     }
 
-    public void setpLast(Aristas pLast) {
+    public void setpLast(Vertice pLast) {
         this.pLast = pLast;
     }
 
@@ -47,19 +49,19 @@ public class Lista {
         return getpFirst() == null;
     }
     
-    public void addArista (Aristas myArista){
+    public void addVertice (Vertice myVertice){
         if (isEmpty()){
-            setpFirst(myArista);
-            setpLast(myArista);
+            setpFirst(myVertice);
+            setpLast(myVertice);
         } else{
-            getpLast().setpNext(myArista);
-            setpLast(myArista);
+            getpLast().setpNext(myVertice);
+            setpLast(myVertice);
         }
         setSize(getSize()+1);
     }
     
     public void addLast (String nombre){
-        Aristas NuevoNodo = new Aristas(nombre);
+        Vertice NuevoNodo = new Vertice(nombre);
         if (isEmpty()){
             setpFirst(NuevoNodo);
             setpLast(NuevoNodo);
@@ -70,12 +72,13 @@ public class Lista {
         setSize(getSize()+1);
     }
     
-    public void eliminate(String nombre){
+    public void eliminateVertice(String nombre){
+        if(!isEmpty() && nombre != null){
         if (getpFirst().getNombre().equals(nombre)){
             setpFirst(getpFirst().getpNext());
         }else{
-            Aristas aux = getpFirst();
-            Aristas prev = getpFirst();
+            Vertice aux = getpFirst();
+            Vertice prev = getpFirst();
             while (!aux.getNombre().equals(nombre)){
                 prev = aux;
                 aux = aux.getpNext();
@@ -84,5 +87,31 @@ public class Lista {
             aux.setpNext(null);
         }
         setSize(getSize()-1);
+        }
+    }
+    
+    public Vertice buscarVertice(String nombre){
+        Vertice aux = this.getpFirst();
+        if(!isEmpty()){
+            while(aux!= null){
+                if(aux.getNombre().toLowerCase().equals(nombre.toLowerCase())){
+                    break;
+                }
+                aux = aux.getpNext();
+            }
+        }
+        return aux;
+    }
+    
+    public String print(){
+        String cadena = "";
+        if(!isEmpty()){
+            Vertice aux = getpFirst();
+            while(aux!= null){
+                cadena += aux.getNombre();
+                aux = aux.getpNext();
+            }
+        }
+        return cadena;
     }
 }
