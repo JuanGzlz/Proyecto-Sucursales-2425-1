@@ -72,7 +72,8 @@ public class Lista {
         setSize(getSize()+1);
     }
     
-    public void eliminate(String nombre){
+    public void eliminateVertice(String nombre){
+        if(!isEmpty() && nombre != null){
         if (getpFirst().getNombre().equals(nombre)){
             setpFirst(getpFirst().getpNext());
         }else{
@@ -86,5 +87,31 @@ public class Lista {
             aux.setpNext(null);
         }
         setSize(getSize()-1);
+        }
+    }
+    
+    public Vertice buscarVertice(String nombre){
+        Vertice aux = this.getpFirst();
+        if(!isEmpty()){
+            while(aux!= null){
+                if(aux.getNombre().toLowerCase().equals(nombre.toLowerCase())){
+                    break;
+                }
+                aux = aux.getpNext();
+            }
+        }
+        return aux;
+    }
+    
+    public String print(){
+        String cadena = "";
+        if(!isEmpty()){
+            Vertice aux = getpFirst();
+            while(aux!= null){
+                cadena += aux.getNombre();
+                aux = aux.getpNext();
+            }
+        }
+        return cadena;
     }
 }

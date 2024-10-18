@@ -10,9 +10,9 @@ package EDD;
  */
 public class Nodo {
     private Nodo pNext;
-    private Object data;
+    private String data;
 
-    public Nodo(Object data) {
+    public Nodo(String data) {
         this.pNext = null;
         this.data = data;
     }
@@ -25,11 +25,11 @@ public class Nodo {
         this.pNext = pNext;
     }
 
-    public Object getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(String data) {
         this.data = data;
     }
     

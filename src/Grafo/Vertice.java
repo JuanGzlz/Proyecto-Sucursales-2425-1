@@ -4,8 +4,6 @@
  */
 package Grafo;
 
-import EDD.Lista;
-
 /**
  *
  * @author Admin
@@ -59,7 +57,6 @@ public class Vertice {
 
     public Arista getAristas() {
         return aristas;
-    }
-    
-    
+    }   
+   
 }

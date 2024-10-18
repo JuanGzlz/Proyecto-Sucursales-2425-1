@@ -23,7 +23,7 @@ public class Cola {
         return pFirst == null;
     }
     
-    private void encolar(String nombre){
+    public void encolar(String nombre){
         Nodo NewNodo = new Nodo(nombre);
         if (this.isEmpty()){
             this.pFirst = NewNodo;
@@ -35,7 +35,7 @@ public class Cola {
         size ++;
     }
     
-    private Nodo desencolar (String nombre){
+    public Nodo desencolar (){
         if (isEmpty()){
             return null;
         } else{
