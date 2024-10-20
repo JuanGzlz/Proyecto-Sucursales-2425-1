@@ -8,12 +8,12 @@ package EDD;
  *
  * @author Admin
  */
-public class ColaBFS {
+public class Cola {
     private Nodo pFirst;
     private Nodo pLast;
     private int size;
 
-    public ColaBFS() {
+    public Cola() {
         this.pFirst = null;
         this.pLast = null;
         this.size = 0;
@@ -23,7 +23,7 @@ public class ColaBFS {
         return pFirst == null;
     }
     
-    private void encolar(String nombre){
+    public void encolar(String nombre){
         Nodo NewNodo = new Nodo(nombre);
         if (this.isEmpty()){
             this.pFirst = NewNodo;
@@ -35,7 +35,7 @@ public class ColaBFS {
         size ++;
     }
     
-    private Nodo desencolar (String nombre){
+    public Nodo desencolar (){
         if (isEmpty()){
             return null;
         } else{
