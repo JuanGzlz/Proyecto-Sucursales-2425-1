@@ -4,6 +4,8 @@
  */
 package Main;
 
+import Interfaces.Ventana1;
+
 /**
  *
  * @author Admin
@@ -15,6 +17,8 @@ public class ProyectoSucursales {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Ventana1 ventana= new Ventana1();
+        ventana.setVisible(true);
     }
     
 }
