@@ -33,5 +33,4 @@ public class Nodo {
         this.data = data;
     }
     
-    
 }

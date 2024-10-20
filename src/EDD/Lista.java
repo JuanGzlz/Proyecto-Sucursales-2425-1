@@ -60,7 +60,7 @@ public class Lista {
         setSize(getSize()+1);
     }
     
-    public void addLast (String nombre){
+    public void addLast (String[] nombre){
         Vertice NuevoNodo = new Vertice(nombre);
         if (isEmpty()){
             setpFirst(NuevoNodo);
@@ -94,8 +94,11 @@ public class Lista {
         Vertice aux = this.getpFirst();
         if(!isEmpty()){
             while(aux!= null){
-                if(aux.getNombre().toLowerCase().equals(nombre.toLowerCase())){
-                    break;
+                String[] names = aux.getNombre();
+                for(int i = 0; i < names.length; i++){
+                if(names[i].toLowerCase().equals(nombre.toLowerCase())){
+                    return aux;
+                }
                 }
                 aux = aux.getpNext();
             }

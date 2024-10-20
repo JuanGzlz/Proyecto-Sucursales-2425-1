@@ -9,26 +9,22 @@ package Grafo;
  * @author Admin
  */
 public class Vertice {
-    private String nombre;
+    private ListaAdyacencia Adyacencia;
+    private String[] nombre;
     private boolean Covered;
     private boolean Sucursal;
-    private Arista aristas;
     private Vertice pNext;
 
-    public Vertice(String nombre) {
+    public Vertice(String nombre[]) {
+        this.Adyacencia = new ListaAdyacencia();
         this.nombre = nombre;
         this.Covered = false;
         this.Sucursal = false;
         this.pNext = null;
-        this.aristas = new Arista(this);
     }
 
-    public String getNombre() {
+    public String[] getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public boolean isCovered() {
@@ -55,8 +51,8 @@ public class Vertice {
         this.pNext = pNext;
     }
 
-    public Arista getAristas() {
-        return aristas;
+    public ListaAdyacencia getAdyacencia() {
+        return Adyacencia;
     }   
    
 }
