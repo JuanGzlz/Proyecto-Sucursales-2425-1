@@ -47,7 +47,8 @@ public class ListaAdyacencia {
         return getpFirst() == null;
     }
     
-    public void addArista (Arista myArista){
+    public void addArista (Vertice myVertice){
+        Arista myArista = new Arista(myVertice);
         if (isEmpty()){
             setpFirst(myArista);
             setpLast(myArista);

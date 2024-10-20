@@ -17,13 +17,12 @@ public class BusquedaBFS {
         for(int i = 0; i < P; i++){
             Nodo auxNodo = cola.desencolar();
             Vertice auxVertice = grafo.busquedaInicial(auxNodo.getData());
-            Arista auxArista = auxVertice.getAristas();
-            ListaAdyacencia auxLista = auxArista.getAdyacencia();
+            ListaAdyacencia auxLista = auxVertice.getAdyacencia();
             auxVertice.setCovered(true);
             Arista current = auxLista.getpFirst();
             while (current != null){
                 P_2++;
-                cola.encolar(current.getDir().getNombre());
+                cola.encolar(current.getDir().getNombre()[0]);
                 current = current.getpNext();
             }
         }
@@ -44,7 +43,6 @@ public class BusquedaBFS {
     
     public BusquedaBFS() {
         
-    }
-    
+    } 
    
 }

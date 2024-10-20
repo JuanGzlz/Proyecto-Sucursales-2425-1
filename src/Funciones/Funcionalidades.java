@@ -5,14 +5,13 @@
 package Funciones;
 import Grafo.Grafo;
 import Grafo.Vertice;
-import Grafo.Arista;
 import javax.swing.JOptionPane;
 /**
  *
  * @author Admin
  */
 public class Funcionalidades {
-     public void colocarSucursal(Grafo grafo, String nombre){
+     public void seleccionarSucursal(Grafo grafo, String nombre){
         Vertice parada = grafo.getListaParadas().buscarVertice(nombre);
         if(parada != null){
             if(parada.isSucursal()){
@@ -21,7 +20,7 @@ public class Funcionalidades {
                             "", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 parada.setSucursal(true);
-//                grafo.colorVertice(parada.get, "green");
+                grafo.colorVertice(parada, "green");
             }
         }else{
             JOptionPane.showMessageDialog(null,
@@ -30,7 +29,7 @@ public class Funcionalidades {
         }
     }
     
-    public void eliminarSucursal(Grafo grafo, String nombre){
+    public void quitarSucursal(Grafo grafo, String nombre){
         Vertice parada = grafo.getListaParadas().buscarVertice(nombre);
         if(parada != null){
         if(!parada.isSucursal()){
@@ -39,7 +38,7 @@ public class Funcionalidades {
                         "", JOptionPane.INFORMATION_MESSAGE);
         }else{
             parada.setSucursal(false);
-//            grafo.colorVertice(parada.get, "yellow"); 
+            grafo.colorVertice(parada, "red"); 
         }
         }else{
             JOptionPane.showMessageDialog(null,

@@ -18,13 +18,12 @@ public class BusquedaDFS {
         for(int i = 0; i < P; i++){
             Nodo auxNodo = pila.desapilar();
             Vertice auxVertice = grafo.busquedaInicial(auxNodo.getData());
-            Arista auxArista = auxVertice.getAristas();
-            ListaAdyacencia auxLista = auxArista.getAdyacencia();
+            ListaAdyacencia auxLista = auxVertice.getAdyacencia();
             auxVertice.setCovered(true);
             Arista current = auxLista.getpFirst();
             while (current != null){
                 P_2++;
-                pila.apilar(current.getDir().getNombre());
+                pila.apilar(current.getDir().getNombre()[0]);
                 current = current.getpNext();
             }
         }
