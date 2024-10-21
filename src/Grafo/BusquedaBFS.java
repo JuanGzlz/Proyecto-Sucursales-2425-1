@@ -4,6 +4,7 @@
  */
 package Grafo;
 import EDD.Cola;
+import EDD.Lista;
 import EDD.Nodo;
 
 /**
@@ -11,8 +12,15 @@ import EDD.Nodo;
  * @author Admin
  */
 public class BusquedaBFS {
-    public void BFS(Grafo grafo, Cola cola, int T, int P) {
-    if (T > 0 || cola.isEmpty() == false){
+    
+    private Lista Seen;
+    
+    public BusquedaBFS(){
+        Seen = new Lista();
+    }
+    
+    public void BFS(Cola cola, int T, int P) {
+    if (T > 0 && cola.isEmpty() == false){
         int P_2 = 0;
         for(int i = 0; i < P; i++){
             Nodo auxNodo = cola.desencolar();
@@ -21,28 +29,41 @@ public class BusquedaBFS {
             auxVertice.setCovered(true);
             Arista current = auxLista.getpFirst();
             while (current != null){
-                P_2++;
-                cola.encolar(current.getDir());
+                Nodo N = Seen.buscarNodo(current.getDir());
+                if(N == null){
+                    cola.encolar(current.getDir());
+                    Seen.addNodo(current.getDir());
+                    P_2++;
+                }
                 current = current.getpNext();
             }
         }
-        BFS(grafo, cola, T-1, P_2); 
-        
-        
-        
-        
-        
-    }else{
-        return ;
+        BFS(cola, T-1, P_2); 
+                
+    }
+   }
+    
+    public void BusquedaBFS_Unico(int T, Vertice inicial) {
+        if(T > 0){
+        inicial.setCovered(true);
+        Cola cola = new Cola();
+        this.Seen.addNodo(inicial);
+        ListaAdyacencia adyacentes = inicial.getAdyacencia();
+        Arista A = adyacentes.getpFirst();
+        int P = 0;
+        while(A != null){
+            cola.encolar(A.getDir());
+            P++;
+            this.Seen.addNodo(A.getDir());
+            A = A.getpNext();
+            }
+        BFS(cola, T, P);
+        }
         
     }
     
-    
+    public void CompleteBFS(Grafo grafo, int T){
     
     }
-    
-    public BusquedaBFS() {
-        
-    } 
    
 }

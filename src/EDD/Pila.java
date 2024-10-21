@@ -40,7 +40,7 @@ public class Pila {
             return null;
         } else{
             Nodo NewNodo = pCima;
-            pCima.setpNext(pCima.getpNext());
+            pCima = pCima.getpNext();
             size --;
             return NewNodo;
         }

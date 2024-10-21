@@ -9,6 +9,9 @@ import Interfaces.InterfazFunciones;
 import Grafo.Grafo;
 import Funciones.JsonChooser;
 import Funciones.JsonDecoder;
+import Grafo.BusquedaBFS;
+import Grafo.BusquedaDFS;
+import Grafo.Vertice;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -27,7 +30,11 @@ public class ProyectoSucursales {
         file.chooseFile();
         JsonDecoder json = new JsonDecoder(file.getJson());
         Grafo graph = json.CrearGrafo();
-        graph.show();     
+        BusquedaDFS dfs = new BusquedaDFS();
+        Vertice v = graph.busquedaInicial("Altamira");
+        v.setSucursal(true);
+        dfs.BusquedaDFS_Unico(2, v);
+        graph.show();
     }
     
 }

@@ -42,7 +42,7 @@ public class Cola {
             return null;
         } else{
             Nodo NewNodo = pFirst;
-            pFirst.setpNext(pFirst.getpNext());
+            pFirst = pFirst.getpNext();
             size --;
             return NewNodo;
         }

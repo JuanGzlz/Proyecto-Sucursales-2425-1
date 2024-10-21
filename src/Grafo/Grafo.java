@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Grafo;
-import EDD.Lista;
+import EDD.ListaVertices;
 import javax.swing.JOptionPane;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.MultiGraph;
@@ -15,24 +15,24 @@ import org.graphstream.ui.view.Viewer;
 public class Grafo {
     private Graph graph;
     private String Nombre;
-    private Lista ListaParadas;
+    private ListaVertices ListaParadas;
     private int numVer;
     private int T;
 
     public Grafo(String Nombre) {
         this.Nombre = Nombre;
-        this.ListaParadas = new Lista();
+        this.ListaParadas = new ListaVertices();
         this.graph = new MultiGraph("GRAFO: Estaciones de Metro");
         this.numVer = 0;
         this.T = 0;
         System.setProperty("org.graphstream.ui", "swing");
     }
 
-    public Lista getListaParadas() {
+    public ListaVertices getListaParadas() {
         return ListaParadas;
     }
 
-    public void setListaParadas(Lista ListaParadas) {
+    public void setListaParadas(ListaVertices ListaParadas) {
         this.ListaParadas = ListaParadas;
     }
 
@@ -132,8 +132,10 @@ public class Grafo {
     public void show(){
         Vertice v = this.ListaParadas.getpFirst();
         while(v != null){
+            if(v.isCovered()==true){
             for(int i = 0; i < v.getNombre().length; i++){
                 System.out.println(v.getNombre()[i]);
+            }
             }
             v = v.getpNext();
         }

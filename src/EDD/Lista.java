@@ -11,8 +11,8 @@ import Grafo.Vertice;
  * @author Admin
  */
 public class Lista {
-    private Vertice pFirst;
-    private Vertice pLast;
+    private Nodo pFirst;
+    private Nodo pLast;
     private int size;
 
     public Lista() {
@@ -21,19 +21,19 @@ public class Lista {
         this.size = 0;
     }
 
-    public Vertice getpFirst() {
+    public Nodo getpFirst() {
         return pFirst;
     }
 
-    public void setpFirst(Vertice pFirst) {
+    public void setpFirst(Nodo pFirst) {
         this.pFirst = pFirst;
     }
 
-    public Vertice getpLast() {
+    public Nodo getpLast() {
         return pLast;
     }
 
-    public void setpLast(Vertice pLast) {
+    public void setpLast(Nodo pLast) {
         this.pLast = pLast;
     }
 
@@ -49,19 +49,8 @@ public class Lista {
         return getpFirst() == null;
     }
     
-    public void addVertice (Vertice myVertice){
-        if (isEmpty()){
-            setpFirst(myVertice);
-            setpLast(myVertice);
-        } else{
-            getpLast().setpNext(myVertice);
-            setpLast(myVertice);
-        }
-        setSize(getSize()+1);
-    }
-    
-    public void addLast (String[] nombre){
-        Vertice NuevoNodo = new Vertice(nombre);
+    public void addNodo (Vertice v){
+        Nodo NuevoNodo = new Nodo(v);
         if (isEmpty()){
             setpFirst(NuevoNodo);
             setpLast(NuevoNodo);
@@ -72,49 +61,30 @@ public class Lista {
         setSize(getSize()+1);
     }
     
-    public void eliminateVertice(String nombre){
-        if(!isEmpty() && nombre != null){
-        if (getpFirst().getNombre().equals(nombre)){
-            setpFirst(getpFirst().getpNext());
-        }else{
-            Vertice aux = getpFirst();
-            Vertice prev = getpFirst();
-            while (!aux.getNombre().equals(nombre)){
-                prev = aux;
-                aux = aux.getpNext();
-            }
-            prev.setpNext(aux.getpNext());
-            aux.setpNext(null);
+    public void addLast (Vertice nombre){
+        Nodo NuevoNodo = new Nodo(nombre);
+        if (isEmpty()){
+            setpFirst(NuevoNodo);
+            setpLast(NuevoNodo);
+        } else{
+            getpLast().setpNext(NuevoNodo);
+            setpLast(NuevoNodo);
         }
-        setSize(getSize()-1);
-        }
+        setSize(getSize()+1);
     }
     
-    public Vertice buscarVertice(String nombre){
-        Vertice aux = this.getpFirst();
+    
+    public Nodo buscarNodo(Vertice nombre){
+        Nodo aux = this.getpFirst();
         if(!isEmpty()){
             while(aux!= null){
-                String[] names = aux.getNombre();
-                for(int i = 0; i < names.length; i++){
-                if(names[i].toLowerCase().equals(nombre.toLowerCase())){
+                if(aux.getData() == nombre){
                     return aux;
                 }
-                }
+                
                 aux = aux.getpNext();
             }
         }
         return aux;
-    }
-    
-    public String print(){
-        String cadena = "";
-        if(!isEmpty()){
-            Vertice aux = getpFirst();
-            while(aux!= null){
-                cadena += aux.getNombre();
-                aux = aux.getpNext();
-            }
-        }
-        return cadena;
     }
 }
