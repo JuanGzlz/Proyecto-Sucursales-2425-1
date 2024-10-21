@@ -7,6 +7,10 @@ package Main;
 
 import Interfaces.InterfazFunciones;
 import Grafo.Grafo;
+import Funciones.JsonChooser;
+import Funciones.JsonDecoder;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  *
@@ -17,25 +21,13 @@ public class ProyectoSucursales {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        InterfazFunciones.openBienvenida();
-
-        // TODO code application logic here
-
-       Grafo NewGrafo = new Grafo();
-       /* NewGrafo.crearVertice("A");
-        NewGrafo.crearVertice("B");
-        NewGrafo.crearVertice("C");
-        NewGrafo.crearVertice("D");
-        NewGrafo.crearVertice("E");
-        NewGrafo.crearConexion("A", "B");
-        NewGrafo.crearConexion("B", "C");
-        NewGrafo.crearConexion("C", "E");
-        NewGrafo.crearConexion("E", "A");
-        NewGrafo.crearConexion("B", "E");
-        NewGrafo.crearConexion("C", "A");
-        */
-
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+//        InterfazFunciones.openBienvenida();
+        JsonChooser file = new JsonChooser();
+        file.chooseFile();
+        JsonDecoder json = new JsonDecoder(file.getJson());
+        Grafo graph = json.CrearGrafo();
+        graph.show();     
     }
     
 }

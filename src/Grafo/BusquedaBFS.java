@@ -16,13 +16,13 @@ public class BusquedaBFS {
         int P_2 = 0;
         for(int i = 0; i < P; i++){
             Nodo auxNodo = cola.desencolar();
-            Vertice auxVertice = grafo.busquedaInicial(auxNodo.getData());
+            Vertice auxVertice = auxNodo.getData();
             ListaAdyacencia auxLista = auxVertice.getAdyacencia();
             auxVertice.setCovered(true);
             Arista current = auxLista.getpFirst();
             while (current != null){
                 P_2++;
-                cola.encolar(current.getDir().getNombre()[0]);
+                cola.encolar(current.getDir());
                 current = current.getpNext();
             }
         }

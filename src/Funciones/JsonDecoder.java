@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Funciones;
-
+import Grafo.Grafo;
+import Grafo.Vertice;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,5 +43,96 @@ public class JsonDecoder {
             System.out.println(mystr); //Aquí puede ir el procesamiento
             mystr = MyBuffer.readLine();
         }
+    }
+    
+    public String GrafoNombre() throws FileNotFoundException, IOException{
+        this.Reset();
+        this.Read();
+        String Nombre = this.Read();
+        Nombre = Nombre.replace("\"", "").replace(":[", "").trim();
+        this.Reset();
+        return Nombre;
+    }
+    
+    public Grafo CrearGrafo() throws IOException{
+        String N = this.GrafoNombre();
+        Grafo graph = new Grafo(N);
+        String Iteracion = this.Read();
+        while (Iteracion != null){
+            if (Iteracion.contains("{") && Iteracion.contains("}")){
+                Iteracion = Iteracion.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
+                String[] Valores = Iteracion.split(":");
+                Vertice v = graph.busquedaInicial(Valores[0]);
+                if(v == null){
+                    graph.crearVertice(Valores);
+                }
+            }else if (Iteracion.contains("{") || Iteracion.contains("]") || Iteracion.contains("[") || Iteracion.contains("}") ){
+                Iteracion = this.Read();
+                continue;
+            } else{
+                Iteracion = Iteracion.replace("\"", "").replace(",", "").trim();
+                String[] Valor = new String[1];
+                Valor[0] = Iteracion;
+                graph.crearVertice(Valor);
+            }
+            
+            Iteracion = this.Read();
+        }
+        
+        this.Reset();
+        Iteracion = this.Read();
+        String Next;
+        
+        
+        while (Iteracion != null){
+            Next = this.Read();
+            if (Iteracion.contains("{") && Iteracion.contains("}")){
+                if (Next.contains("{") && Next.contains("}")){
+                    Iteracion = Iteracion.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
+                    Next = Next.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
+                    String[] Valores_A = Iteracion.split(":");
+                    String[] Valores_B = Next.split(":");
+                    graph.crearConexion(Valores_A[0], Valores_B[0]);
+                } else if (Next.contains("{") || Next.contains("]") || Next.contains("[") || Next.contains("}") ){
+                    Iteracion = Next;
+                    continue;
+                }else{
+                    Iteracion = Iteracion.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
+                    Next = Next.replace("\"", "").replace(",", "").trim();
+                    String[] Valores_A = Iteracion.split(":");
+                    String[] Valor_B = new String[1];
+                    Valor_B[0] = Next;
+                    graph.crearConexion(Valores_A[0], Valor_B[0]);
+                }
+            }else if (Iteracion.contains("{") || Iteracion.contains("]") || Iteracion.contains("[") || Iteracion.contains("}") ){
+                Iteracion = Next;
+                continue;
+            } else{
+                if (Next.contains("{") && Next.contains("}")){
+                    Iteracion = Iteracion.replace("\"", "").replace(",", "").trim();
+                    Next = Next.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
+                    String[] Valor_A = new String[1];
+                    Valor_A[0] = Iteracion;
+                    String[] Valores_B = Next.split(":");
+                    graph.crearConexion(Valor_A[0], Valores_B[0]);
+                } else if (Next.contains("{") || Next.contains("]") || Next.contains("[") || Next.contains("}") ){
+                    Iteracion = Next;
+                    continue;
+                }else{
+                    Iteracion = Iteracion.replace("\"", "").replace(",", "").trim();
+                    Next = Next.replace("\"", "").replace(",", "").trim();
+                    String[] Valor_A = new String[1];
+                    Valor_A[0] = Iteracion;
+                    String[] Valor_B = new String[1];
+                    Valor_B[0] = Next;
+                    graph.crearConexion(Valor_A[0], Valor_B[0]);
+                }
+            }
+            
+            Iteracion = Next;
+            
+        }
+        
+        return graph;
     }
 }

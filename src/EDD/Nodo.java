@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package EDD;
+import Grafo.Vertice;
 
 /**
  *
@@ -10,9 +11,9 @@ package EDD;
  */
 public class Nodo {
     private Nodo pNext;
-    private String data;
+    private Vertice data;
 
-    public Nodo(String data) {
+    public Nodo(Vertice data) {
         this.pNext = null;
         this.data = data;
     }
@@ -25,11 +26,11 @@ public class Nodo {
         this.pNext = pNext;
     }
 
-    public String getData() {
+    public Vertice getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Vertice data) {
         this.data = data;
     }
     
