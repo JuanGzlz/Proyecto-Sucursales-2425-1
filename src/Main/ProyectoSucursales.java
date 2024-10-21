@@ -7,6 +7,15 @@ package Main;
 
 import Interfaces.InterfazFunciones;
 import Grafo.Grafo;
+import Funciones.JsonChooser;
+import Funciones.JsonDecoder;
+import Grafo.Arista;
+import Grafo.BusquedaBFS;
+import Grafo.BusquedaDFS;
+import Grafo.ListaAdyacencia;
+import Grafo.Vertice;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  *
@@ -17,25 +26,24 @@ public class ProyectoSucursales {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        InterfazFunciones.openBienvenida();
-
-        // TODO code application logic here
-
-       Grafo NewGrafo = new Grafo();
-       /* NewGrafo.crearVertice("A");
-        NewGrafo.crearVertice("B");
-        NewGrafo.crearVertice("C");
-        NewGrafo.crearVertice("D");
-        NewGrafo.crearVertice("E");
-        NewGrafo.crearConexion("A", "B");
-        NewGrafo.crearConexion("B", "C");
-        NewGrafo.crearConexion("C", "E");
-        NewGrafo.crearConexion("E", "A");
-        NewGrafo.crearConexion("B", "E");
-        NewGrafo.crearConexion("C", "A");
-        */
-
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+//        InterfazFunciones.openBienvenida();
+        JsonChooser file = new JsonChooser();
+        file.chooseFile();
+        JsonDecoder json = new JsonDecoder(file.getJson());
+        Grafo graph = json.CrearGrafo();
+        BusquedaBFS bfs = new BusquedaBFS();
+//        graph.show_full();
+//        Vertice v = graph.busquedaInicial("La Hoyada");
+//        ListaAdyacencia ad = v.getAdyacencia();
+//        Arista A = ad.getpFirst();
+//        while(A != null){
+//            System.out.println(A.getDir().getNombre()[0]);
+//            A = A.getpNext();
+//        }
+//        v.setSucursal(true);
+//        bfs.BusquedaBFS_Unico(4, v);
+//        graph.show();
     }
     
 }

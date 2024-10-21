@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Grafo;
-import EDD.Lista;
+import EDD.ListaVertices;
 import javax.swing.JOptionPane;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.MultiGraph;
@@ -14,21 +14,25 @@ import org.graphstream.ui.view.Viewer;
  */
 public class Grafo {
     private Graph graph;
-    private Lista ListaParadas;
+    private String Nombre;
+    private ListaVertices ListaParadas;
     private int numVer;
+    private int T;
 
-    public Grafo() {
-        this.ListaParadas = new Lista();
+    public Grafo(String Nombre) {
+        this.Nombre = Nombre;
+        this.ListaParadas = new ListaVertices();
         this.graph = new MultiGraph("GRAFO: Estaciones de Metro");
         this.numVer = 0;
+        this.T = 0;
         System.setProperty("org.graphstream.ui", "swing");
     }
 
-    public Lista getListaParadas() {
+    public ListaVertices getListaParadas() {
         return ListaParadas;
     }
 
-    public void setListaParadas(Lista ListaParadas) {
+    public void setListaParadas(ListaVertices ListaParadas) {
         this.ListaParadas = ListaParadas;
     }
 
@@ -39,7 +43,22 @@ public class Grafo {
     public void setNumVer(int numVer) {
         this.numVer = numVer;
     }
+
+    public Graph getGraph() {
+        return graph;
+    }
+
+    public void setGraph(Graph graph) {
+        this.graph = graph;
+    }
     
+    public int getT() {
+        return T;
+    }
+
+    public void setT(int T) {
+        this.T = T;
+    }
     
     public Vertice busquedaInicial(String nombre){
         Vertice current = ListaParadas.getpFirst();
@@ -71,6 +90,32 @@ public class Grafo {
         }
     }
     
+//    public void quitarConexion(String inicio, String destino){
+//         if(!"".equals(inicio) && !"".equals(destino)){
+//            Vertice aux1 = busquedaInicial(inicio);
+//            Vertice aux2 = busquedaInicial(destino);
+//            if(aux1 == null || aux2 == null){
+//                JOptionPane.showMessageDialog(null,
+//                    "No se encontró alguna de las estaciones en el grafo...",
+//                    "", JOptionPane.INFORMATION_MESSAGE);
+//            }else{
+//                Vertice nodoAdyacente = aux1.getAdyacencia().buscar;
+//                if(nodoAdyacente!= null){
+//                    Vertice adyacente = aux1.getAdyacencia().buscar;
+//                    if(adyacente!= null){
+//                        aux1.getAdyacencia().eliminar();
+//                        aux2.getAdyacencia().eliminar();
+//                        try{
+//                            graph.removeEdge(inicio + "-" + destino);
+//                        }catch(Exception e){
+//                            graph.removeEdge(destino + "-" + inicio);
+//                        }
+//                    }
+//                }
+//            }
+//         }
+//    }
+    
     public void mostrarGrafo() {
         Viewer viewer = graph.display();
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.EXIT); 
@@ -84,5 +129,26 @@ public class Grafo {
         }
     }
     
+    public void show(){
+        Vertice v = this.ListaParadas.getpFirst();
+        while(v != null){
+            if(v.isCovered()==true){
+            for(int i = 0; i < v.getNombre().length; i++){
+                System.out.println(v.getNombre()[i]);
+            }
+            }
+            v = v.getpNext();
+        }
+        
+    
+                
+    }
+    public void show_full(){
+        Vertice v = this.ListaParadas.getpFirst();
+        while(v != null){
+            System.out.println(v.getNombre()[0]);
+            v = v.getpNext();
+        }
+    }
     
 }

@@ -4,6 +4,8 @@
  */
 package EDD;
 
+import Grafo.Vertice;
+
 /**
  *
  * @author Admin
@@ -23,7 +25,7 @@ public class Cola {
         return pFirst == null;
     }
     
-    public void encolar(String nombre){
+    public void encolar(Vertice nombre){
         Nodo NewNodo = new Nodo(nombre);
         if (this.isEmpty()){
             this.pFirst = NewNodo;
@@ -40,7 +42,7 @@ public class Cola {
             return null;
         } else{
             Nodo NewNodo = pFirst;
-            pFirst.setpNext(pFirst.getpNext());
+            pFirst = pFirst.getpNext();
             size --;
             return NewNodo;
         }

@@ -4,6 +4,8 @@
  */
 package EDD;
 
+import Grafo.Vertice;
+
 /**
  *
  * @author Admin
@@ -22,7 +24,7 @@ public class Pila {
         return pCima == null;
     }
     
-    public void apilar(String nombre){
+    public void apilar(Vertice nombre){
         Nodo NewNodo = new Nodo(nombre);
         if (this.isEmpty()){
             this.pCima = NewNodo;
@@ -38,7 +40,7 @@ public class Pila {
             return null;
         } else{
             Nodo NewNodo = pCima;
-            pCima.setpNext(pCima.getpNext());
+            pCima = pCima.getpNext();
             size --;
             return NewNodo;
         }
