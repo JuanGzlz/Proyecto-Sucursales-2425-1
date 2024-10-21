@@ -55,7 +55,7 @@ public class ListaVertices {
             setpLast(myVertice);
         } else{
             getpLast().setpNext(myVertice);
-            setpLast(myVertice);
+            pLast = myVertice;
         }
         setSize(getSize()+1);
     }

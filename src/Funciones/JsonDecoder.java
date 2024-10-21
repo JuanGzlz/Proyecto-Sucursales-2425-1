@@ -83,25 +83,24 @@ public class JsonDecoder {
         Iteracion = this.Read();
         String Next;
         
-        
         while (Iteracion != null){
             Next = this.Read();
             if (Iteracion.contains("{") && Iteracion.contains("}")){
                 if (Next.contains("{") && Next.contains("}")){
-                    Iteracion = Iteracion.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
-                    Next = Next.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
-                    String[] Valores_A = Iteracion.split(":");
-                    String[] Valores_B = Next.split(":");
+                    String Iter = Iteracion.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
+                    String Siguiente = Next.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
+                    String[] Valores_A = Iter.split(":");
+                    String[] Valores_B = Siguiente.split(":");
                     graph.crearConexion(Valores_A[0], Valores_B[0]);
                 } else if (Next.contains("{") || Next.contains("]") || Next.contains("[") || Next.contains("}") ){
                     Iteracion = Next;
                     continue;
                 }else{
-                    Iteracion = Iteracion.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
-                    Next = Next.replace("\"", "").replace(",", "").trim();
-                    String[] Valores_A = Iteracion.split(":");
+                    String Iter = Iteracion.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
+                    String Siguiente = Next.replace("\"", "").replace(",", "").trim();
+                    String[] Valores_A = Iter.split(":");
                     String[] Valor_B = new String[1];
-                    Valor_B[0] = Next;
+                    Valor_B[0] = Siguiente;
                     graph.crearConexion(Valores_A[0], Valor_B[0]);
                 }
             }else if (Iteracion.contains("{") || Iteracion.contains("]") || Iteracion.contains("[") || Iteracion.contains("}") ){
@@ -109,22 +108,22 @@ public class JsonDecoder {
                 continue;
             } else{
                 if (Next.contains("{") && Next.contains("}")){
-                    Iteracion = Iteracion.replace("\"", "").replace(",", "").trim();
-                    Next = Next.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
+                    String Iter = Iteracion.replace("\"", "").replace(",", "").trim();
+                    String Siguiente = Next.replace("\"", "").replace("{", "").replace("}", "").replace(",", "").trim();
                     String[] Valor_A = new String[1];
-                    Valor_A[0] = Iteracion;
-                    String[] Valores_B = Next.split(":");
+                    Valor_A[0] = Iter;
+                    String[] Valores_B = Siguiente.split(":");
                     graph.crearConexion(Valor_A[0], Valores_B[0]);
                 } else if (Next.contains("{") || Next.contains("]") || Next.contains("[") || Next.contains("}") ){
                     Iteracion = Next;
                     continue;
                 }else{
-                    Iteracion = Iteracion.replace("\"", "").replace(",", "").trim();
-                    Next = Next.replace("\"", "").replace(",", "").trim();
+                    String Iter = Iteracion.replace("\"", "").replace(",", "").trim();
+                    String Siguiente = Next.replace("\"", "").replace(",", "").trim();
                     String[] Valor_A = new String[1];
-                    Valor_A[0] = Iteracion;
+                    Valor_A[0] = Iter;
                     String[] Valor_B = new String[1];
-                    Valor_B[0] = Next;
+                    Valor_B[0] = Siguiente;
                     graph.crearConexion(Valor_A[0], Valor_B[0]);
                 }
             }

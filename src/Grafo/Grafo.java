@@ -139,8 +139,16 @@ public class Grafo {
             }
             v = v.getpNext();
         }
+        
+    
                 
     }
-    
+    public void show_full(){
+        Vertice v = this.ListaParadas.getpFirst();
+        while(v != null){
+            System.out.println(v.getNombre()[0]);
+            v = v.getpNext();
+        }
+    }
     
 }
