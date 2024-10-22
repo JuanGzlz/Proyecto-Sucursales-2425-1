@@ -67,9 +67,9 @@ public class Grafo {
             for(int i = 0; i < names.length; i++){
                 if (names[i].equals(nombre)){
                     return current;
-                }
-            current = current.getpNext(); 
+                } 
             }
+            current = current.getpNext();
     }
         return current;
     }
