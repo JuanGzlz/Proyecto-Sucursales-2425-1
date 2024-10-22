@@ -34,7 +34,12 @@ public class ProyectoSucursales {
         Grafo graph = json.CrearGrafo();
         BusquedaBFS bfs = new BusquedaBFS();
 //        graph.show_full();
-//        Vertice v = graph.busquedaInicial("La Hoyada");
+        Vertice v = graph.busquedaInicial("La Paz");
+        Arista a = v.getAdyacencia().getpFirst();
+        while(a != null){
+            System.out.println(a.getDir().getNombre()[0]);
+            a = a.getpNext();
+        }
 //        ListaAdyacencia ad = v.getAdyacencia();
 //        Arista A = ad.getpFirst();
 //        while(A != null){
@@ -42,7 +47,7 @@ public class ProyectoSucursales {
 //            A = A.getpNext();
 //        }
 //        v.setSucursal(true);
-//        bfs.BusquedaBFS_Unico(4, v);
+//        bfs.BusquedaBFS_Unico(1, v);
 //        graph.show();
     }
     

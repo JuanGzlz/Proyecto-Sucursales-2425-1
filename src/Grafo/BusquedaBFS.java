@@ -63,7 +63,13 @@ public class BusquedaBFS {
     }
     
     public void CompleteBFS(Grafo grafo, int T){
-    
+        Vertice v = grafo.getListaParadas().getpFirst();
+        while (v != null){
+            if (v.isSucursal() == true){
+                BusquedaBFS_Unico(T, v);
+            }
+            v = v.getpNext();
+        }
     }
    
 }

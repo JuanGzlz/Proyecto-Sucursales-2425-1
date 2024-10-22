@@ -50,8 +50,16 @@ public class BusquedaDFS {
                 A = A.getpNext();
             }
         }
-        
-        
-        
     }
+        
+    public void CompleteDFS(Grafo grafo, int T){
+        Vertice v = grafo.getListaParadas().getpFirst();
+        while (v != null){
+            if (v.isSucursal() == true){
+                BusquedaDFS_Unico(T, v);
+            }
+            v = v.getpNext();
+        }
+    }
+        
 }
