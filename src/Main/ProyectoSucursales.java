@@ -27,13 +27,13 @@ public class ProyectoSucursales {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-//        InterfazFunciones.openBienvenida();
+        InterfazFunciones.openBienvenida();
         JsonChooser file = new JsonChooser();
         file.chooseFile();
         JsonDecoder json = new JsonDecoder(file.getJson());
         Grafo graph = json.CrearGrafo();
         BusquedaBFS bfs = new BusquedaBFS();
-//        graph.show_full();
+        graph.show_full();
         Vertice v = graph.busquedaInicial("La Paz");
         Arista a = v.getAdyacencia().getpFirst();
         while(a != null){

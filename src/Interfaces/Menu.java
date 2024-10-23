@@ -153,6 +153,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void definirrangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_definirrangoActionPerformed
         InterfazFunciones.openDefinirRango();
+        
     }//GEN-LAST:event_definirrangoActionPerformed
 
     /**

@@ -5,6 +5,15 @@
 package Interfaces;
 
 
+import Funciones.JsonChooser;
+import Funciones.JsonDecoder;
+import Grafo.Grafo;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 /**
  *
  * @author User
@@ -14,8 +23,10 @@ public class CargarJson extends javax.swing.JFrame {
     /**
      * Creates new form CargarJson
      */
+    private Grafo grafo;
     public CargarJson() {
         initComponents();
+
     }
 
     /**
@@ -29,8 +40,6 @@ public class CargarJson extends javax.swing.JFrame {
 
         guardarjson = new javax.swing.JButton();
         volver = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,13 +67,6 @@ public class CargarJson extends javax.swing.JFrame {
         });
         getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 204, 102));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 410, 190));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, -1));
@@ -77,7 +79,19 @@ public class CargarJson extends javax.swing.JFrame {
     }//GEN-LAST:event_volverActionPerformed
 
     private void guardarjsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarjsonActionPerformed
-         
+        JsonChooser file = new JsonChooser();
+        file.chooseFile();
+        JsonDecoder json;
+        try {
+            json = new JsonDecoder(file.getJson());
+            this.grafo = json.CrearGrafo();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CargarJson.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CargarJson.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_guardarjsonActionPerformed
 
     /**
@@ -118,8 +132,13 @@ public class CargarJson extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guardarjson;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the grafo
+     */
+    public Grafo getGrafo() {
+        return grafo;
+    }
 }

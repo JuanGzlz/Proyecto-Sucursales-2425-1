@@ -3,20 +3,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaces;
+//
+//import Grafo.Grafo;
 
 /**
  *
  * @author User
  */
 public class MostrarGrafo extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MostrarGrafo
-     */
+//    private CargarJson C;
+//    private Grafo g;
+//    /**
+    
+    
     public MostrarGrafo() {
         initComponents();
     }
+//    
+//    public void GetGraph(){
+//        this.g = C.getGrafo();
+//    }
+    
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,6 +36,7 @@ public class MostrarGrafo extends javax.swing.JFrame {
     private void initComponents() {
 
         volver = new javax.swing.JButton();
+        mostrargrafo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,6 +52,17 @@ public class MostrarGrafo extends javax.swing.JFrame {
         });
         getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 90, 30));
 
+        mostrargrafo.setBackground(new java.awt.Color(255, 204, 102));
+        mostrargrafo.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 36)); // NOI18N
+        mostrargrafo.setForeground(new java.awt.Color(255, 255, 255));
+        mostrargrafo.setText("Mostrar Grafo");
+        mostrargrafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrargrafoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(mostrargrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, -1));
@@ -52,6 +73,13 @@ public class MostrarGrafo extends javax.swing.JFrame {
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
+
+    private void mostrargrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrargrafoActionPerformed
+//        this.GetGraph(); 
+//        }
+        
+        
+    }//GEN-LAST:event_mostrargrafoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -90,6 +118,7 @@ public class MostrarGrafo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton mostrargrafo;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

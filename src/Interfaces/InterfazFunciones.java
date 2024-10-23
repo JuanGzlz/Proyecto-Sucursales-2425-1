@@ -112,4 +112,6 @@ public class InterfazFunciones {
         getDefinirRango().setVisible(false);
         
    }
+   
+
 }
