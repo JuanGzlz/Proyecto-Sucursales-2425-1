@@ -49,9 +49,10 @@ public class ProyectoSucursales {
 //        }
 
         Funcionalidades f = new Funcionalidades();
-        f.seleccionarSucursal(graph, v);
-        bfs.BusquedaBFS_Unico(graph, 1, v);
+        f.seleccionarSucursal(graph, v, 1);
+        f.agregarLinea(graph, "Zoológico", "La Rinconada");
         graph.mostrarGrafo();
+        
     }
     
 }

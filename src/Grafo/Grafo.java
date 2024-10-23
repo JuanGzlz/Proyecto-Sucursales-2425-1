@@ -70,8 +70,13 @@ public class Grafo {
     }
     
     public void crearVertice (String[] parada){
-        Vertice newVertice = new Vertice(parada);
-        ListaParadas.addVertice(newVertice);
+        for(int i = 0; i < parada.length; i++){
+        if(busquedaInicial(parada[i])==null){
+            Vertice newVertice = new Vertice(parada);
+            ListaParadas.addVertice(newVertice);
+            return ;
+        }
+        }
     }
     
     public void addGraphstream(){
@@ -139,6 +144,32 @@ public class Grafo {
             }
             v = v.getpNext();
         }
+    }
+    
+    public void resetCobertura(){
+        Vertice v = this.ListaParadas.getpFirst();
+        while(v != null){
+            v.setCovered(false);
+            if(v.getNombre()[0].equals("La Paz")){
+                System.out.println("A");
+            }
+            if (v.isSucursal() == false){
+                colorVertice(v, "red");
+            }
+            v = v.getpNext(); 
+    }
+    }
+    
+    public int verCubiertos(){
+        Vertice v = this.ListaParadas.getpFirst();
+        int n = 0;
+        while(v != null){
+            if (v.isCovered() == true){
+                 n = n + 1;
+            }
+            v = v.getpNext();
+            }
+        return n;
     }
     
 }
