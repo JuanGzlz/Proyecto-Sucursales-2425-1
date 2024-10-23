@@ -3,27 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Grafo;
-import EDD.ListaVertices;
 import javax.swing.JOptionPane;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.MultiGraph;
 import org.graphstream.ui.view.Viewer;
+
 /**
- *
- * @author Admin
+ * Clase Grafo
+ * Incluye todo lo referente a la construcción del grafo
+ * @author JuanGzlz
+ * @version 1.0
  */
+
 public class Grafo {
+    
+    
     private Graph graph;
     private String Nombre;
     private ListaVertices ListaParadas;
-    private int numVer;
     private int T;
 
     public Grafo(String Nombre) {
         this.Nombre = Nombre;
         this.ListaParadas = new ListaVertices();
         this.graph = new MultiGraph("GRAFO: Estaciones de Metro");
-        this.numVer = 0;
         this.T = 0;
         System.setProperty("org.graphstream.ui", "swing");
     }
@@ -34,14 +37,6 @@ public class Grafo {
 
     public void setListaParadas(ListaVertices ListaParadas) {
         this.ListaParadas = ListaParadas;
-    }
-
-    public int getNumVer() {
-        return numVer;
-    }
-
-    public void setNumVer(int numVer) {
-        this.numVer = numVer;
     }
 
     public Graph getGraph() {
@@ -89,7 +84,7 @@ public class Grafo {
             num1 = num1.trim();
             if (graph.getNode(num1) == null){
                 graph.addNode(num1).setAttribute("ui.label", num1);
-                this.graph.getNode(num1).setAttribute("ui.style", "fill-color: red; shape: circle; size: 15px;");
+                this.graph.getNode(num1).setAttribute("ui.style", "fill-color: red; shape: circle; size: 25px;");
             }
             v = v.getpNext();
         }
@@ -130,7 +125,7 @@ public class Grafo {
         }
         num1 = num1.trim();
         if (graph.getNode(num1) != null) {
-            graph.getNode(num1).setAttribute("ui.style", "fill-color: " + color + "; size: 15px; shape: circle;");
+            graph.getNode(num1).setAttribute("ui.style", "fill-color: " + color + "; size: 25px; shape: circle;");
         }else{
             JOptionPane.showMessageDialog(null, "En el grafo obtenido no existe este vértice...");
         }
