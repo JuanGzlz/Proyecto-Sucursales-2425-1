@@ -43,7 +43,7 @@ public class BusquedaBFS {
     }
    }
     
-    public void BusquedaBFS_Unico(int T, Vertice inicial) {
+    public void BusquedaBFS_Unico(Grafo grafo, int T, Vertice inicial) {
         if(T > 0){
         inicial.setCovered(true);
         Cola cola = new Cola();
@@ -59,6 +59,7 @@ public class BusquedaBFS {
             }
         BFS(cola, T, P);
         }
+        grafo.colorCovered();
         
     }
     
@@ -66,7 +67,7 @@ public class BusquedaBFS {
         Vertice v = grafo.getListaParadas().getpFirst();
         while (v != null){
             if (v.isSucursal() == true){
-                BusquedaBFS_Unico(T, v);
+                BusquedaBFS_Unico(grafo, T, v);
             }
             v = v.getpNext();
         }

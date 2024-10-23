@@ -82,6 +82,7 @@ public class JsonDecoder {
         this.Reset();
         Iteracion = this.Read();
         String Next;
+        graph.addGraphstream();
         
         while (Iteracion != null){
             Next = this.Read();
