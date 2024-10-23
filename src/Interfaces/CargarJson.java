@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -23,9 +24,13 @@ public class CargarJson extends javax.swing.JFrame {
     /**
      * Creates new form CargarJson
      */
-    private Grafo grafo;
+    private Grafo g;
     public CargarJson() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false); 
+        this.g = null;
+        
 
     }
 
@@ -82,9 +87,10 @@ public class CargarJson extends javax.swing.JFrame {
         JsonChooser file = new JsonChooser();
         file.chooseFile();
         JsonDecoder json;
+        JOptionPane.showMessageDialog(null, "Su archivo fue cargado exitosamente");
         try {
             json = new JsonDecoder(file.getJson());
-            this.grafo = json.CrearGrafo();
+            this.g = json.CrearGrafo();
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CargarJson.class.getName()).log(Level.SEVERE, null, ex);
@@ -139,6 +145,6 @@ public class CargarJson extends javax.swing.JFrame {
      * @return the grafo
      */
     public Grafo getGrafo() {
-        return grafo;
+        return g;
     }
 }

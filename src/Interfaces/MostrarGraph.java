@@ -4,17 +4,26 @@
  */
 package Interfaces;
 
+import Grafo.Grafo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
  */
-public class AgregarSucursal extends javax.swing.JFrame {
-
+public class MostrarGraph extends javax.swing.JFrame {
+    
+    private CargarJson C;
+    private Grafo g;
     /**
-     * Creates new form AgregarSucursal
+     * Creates new form MostrarGraph
+     * @param C
      */
-    public AgregarSucursal() {
+    public MostrarGraph() {
+        this.C = InterfazFunciones.getCargarJson();
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false); 
     }
 
     /**
@@ -27,9 +36,8 @@ public class AgregarSucursal extends javax.swing.JFrame {
     private void initComponents() {
 
         volver = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        guardar = new javax.swing.JButton();
+        mostrargrafo = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,45 +46,48 @@ public class AgregarSucursal extends javax.swing.JFrame {
         volver.setBackground(new java.awt.Color(204, 204, 255));
         volver.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 18)); // NOI18N
         volver.setForeground(new java.awt.Color(255, 255, 255));
-        volver.setText("<  Atrás");
+        volver.setText("< Atras");
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
             }
         });
-        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 370, 130));
-
-        guardar.setBackground(new java.awt.Color(204, 204, 255));
-        guardar.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
-        guardar.setForeground(new java.awt.Color(255, 255, 255));
-        guardar.setText("Guardar");
-        guardar.addActionListener(new java.awt.event.ActionListener() {
+        mostrargrafo.setBackground(new java.awt.Color(255, 204, 102));
+        mostrargrafo.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        mostrargrafo.setForeground(new java.awt.Color(255, 255, 255));
+        mostrargrafo.setText("Mostrar");
+        mostrargrafo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarActionPerformed(evt);
+                mostrargrafoActionPerformed(evt);
             }
         });
-        getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
+        getContentPane().add(mostrargrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/vqclwylpTGlxQDbT.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 110, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-       InterfazFunciones.VolverMenu();
+        InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
 
-    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_guardarActionPerformed
+    private void mostrargrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrargrafoActionPerformed
+        this.g = C.getGrafo();
+        if (this.g != null) {
+            this.g.mostrarGrafo();
+        }else {
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer");
+        }
+    }//GEN-LAST:event_mostrargrafoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,29 +106,28 @@ public class AgregarSucursal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgregarSucursal().setVisible(true);
+                new MostrarGraph().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton guardar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton mostrargrafo;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

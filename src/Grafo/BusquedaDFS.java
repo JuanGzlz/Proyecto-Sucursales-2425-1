@@ -36,7 +36,7 @@ public class BusquedaDFS {
             }
         } 
     }
-    public void BusquedaDFS_Unico(int T, Vertice inicial){
+    public void BusquedaDFS_Unico(Grafo grafo, int T, Vertice inicial){
         if (T > 0){
             Pila pila = new Pila();
             inicial.setCovered(true);
@@ -50,13 +50,14 @@ public class BusquedaDFS {
                 A = A.getpNext();
             }
         }
+        grafo.colorCovered();
     }
         
     public void CompleteDFS(Grafo grafo, int T){
         Vertice v = grafo.getListaParadas().getpFirst();
         while (v != null){
             if (v.isSucursal() == true){
-                BusquedaDFS_Unico(T, v);
+                BusquedaDFS_Unico(grafo, T, v);
             }
             v = v.getpNext();
         }

@@ -15,6 +15,8 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false); 
     }
 
     /**
@@ -31,12 +33,12 @@ public class Menu extends javax.swing.JFrame {
         cargarjson = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         agregarsucursal = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         eliminarsucursal = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         mostrargrafo = new javax.swing.JButton();
         definirrango = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        agregarlinea = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,37 +71,33 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/7273858.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 120, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 120, -1));
 
         agregarsucursal.setBackground(new java.awt.Color(255, 204, 102));
         agregarsucursal.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
-        agregarsucursal.setText("Agregar  Sucursal");
+        agregarsucursal.setText("Agregar/Quitar Sucursal");
         agregarsucursal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarsucursalActionPerformed(evt);
             }
         });
-        getContentPane().add(agregarsucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/3368864.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 120, -1));
+        getContentPane().add(agregarsucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
         eliminarsucursal.setBackground(new java.awt.Color(204, 204, 255));
         eliminarsucursal.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
-        eliminarsucursal.setText("Eliminar Sucursal");
+        eliminarsucursal.setText("Cobertura");
         eliminarsucursal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarsucursalActionPerformed(evt);
             }
         });
-        getContentPane().add(eliminarsucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, -1, -1));
+        getContentPane().add(eliminarsucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/vqclwylpTGlxQDbT.png"))); // NOI18N
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 110, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 110, -1));
 
-        mostrargrafo.setBackground(new java.awt.Color(255, 204, 102));
+        mostrargrafo.setBackground(new java.awt.Color(204, 204, 255));
         mostrargrafo.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
         mostrargrafo.setText("Mostrar Grafo");
         mostrargrafo.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +105,7 @@ public class Menu extends javax.swing.JFrame {
                 mostrargrafoActionPerformed(evt);
             }
         });
-        getContentPane().add(mostrargrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, -1));
+        getContentPane().add(mostrargrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, -1, -1));
 
         definirrango.setBackground(new java.awt.Color(255, 204, 102));
         definirrango.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
@@ -117,11 +115,21 @@ public class Menu extends javax.swing.JFrame {
                 definirrangoActionPerformed(evt);
             }
         });
-        getContentPane().add(definirrango, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, -1, -1));
+        getContentPane().add(definirrango, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/camera-radar-logo-6255b4dd-f36f-446e-9ed1-b2b251ac3ae0 (1).jpg"))); // NOI18N
         jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 130, 100));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 130, 100));
+
+        agregarlinea.setBackground(new java.awt.Color(255, 204, 102));
+        agregarlinea.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
+        agregarlinea.setText("Agregar Línea");
+        agregarlinea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarlineaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(agregarlinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -140,21 +148,25 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void agregarsucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarsucursalActionPerformed
-        InterfazFunciones.openAgregarSucursal();
+        InterfazFunciones.openAgregarQuitarSucursal();
     }//GEN-LAST:event_agregarsucursalActionPerformed
 
     private void eliminarsucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarsucursalActionPerformed
-        InterfazFunciones.openEliminarSucursal();
+        InterfazFunciones.openCobertura();
     }//GEN-LAST:event_eliminarsucursalActionPerformed
 
     private void mostrargrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrargrafoActionPerformed
-       InterfazFunciones.openMostarGrafo();
+       InterfazFunciones.openMostarGraph();
     }//GEN-LAST:event_mostrargrafoActionPerformed
 
     private void definirrangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_definirrangoActionPerformed
         InterfazFunciones.openDefinirRango();
         
     }//GEN-LAST:event_definirrangoActionPerformed
+
+    private void agregarlineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarlineaActionPerformed
+        InterfazFunciones.openAgregarLinea();
+    }//GEN-LAST:event_agregarlineaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,6 +204,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregarlinea;
     private javax.swing.JButton agregarsucursal;
     private javax.swing.JButton cargarjson;
     private javax.swing.JButton definirrango;
@@ -200,7 +213,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JButton mostrargrafo;

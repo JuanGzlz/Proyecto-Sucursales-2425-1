@@ -8,12 +8,12 @@ package Interfaces;
  *
  * @author User
  */
-public class DefinirRango extends javax.swing.JFrame {
+public class AgregarQuitarSucursal extends javax.swing.JFrame {
 
     /**
-     * Creates new form DefinirRango
+     * Creates new form AgregarSucursal
      */
-    public DefinirRango() {
+    public AgregarQuitarSucursal() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false); 
@@ -29,9 +29,10 @@ public class DefinirRango extends javax.swing.JFrame {
     private void initComponents() {
 
         volver = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        guardar = new javax.swing.JButton();
+        agregar = new javax.swing.JButton();
+        quitar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,30 +41,41 @@ public class DefinirRango extends javax.swing.JFrame {
         volver.setBackground(new java.awt.Color(204, 204, 255));
         volver.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 18)); // NOI18N
         volver.setForeground(new java.awt.Color(255, 255, 255));
-        volver.setText("< Atras");
+        volver.setText("<  Atrás");
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
             }
         });
-        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
-
-        guardar.setBackground(new java.awt.Color(255, 204, 102));
-        guardar.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
-        guardar.setForeground(new java.awt.Color(255, 255, 255));
-        guardar.setText("Guardar");
-        guardar.addActionListener(new java.awt.event.ActionListener() {
+        agregar.setBackground(new java.awt.Color(255, 153, 51));
+        agregar.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        agregar.setForeground(new java.awt.Color(255, 255, 255));
+        agregar.setText("Agregar");
+        agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarActionPerformed(evt);
+                agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
+        getContentPane().add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+
+        quitar.setBackground(new java.awt.Color(255, 153, 51));
+        quitar.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        quitar.setForeground(new java.awt.Color(255, 255, 255));
+        quitar.setText("Eliminar");
+        quitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(quitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/7273858.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 130, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/3368864.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -76,9 +88,13 @@ public class DefinirRango extends javax.swing.JFrame {
        InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
 
-    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_guardarActionPerformed
+    }//GEN-LAST:event_agregarActionPerformed
+
+    private void quitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quitarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,29 +113,31 @@ public class DefinirRango extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DefinirRango.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarQuitarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DefinirRango.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarQuitarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DefinirRango.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarQuitarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DefinirRango.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarQuitarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DefinirRango().setVisible(true);
+                new AgregarQuitarSucursal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton guardar;
+    private javax.swing.JButton agregar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton quitar;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

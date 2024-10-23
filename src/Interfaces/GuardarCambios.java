@@ -15,6 +15,8 @@ public class GuardarCambios extends javax.swing.JFrame {
      */
     public GuardarCambios() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false); 
     }
 
     /**
