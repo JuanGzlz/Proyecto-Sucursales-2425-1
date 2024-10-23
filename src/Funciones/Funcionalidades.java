@@ -6,10 +6,9 @@ package Funciones;
 import Grafo.Grafo;
 import Grafo.Vertice;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Admin
- */
+
+
+
 public class Funcionalidades {
      public void seleccionarSucursal(Grafo grafo, Vertice parada){
         String num1 = "";
@@ -50,6 +49,7 @@ public class Funcionalidades {
                         "", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    
     
     
 }

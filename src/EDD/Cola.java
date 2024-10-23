@@ -3,30 +3,53 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package EDD;
-
 import Grafo.Vertice;
 
 /**
- *
- * @author Admin
+ * Clase Cola
+ * Estructura de datos de tipo Cola con sus respectivas primitivas
+ * @author JuanGzlz
+ * @version 1.0
  */
+
 public class Cola {
+    /**
+    * @param pFirst variable privada de tipo Nodo que apunta al primer elemento insertado en la cola
+    * @param pLast variable privada de tipo Nodo que apunta al último elemento insertado en la cola
+    * @param size variable privada de tipo entero que indica la cantidad de elementos que posee la cola
+    */
+    
     private Nodo pFirst;
     private Nodo pLast;
     private int size;
 
+    /**
+     * Constructor de la clase Cola, no recibe parámetro de entrada
+     * automáticamente asigna valores de null a first y last, y 0 a size
+     */
+    
     public Cola() {
         this.pFirst = null;
         this.pLast = null;
         this.size = 0;
     }
 
+     /**
+     * Funcion que indica si la cola es vacía
+     * @return true si la cola es vacía y false si la lista no es vacía
+     */
+    
     public boolean isEmpty(){
         return pFirst == null;
     }
     
-    public void encolar(Vertice nombre){
-        Nodo NewNodo = new Nodo(nombre);
+    /**
+     * encola en la lista la viable de entrada
+     * @param v variable de tipo Vertice que se desea encolar
+     */
+    
+    public void encolar(Vertice v){
+        Nodo NewNodo = new Nodo(v);
         if (this.isEmpty()){
             this.pFirst = NewNodo;
             this.pLast = NewNodo;
@@ -36,6 +59,11 @@ public class Cola {
         }
         size ++;
     }
+    
+    /**
+     * desencola el primer elemento de la cola
+     * @return Nodo desencolado
+     */
     
     public Nodo desencolar (){
         if (isEmpty()){
