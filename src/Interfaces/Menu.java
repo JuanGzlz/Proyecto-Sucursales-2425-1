@@ -39,6 +39,8 @@ public class Menu extends javax.swing.JFrame {
         definirrango = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         agregarlinea = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,6 +133,12 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(agregarlinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/download (1).jpeg"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/linea de tren.jpeg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 460));
@@ -213,7 +221,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JButton mostrargrafo;
     // End of variables declaration//GEN-END:variables

@@ -4,16 +4,21 @@
  */
 package Interfaces;
 
+import Grafo.Grafo;
 /**
  *
  * @author User
  */
 public class DefinirRango extends javax.swing.JFrame {
 
+    private Grafo g;
+    private final CargarJson C;
+
     /**
      * Creates new form DefinirRango
      */
     public DefinirRango() {
+        this.C = InterfazFunciones.getCargarJson();
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false); 
@@ -30,8 +35,10 @@ public class DefinirRango extends javax.swing.JFrame {
 
         volver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        valorT = new javax.swing.JTextArea();
         guardar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,11 +55,11 @@ public class DefinirRango extends javax.swing.JFrame {
         });
         getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        valorT.setColumns(20);
+        valorT.setRows(5);
+        jScrollPane1.setViewportView(valorT);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, 90));
 
         guardar.setBackground(new java.awt.Color(255, 204, 102));
         guardar.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
@@ -63,7 +70,11 @@ public class DefinirRango extends javax.swing.JFrame {
                 guardarActionPerformed(evt);
             }
         });
-        getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
+        getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+
+        jLabel2.setText("Ingrese su rango de distancia entre sucursales,  recuerde es un entero");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 410, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -77,7 +88,11 @@ public class DefinirRango extends javax.swing.JFrame {
     }//GEN-LAST:event_volverActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        // TODO add your handling code here:
+        this.g = C.getGrafo();
+        if (g != null) {  
+            int T = Integer.parseInt(valorT.getText());    
+           
+        }
     }//GEN-LAST:event_guardarActionPerformed
 
     /**
@@ -118,8 +133,10 @@ public class DefinirRango extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guardar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea valorT;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,11 +13,10 @@ import javax.swing.JOptionPane;
  */
 public class MostrarGraph extends javax.swing.JFrame {
     
-    private CargarJson C;
+    private final CargarJson C;
     private Grafo g;
     /**
      * Creates new form MostrarGraph
-     * @param C
      */
     public MostrarGraph() {
         this.C = InterfazFunciones.getCargarJson();

@@ -18,12 +18,12 @@ public class InterfazFunciones {
     private static final Cobertura eliminarsucursal= new Cobertura();
     private static final AgregarQuitarSucursal agregarsucursal= new AgregarQuitarSucursal();
     private static final MostrarGraph mostrargrafo = new MostrarGraph();
-    private static final GuardarCambios guardartxt= new GuardarCambios();
     private static final DefinirRango definirrango= new DefinirRango();
     private static final AgregarLinea agregarlinea = new AgregarLinea();
     
-    
-     //Metodo para que la clase de interfaz Bienvenida sea visible al llamar el metodo
+    /**
+     * Metodo para que la clase de interfaz Bienvenida sea visible al llamar el metodo
+     */
     public static void openBienvenida(){
         getBienvenida().setVisible(true);
         
@@ -83,15 +83,7 @@ public class InterfazFunciones {
        getMostrarGraph().setVisible(true);
        getMenuPrincipal().setVisible(false);
    }
-  //Metodo para que la clase interfaz MostrarGrafo sea visible para llamar el metodo
-   public static GuardarCambios getGuardarCambios(){
-       return guardartxt;
-   }
-    //Metodo para obtener el GuardarCambios ya que es un atributo privado
-   public static void openGuardarCambios(){
-       getGuardarCambios().setVisible(true);
-       getMenuPrincipal().setVisible(false);
-   }
+
    //Metodo para que la clase interfaz DefinirRango sea visible al llamar el metodo
     public static DefinirRango getDefinirRango(){
        return definirrango;
@@ -144,7 +136,6 @@ public class InterfazFunciones {
         getCargarJson().setVisible(false);
         getAgregarQuitarSucursal().setVisible(false);
         getCobertura().setVisible(false);
-        getGuardarCambios().setVisible(false);
         getMostrarGraph().setVisible(false);
         getDefinirRango().setVisible(false);
         getAgregarLinea().setVisible(false);

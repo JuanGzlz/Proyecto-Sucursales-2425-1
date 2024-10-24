@@ -130,9 +130,7 @@ public class JsonDecoder {
             }
             
             Iteracion = Next;
-            
         }
-        
         return graph;
     }
 }
