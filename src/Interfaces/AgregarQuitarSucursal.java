@@ -71,7 +71,7 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
                 quitarActionPerformed(evt);
             }
         });
-        getContentPane().add(quitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, -1));
+        getContentPane().add(quitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 255));
         jLabel4.setText("Ingrese el nombre de la parada a la que le quiere agregar sucursal");

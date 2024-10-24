@@ -6,6 +6,7 @@ package Interfaces;
 
 import Grafo.BusquedaBFS;
 import Grafo.BusquedaDFS;
+import javax.swing.JOptionPane;
 /**
  *
  * @author User
@@ -15,6 +16,7 @@ public class Cobertura extends javax.swing.JFrame {
     /**
      * Creates new form ElinimarSucursal
      */
+    private int T;
     public Cobertura() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -32,8 +34,10 @@ public class Cobertura extends javax.swing.JFrame {
 
         volver = new javax.swing.JButton();
         vercoberturatotal = new javax.swing.JButton();
-        buscarconDFS = new javax.swing.JButton();
-        buscarconBFS = new javax.swing.JButton();
+        buscarconDFSunpunto = new javax.swing.JButton();
+        buscarconBFSunpunto = new javax.swing.JButton();
+        buascarDFS = new javax.swing.JButton();
+        buscarBFS = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,25 +65,45 @@ public class Cobertura extends javax.swing.JFrame {
         });
         getContentPane().add(vercoberturatotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
 
-        buscarconDFS.setBackground(new java.awt.Color(255, 204, 102));
-        buscarconDFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
-        buscarconDFS.setText("Búsqueda DFS");
-        buscarconDFS.addActionListener(new java.awt.event.ActionListener() {
+        buscarconDFSunpunto.setBackground(new java.awt.Color(255, 204, 102));
+        buscarconDFSunpunto.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        buscarconDFSunpunto.setText("Búsqueda DFS para un único punto");
+        buscarconDFSunpunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarconDFSActionPerformed(evt);
+                buscarconDFSunpuntoActionPerformed(evt);
             }
         });
-        getContentPane().add(buscarconDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        getContentPane().add(buscarconDFSunpunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
-        buscarconBFS.setBackground(new java.awt.Color(255, 204, 104));
-        buscarconBFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
-        buscarconBFS.setText("Búsqueda BFS");
-        buscarconBFS.addActionListener(new java.awt.event.ActionListener() {
+        buscarconBFSunpunto.setBackground(new java.awt.Color(255, 204, 104));
+        buscarconBFSunpunto.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        buscarconBFSunpunto.setText("Búsqueda BFS para un único punto");
+        buscarconBFSunpunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarconBFSActionPerformed(evt);
+                buscarconBFSunpuntoActionPerformed(evt);
             }
         });
-        getContentPane().add(buscarconBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
+        getContentPane().add(buscarconBFSunpunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+
+        buascarDFS.setBackground(new java.awt.Color(204, 204, 255));
+        buascarDFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        buascarDFS.setText("Búsqueda DFS");
+        buascarDFS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buascarDFSActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buascarDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+
+        buscarBFS.setBackground(new java.awt.Color(204, 204, 255));
+        buscarBFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        buscarBFS.setText("Búsqueda BFS");
+        buscarBFS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarBFSActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buscarBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -92,17 +116,30 @@ public class Cobertura extends javax.swing.JFrame {
         InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
 
-    private void buscarconDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarconDFSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscarconDFSActionPerformed
+    private void buscarconDFSunpuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarconDFSunpuntoActionPerformed
+        if (T != 0){
+            
+        }else {
+            
+        }
+    }//GEN-LAST:event_buscarconDFSunpuntoActionPerformed
 
-    private void buscarconBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarconBFSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscarconBFSActionPerformed
+    private void buscarconBFSunpuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarconBFSunpuntoActionPerformed
+        this.T = InterfazFunciones.getT();
+        
+    }//GEN-LAST:event_buscarconBFSunpuntoActionPerformed
 
     private void vercoberturatotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vercoberturatotalActionPerformed
-        
+        InterfazFunciones.openCoberturaTotal();
     }//GEN-LAST:event_vercoberturatotalActionPerformed
+
+    private void buscarBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBFSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarBFSActionPerformed
+
+    private void buascarDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buascarDFSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buascarDFSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,8 +180,10 @@ public class Cobertura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buscarconBFS;
-    private javax.swing.JButton buscarconDFS;
+    private javax.swing.JButton buascarDFS;
+    private javax.swing.JButton buscarBFS;
+    private javax.swing.JButton buscarconBFSunpunto;
+    private javax.swing.JButton buscarconDFSunpunto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton vercoberturatotal;
     private javax.swing.JButton volver;

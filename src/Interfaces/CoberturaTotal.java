@@ -4,6 +4,13 @@
  */
 package Interfaces;
 
+import Grafo.BusquedaDFS;
+import Grafo.BusquedaBFS;
+import Grafo.Grafo;
+import javax.swing.JOptionPane;
+import Funciones.Funcionalidades;
+import Grafo.Vertice;
+
 /**
  *
  * @author User
@@ -13,7 +20,10 @@ public class CoberturaTotal extends javax.swing.JFrame {
     /**
      * Creates new form CoberturaTotal
      */
+    private Grafo x;
+    private int T;
     public CoberturaTotal() {
+        this.T = 0;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false); 
@@ -28,21 +38,95 @@ public class CoberturaTotal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        volver = new javax.swing.JButton();
+        busquedaDFS = new javax.swing.JButton();
+        busquedaBFS = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        volver.setBackground(new java.awt.Color(204, 204, 255));
+        volver.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 18)); // NOI18N
+        volver.setForeground(new java.awt.Color(255, 255, 255));
+        volver.setText("< Atras ");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        busquedaDFS.setBackground(new java.awt.Color(255, 204, 102));
+        busquedaDFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        busquedaDFS.setText("BUSQUEDA DFS ");
+        busquedaDFS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaDFSActionPerformed(evt);
+            }
+        });
+        getContentPane().add(busquedaDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+
+        busquedaBFS.setBackground(new java.awt.Color(255, 204, 102));
+        busquedaBFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        busquedaBFS.setText("BUSQUEDA BFS");
+        busquedaBFS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaBFSActionPerformed(evt);
+            }
+        });
+        getContentPane().add(busquedaBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void busquedaBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaBFSActionPerformed
+        this.T = InterfazFunciones.getT();
+        this.x = InterfazFunciones.getGrafo();
+        if (T > 0 && x != null){
+            BusquedaBFS buscar = new BusquedaBFS();
+            buscar.CompleteBFS(x, T);
+            Funcionalidades f = new Funcionalidades();
+            Vertice v = f.sugerirSucursal(x, T);
+            JOptionPane.showMessageDialog(rootPane, "Te siguiero que coloques una parada en: " + v.getNombre()[0]);
+        }else {
+            if (T <= 0) {
+                JOptionPane.showMessageDialog(rootPane, " Tu rango no puede es inb[alido o no lo has definido");
+            }
+            if (x != null) {
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningun grafo");
+            }
+            
+        }          
+    }//GEN-LAST:event_busquedaBFSActionPerformed
+
+    private void busquedaDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaDFSActionPerformed
+        this.T = InterfazFunciones.getT();
+        this.x = InterfazFunciones.getGrafo();
+        if (T > 0 && x != null){
+            BusquedaDFS busqueda= new BusquedaDFS();
+            busqueda.CompleteDFS( x , T);
+            Funcionalidades f = new Funcionalidades();
+            Vertice v = f.sugerirSucursal(x, T);
+            JOptionPane.showMessageDialog(rootPane, "Te siguiero que coloques una parada en: " + v.getNombre()[0]);
+        }else {
+            if (T <= 0) {
+                JOptionPane.showMessageDialog(rootPane, " Tu rango no puede es inb[alido o no lo has definido");
+            }
+            if (x != null) {
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningun grafo");
+            }
+            
+        }    
+    }//GEN-LAST:event_busquedaDFSActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        InterfazFunciones.VolverCobertura();
+    }//GEN-LAST:event_volverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +164,9 @@ public class CoberturaTotal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton busquedaBFS;
+    private javax.swing.JButton busquedaDFS;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

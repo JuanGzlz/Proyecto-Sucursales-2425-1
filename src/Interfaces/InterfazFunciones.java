@@ -20,6 +20,7 @@ public class InterfazFunciones {
     private static final MostrarGraph mostrargrafo = new MostrarGraph();
     private static final DefinirRango definirrango= new DefinirRango();
     private static final AgregarLinea agregarlinea = new AgregarLinea();
+    private static final CoberturaTotal coberturatotal = new CoberturaTotal();
     
     /**
      * Metodo para que la clase de interfaz Bienvenida sea visible al llamar el metodo
@@ -104,6 +105,14 @@ public class InterfazFunciones {
         getMenuPrincipal().setVisible(false);
     }
     
+    public static CoberturaTotal getCoberturaTotal(){
+        return coberturatotal;
+    }
+    
+    public static void openCoberturaTotal(){
+        getCoberturaTotal().setVisible(true);
+        getCobertura().setVisible(false);
+    }
      /**
      * @return the T
      */
@@ -136,10 +145,16 @@ public class InterfazFunciones {
         getCargarJson().setVisible(false);
         getAgregarQuitarSucursal().setVisible(false);
         getCobertura().setVisible(false);
+        getCoberturaTotal().setVisible(false);
         getMostrarGraph().setVisible(false);
         getDefinirRango().setVisible(false);
         getAgregarLinea().setVisible(false);
         
    }
+    
+    public static void VolverCobertura(){
+        getCobertura().setVisible(true);
+        getCoberturaTotal().setVisible(false);
+    }
 
 }

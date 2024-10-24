@@ -101,6 +101,7 @@ public class CargarJson extends javax.swing.JFrame {
         try {
             json = new JsonDecoder(file.getJson());
             this.g = json.CrearGrafo();
+            InterfazFunciones.setGrafo(g);
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CargarJson.class.getName()).log(Level.SEVERE, null, ex);

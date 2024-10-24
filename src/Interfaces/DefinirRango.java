@@ -5,6 +5,7 @@
 package Interfaces;
 
 import Grafo.Grafo;
+import javax.swing.JOptionPane;
 /**
  *
  * @author User
@@ -12,13 +13,11 @@ import Grafo.Grafo;
 public class DefinirRango extends javax.swing.JFrame {
 
     private Grafo g;
-    private final CargarJson C;
 
     /**
      * Creates new form DefinirRango
      */
     public DefinirRango() {
-        this.C = InterfazFunciones.getCargarJson();
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false); 
@@ -88,10 +87,20 @@ public class DefinirRango extends javax.swing.JFrame {
     }//GEN-LAST:event_volverActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        this.g = C.getGrafo();
+        this.g = InterfazFunciones.getGrafo();
+        try{
         if (g != null) {  
-            int T = Integer.parseInt(valorT.getText());    
-           
+            int T = Integer.parseInt(valorT.getText()); 
+            InterfazFunciones.setT(T); 
+            JOptionPane.showMessageDialog(null, "Su rango a sido definido exitósamente, regrese al menú");
+            this.valorT.setText("");
+        }else {
+            JOptionPane.showMessageDialog(null, "No hay ningún archivo al cual definir rango, cargue uno");
+        }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "No colocaste un número válido");
+            this.valorT.setText("");
         }
     }//GEN-LAST:event_guardarActionPerformed
 

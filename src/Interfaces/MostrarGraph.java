@@ -13,13 +13,11 @@ import javax.swing.JOptionPane;
  */
 public class MostrarGraph extends javax.swing.JFrame {
     
-    private final CargarJson C;
     private Grafo g;
     /**
      * Creates new form MostrarGraph
      */
     public MostrarGraph() {
-        this.C = InterfazFunciones.getCargarJson();
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false); 
@@ -80,7 +78,7 @@ public class MostrarGraph extends javax.swing.JFrame {
     }//GEN-LAST:event_volverActionPerformed
 
     private void mostrargrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrargrafoActionPerformed
-        this.g = C.getGrafo();
+        this.g = InterfazFunciones.getGrafo();
         if (this.g != null) {
             this.g.mostrarGrafo();
         }else {
