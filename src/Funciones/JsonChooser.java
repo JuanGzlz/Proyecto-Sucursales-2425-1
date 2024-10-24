@@ -40,7 +40,6 @@ public class JsonChooser {
         NewFile.setFileFilter(NewFilter);
         NewFile.setAcceptAllFileFilterUsed(false);
         int IsValid = NewFile.showOpenDialog(NewFile);
-        
         if(IsValid == JFileChooser.APPROVE_OPTION){
             this.archivo = NewFile.getSelectedFile();
         }

@@ -47,9 +47,7 @@ public class Funcionalidades {
                ("La estación " + num1 + "no existe..."),
                         "", JOptionPane.INFORMATION_MESSAGE);
         }
-        grafo.resetCobertura();
-        BusquedaBFS completo = new BusquedaBFS();
-        completo.BusquedaBFS_Unico(grafo, T, parada);
+
     }
     
     /**
@@ -79,9 +77,7 @@ public class Funcionalidades {
                ("La estación " + nombre + "no existe..."),
                         "", JOptionPane.INFORMATION_MESSAGE);
         }
-        grafo.resetCobertura();
-        BusquedaBFS completo = new BusquedaBFS();
-        completo.CompleteBFS(grafo, T);
+
     }
     
     /**
