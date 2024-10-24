@@ -8,7 +8,7 @@ import Grafo.Vertice;
 /**
  * Clase Cola
  * Estructura de datos de tipo Cola con sus respectivas primitivas
- * @author JuanGzlz
+ * @author María Correa
  * @version 1.0
  */
 

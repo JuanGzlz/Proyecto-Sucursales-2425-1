@@ -7,10 +7,8 @@ import EDD.Cola;
 import EDD.Lista;
 import EDD.Nodo;
 
-/**
- *
- * @author Admin
- */
+
+
 public class BusquedaBFS {
     
     private Lista Seen;

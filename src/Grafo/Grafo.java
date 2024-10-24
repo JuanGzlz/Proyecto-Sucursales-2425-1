@@ -11,7 +11,7 @@ import org.graphstream.ui.view.Viewer;
 /**
  * Clase Grafo
  * Incluye todo lo referente a la construcción del grafo
- * @author JuanGzlz
+ * @author Juan González
  * @version 1.0
  */
 
@@ -150,9 +150,6 @@ public class Grafo {
         Vertice v = this.ListaParadas.getpFirst();
         while(v != null){
             v.setCovered(false);
-            if(v.getNombre()[0].equals("La Paz")){
-                System.out.println("A");
-            }
             if (v.isSucursal() == false){
                 colorVertice(v, "red");
             }

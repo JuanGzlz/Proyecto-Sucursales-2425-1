@@ -8,7 +8,7 @@ import Grafo.Vertice;
 /**
  * Clase Lista
  * Estructura de datos de tipo Lista que funciona con Nodos y contiene sus respectivas primitivas
- * @author JuanGzlz
+ * @author María Correa
  * @version 1.0
  */
 

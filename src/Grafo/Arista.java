@@ -7,7 +7,7 @@ package Grafo;
 /**
  * Clase Arista
  * Incluye todo lo referente a la construcción de la arista
- * @author JuanGzlz
+ * @author Juan González
  * @version 1.0
  */
 
