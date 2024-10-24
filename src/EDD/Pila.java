@@ -8,7 +8,7 @@ import Grafo.Vertice;
 /**
  * Clase Pila
  * Estructura de datos de tipo Pila con sus respectivas primitivas
- * @author JuanGzlz
+ * @author María Correa
  * @version 1.0
  */
 

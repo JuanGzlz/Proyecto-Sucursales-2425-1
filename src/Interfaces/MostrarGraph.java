@@ -80,6 +80,7 @@ public class MostrarGraph extends javax.swing.JFrame {
     private void mostrargrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrargrafoActionPerformed
         this.g = InterfazFunciones.getGrafo();
         if (this.g != null) {
+            g.resetCobertura();
             this.g.mostrarGrafo();
         }else {
             JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer");

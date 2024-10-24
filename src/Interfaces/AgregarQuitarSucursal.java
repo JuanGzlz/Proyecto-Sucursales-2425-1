@@ -4,12 +4,17 @@
  */
 package Interfaces;
 
+import Funciones.Funcionalidades;
+import Grafo.Grafo;
+import Grafo.Vertice;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
  */
 public class AgregarQuitarSucursal extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form AgregarSucursal
      */
@@ -97,7 +102,30 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
     }//GEN-LAST:event_volverActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-        
+        Grafo g = InterfazFunciones.getGrafo();
+        Funcionalidades f = new Funcionalidades();
+        int i = 0;
+        int T = InterfazFunciones.getT();
+        Vertice v = g.getListaParadas().getpFirst();
+        while(v!= null){
+            for(int j = 0; j < v.getNombre().length; j++){
+                i++;
+            }
+            v = v.getpNext();
+        }
+        String[] A = new String[i];
+        i = 0;
+        v = g.getListaParadas().getpFirst();
+        while(v!=null){
+            for(int j = 0; j < v.getNombre().length; j++){
+                A[i] = v.getNombre()[j];
+                i++;
+            }
+            v = v.getpNext();
+        }
+        String S = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una sucursal", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
+        v = g.busquedaInicial(S);
+        f.seleccionarSucursal(g, v, T);
     }//GEN-LAST:event_agregarActionPerformed
 
     private void quitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarActionPerformed

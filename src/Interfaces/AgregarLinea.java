@@ -108,14 +108,18 @@ public class AgregarLinea extends javax.swing.JFrame {
 
     private void agregarlineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarlineaActionPerformed
         this.g = InterfazFunciones.getGrafo();
+        String inicio = inicia.getText();
+        String finallinea = termina.getText();
         if (g != null) {
             Funcionalidades f = new Funcionalidades();
-            String inicio = inicia.getText();
-            String finallinea = termina.getText();
-            f.agregarLinea(g, inicio, finallinea);
-            g.mostrarGrafo();
+            if (f.posibleAgregar(g, inicio, finallinea) == false){
+                f.agregarLinea(g, inicio, finallinea);
+                g.mostrarGrafo();
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Estas paradas ya están conectadas directamente.");
+            }   
         }else {
-            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer");
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
         }
     }//GEN-LAST:event_agregarlineaActionPerformed
 

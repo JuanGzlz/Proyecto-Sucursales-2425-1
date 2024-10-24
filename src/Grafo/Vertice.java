@@ -7,7 +7,7 @@ package Grafo;
 /**
  * Clase Vertice
  * Incluye todo lo referente a la construcción de un vértice
- * @author JuanGzlz
+ * @author Juan González
  * @version 1.0
  */
 

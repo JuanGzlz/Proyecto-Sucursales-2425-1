@@ -39,8 +39,8 @@ public class Menu extends javax.swing.JFrame {
         definirrango = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         agregarlinea = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,13 +87,13 @@ public class Menu extends javax.swing.JFrame {
 
         eliminarsucursal.setBackground(new java.awt.Color(204, 204, 255));
         eliminarsucursal.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
-        eliminarsucursal.setText("Cobertura");
+        eliminarsucursal.setText("Revisar Cobertura");
         eliminarsucursal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarsucursalActionPerformed(evt);
             }
         });
-        getContentPane().add(eliminarsucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, -1));
+        getContentPane().add(eliminarsucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/vqclwylpTGlxQDbT.png"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -133,11 +133,11 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(agregarlinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/download (1).jpeg"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/linea de tren.jpeg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/1f7e1.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -223,8 +223,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JButton mostrargrafo;
     // End of variables declaration//GEN-END:variables
 }

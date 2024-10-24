@@ -31,29 +31,6 @@ public class ProyectoSucursales {
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
         InterfazFunciones.openBienvenida();
-//        JsonChooser file = new JsonChooser();
-//        file.chooseFile();
-//        JsonDecoder json = new JsonDecoder(file.getJson());
-//        Grafo graph = json.CrearGrafo();
-//        
-//        BusquedaBFS bfs = new BusquedaBFS();
-//        Vertice v = graph.busquedaInicial("La Paz");
-////        Arista a = v.getAdyacencia().getpFirst();
-////        while(a != null){
-////            System.out.println(a.getDir().getNombre()[0]);
-////            a = a.getpNext();
-////        }
-////        ListaAdyacencia ad = v.getAdyacencia();
-////        Arista A = ad.getpFirst();
-////        while(A != null){
-////            System.out.println(A.getDir().getNombre()[0]);
-////            A = A.getpNext();
-////        }
-//
-//        Funcionalidades f = new Funcionalidades();
-//        f.seleccionarSucursal(graph, v, 1);
-//        f.agregarLinea(graph, "Zoológico", "La Rinconada");
-//        graph.mostrarGrafo();
         
     }
     

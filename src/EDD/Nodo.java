@@ -8,7 +8,7 @@ import Grafo.Vertice;
 /**
  * Clase Nodo
  * Creación de un nodo básico en la estructura de datos, incluyendo una referencia al siguiente nodo y un vértice
- * @author JuanGzlz
+ * @author María Correa
  * @version 1.0
  */
 

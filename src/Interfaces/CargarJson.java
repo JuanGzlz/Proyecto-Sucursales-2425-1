@@ -97,7 +97,7 @@ public class CargarJson extends javax.swing.JFrame {
         JsonChooser file = new JsonChooser();
         file.chooseFile();
         JsonDecoder json;
-        JOptionPane.showMessageDialog(null, "Su archivo fue cargado exitosamente");
+        JOptionPane.showMessageDialog(null, "Su archivo fue cargado éxitosamente...");
         try {
             json = new JsonDecoder(file.getJson());
             this.g = json.CrearGrafo();

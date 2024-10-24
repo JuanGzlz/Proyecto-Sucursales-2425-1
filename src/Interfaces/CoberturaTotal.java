@@ -39,8 +39,10 @@ public class CoberturaTotal extends javax.swing.JFrame {
     private void initComponents() {
 
         volver = new javax.swing.JButton();
-        busquedaDFS = new javax.swing.JButton();
-        busquedaBFS = new javax.swing.JButton();
+        coberturatotalDFS = new javax.swing.JButton();
+        coberturatotalBFS = new javax.swing.JButton();
+        puntoesfecíficoBFS = new javax.swing.JButton();
+        puntoespecificoDFS = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,25 +59,36 @@ public class CoberturaTotal extends javax.swing.JFrame {
         });
         getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        busquedaDFS.setBackground(new java.awt.Color(255, 204, 102));
-        busquedaDFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
-        busquedaDFS.setText("BUSQUEDA DFS ");
-        busquedaDFS.addActionListener(new java.awt.event.ActionListener() {
+        coberturatotalDFS.setBackground(new java.awt.Color(255, 204, 102));
+        coberturatotalDFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        coberturatotalDFS.setText("Cobertura Total");
+        coberturatotalDFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                busquedaDFSActionPerformed(evt);
+                coberturatotalDFSActionPerformed(evt);
             }
         });
-        getContentPane().add(busquedaDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        getContentPane().add(coberturatotalDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
 
-        busquedaBFS.setBackground(new java.awt.Color(255, 204, 102));
-        busquedaBFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
-        busquedaBFS.setText("BUSQUEDA BFS");
-        busquedaBFS.addActionListener(new java.awt.event.ActionListener() {
+        coberturatotalBFS.setBackground(new java.awt.Color(255, 204, 102));
+        coberturatotalBFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        coberturatotalBFS.setText("Cobertura Total");
+        coberturatotalBFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                busquedaBFSActionPerformed(evt);
+                coberturatotalBFSActionPerformed(evt);
             }
         });
-        getContentPane().add(busquedaBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
+        getContentPane().add(coberturatotalBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+
+        puntoesfecíficoBFS.setText("Punto Específico");
+        puntoesfecíficoBFS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                puntoesfecíficoBFSActionPerformed(evt);
+            }
+        });
+        getContentPane().add(puntoesfecíficoBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+
+        puntoespecificoDFS.setText("Punto Específico");
+        getContentPane().add(puntoespecificoDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -84,27 +97,28 @@ public class CoberturaTotal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void busquedaBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaBFSActionPerformed
+    private void coberturatotalBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturatotalBFSActionPerformed
         this.T = InterfazFunciones.getT();
         this.x = InterfazFunciones.getGrafo();
+        x.resetCobertura();
         if (T > 0 && x != null){
             BusquedaBFS buscar = new BusquedaBFS();
             buscar.CompleteBFS(x, T);
             Funcionalidades f = new Funcionalidades();
             Vertice v = f.sugerirSucursal(x, T);
-            JOptionPane.showMessageDialog(rootPane, "Te siguiero que coloques una parada en: " + v.getNombre()[0]);
+            JOptionPane.showMessageDialog(rootPane, "Te suguiero que coloques una parada en: " + v.getNombre()[0]);
         }else {
             if (T <= 0) {
-                JOptionPane.showMessageDialog(rootPane, " Tu rango no puede es inb[alido o no lo has definido");
+                JOptionPane.showMessageDialog(rootPane, " Tu rango no puede es inbálido o no lo has definido");
             }
             if (x != null) {
                 JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningun grafo");
             }
             
         }          
-    }//GEN-LAST:event_busquedaBFSActionPerformed
+    }//GEN-LAST:event_coberturatotalBFSActionPerformed
 
-    private void busquedaDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaDFSActionPerformed
+    private void coberturatotalDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturatotalDFSActionPerformed
         this.T = InterfazFunciones.getT();
         this.x = InterfazFunciones.getGrafo();
         if (T > 0 && x != null){
@@ -122,11 +136,52 @@ public class CoberturaTotal extends javax.swing.JFrame {
             }
             
         }    
-    }//GEN-LAST:event_busquedaDFSActionPerformed
+    }//GEN-LAST:event_coberturatotalDFSActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         InterfazFunciones.VolverCobertura();
     }//GEN-LAST:event_volverActionPerformed
+
+    private void puntoesfecíficoBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puntoesfecíficoBFSActionPerformed
+        Funcionalidades f = new Funcionalidades();
+        this.T = InterfazFunciones.getT();
+        this.x = InterfazFunciones.getGrafo();
+        int i = 0;
+        int T = InterfazFunciones.getT();
+        Vertice v = x.getListaParadas().getpFirst();
+        while(v!= null){
+            for(int j = 0; j < v.getNombre().length; j++){
+                i++;
+            }
+            v = v.getpNext();
+        }
+        String[] A = new String[i];
+        i = 0;
+        v = x.getListaParadas().getpFirst();
+        while(v!=null){
+            for(int j = 0; j < v.getNombre().length; j++){
+                A[i] = v.getNombre()[j];
+                i++;
+            }
+            v = v.getpNext();
+        }
+        String S = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una sucursal", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
+        v = x.busquedaInicial(S);
+        x.resetCobertura();
+        if (T > 0 && x != null){
+            BusquedaBFS buscar = new BusquedaBFS();
+            buscar.BusquedaBFS_Unico(x, T, v);
+            x.mostrarGrafo();
+        }else {
+            if (T <= 0) {
+                JOptionPane.showMessageDialog(rootPane, " Tu rango es inválido o no lo has definido...");
+            }
+            if (x != null) {
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
+            }
+            
+        }
+    }//GEN-LAST:event_puntoesfecíficoBFSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,9 +219,11 @@ public class CoberturaTotal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton busquedaBFS;
-    private javax.swing.JButton busquedaDFS;
+    private javax.swing.JButton coberturatotalBFS;
+    private javax.swing.JButton coberturatotalDFS;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton puntoesfecíficoBFS;
+    private javax.swing.JButton puntoespecificoDFS;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

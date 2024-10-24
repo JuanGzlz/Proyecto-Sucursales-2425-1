@@ -92,14 +92,14 @@ public class DefinirRango extends javax.swing.JFrame {
         if (g != null) {  
             int T = Integer.parseInt(valorT.getText()); 
             InterfazFunciones.setT(T); 
-            JOptionPane.showMessageDialog(null, "Su rango a sido definido exitósamente, regrese al menú");
+            JOptionPane.showMessageDialog(null, "Su rango a sido definido exitósamente, corra el DFS o BFS para que sea visible.");
             this.valorT.setText("");
         }else {
-            JOptionPane.showMessageDialog(null, "No hay ningún archivo al cual definir rango, cargue uno");
+            JOptionPane.showMessageDialog(null, "No hay ningún archivo al cual definir rango, cargue uno...");
         }
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "No colocaste un número válido");
+            JOptionPane.showMessageDialog(rootPane, "No colocaste un número válido...");
             this.valorT.setText("");
         }
     }//GEN-LAST:event_guardarActionPerformed
