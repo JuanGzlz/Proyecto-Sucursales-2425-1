@@ -12,13 +12,20 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- *
- * @author Admin
+ * Clase JsonDecoder
+ * Incluye 
+ * @author Juan González
+ * @version 1.0
  */
+
 public class JsonDecoder {
+    
+    
     private File file;
     private BufferedReader NewBufferedReader;
     private String text;
+    
+    
     
     public JsonDecoder(File file) throws FileNotFoundException{
         this.file = file;
@@ -26,14 +33,20 @@ public class JsonDecoder {
         this.NewBufferedReader = new BufferedReader(NewFileReader);
     }
     
+    
+    
     public String Read() throws FileNotFoundException, IOException{ //Da una sola línea
         return this.NewBufferedReader.readLine();
     }
+    
+    
     
     public void Reset() throws FileNotFoundException{ //Devuelve la función Read() al inicio
         FileReader NewFileReader = new FileReader(this.file);
         this.NewBufferedReader = new BufferedReader(NewFileReader);
     }
+    
+    
     
     public void ReadAll() throws FileNotFoundException, IOException{ //Te lee cada línea del json exactamente una vez
         FileReader NewFileReader = new FileReader(this.file);
@@ -45,6 +58,8 @@ public class JsonDecoder {
         }
     }
     
+    
+    
     public String GrafoNombre() throws FileNotFoundException, IOException{
         this.Reset();
         this.Read();
@@ -53,6 +68,8 @@ public class JsonDecoder {
         this.Reset();
         return Nombre;
     }
+    
+    
     
     public Grafo CrearGrafo() throws IOException{
         String N = this.GrafoNombre();

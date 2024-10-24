@@ -8,10 +8,8 @@ import EDD.Lista;
 import EDD.Pila;
 import EDD.Nodo;
 
-/**
- *
- * @author Admin
- */
+
+
 public class BusquedaDFS {
     
     private Lista Seen;

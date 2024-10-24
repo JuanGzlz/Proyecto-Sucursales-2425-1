@@ -9,19 +9,30 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author Admin
+ * Clase JsonChooser
+ * Incluye 
+ * @author Juan González
+ * @version 1.0
  */
+
 public class JsonChooser {
+    
+    
     private File archivo;
  
+    
+    
     public JsonChooser(){
         this.archivo = null;
     }
     
+    
+    
     public File getJson(){
         return this.archivo;
     }
+    
+    
     
     public void chooseFile(){
         JFileChooser NewFile = new JFileChooser();

@@ -7,7 +7,7 @@ package Grafo;
 /**
  * Clase ListaAdyacencia
  * Incluye todo lo relacionado a la lista ordenada de aristas que conectan a los vértices
- * @author JuanGzlz
+ * @author Juan González
  * @version 1.0
  */
 

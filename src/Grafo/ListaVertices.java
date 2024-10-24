@@ -7,7 +7,7 @@ package Grafo;
 /**
  * Clase ListaVertices
  * Estructura de datos de tipo Lista que funciona con Vertices y contiene sus respectivas primitivas
- * @author JuanGzlz
+ * @author Juan González
  * @version 1.0
  */
 
