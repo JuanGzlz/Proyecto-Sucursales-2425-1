@@ -22,7 +22,7 @@ public class Funcionalidades {
      * Modifica a true el atributo Sucursal de la parada y a verde su color en el grafo
      * Resetea la cobertura para verificar que la sucursal está bien implementada aplicando el BFS y así mostrar en el grafo el rango de la misma
      * @param grafo el grafo con las paradas obtenidas en el JSON
-     * @param parada la variable de tipo vértice sobre la cual se colocará la sucursal
+     * @param parada variable de tipo vértice sobre la cual se colocará la sucursal
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
      */
     
@@ -36,20 +36,19 @@ public class Funcionalidades {
         if(parada != null){
             if(parada.isSucursal()){
                 JOptionPane.showMessageDialog(null,
-                    ("La estación " + num1 + "ya posee una sucursal..."),
+                    ("La estación \"" + num1 + "\" ya posee una sucursal..."),
                             "", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 parada.setSucursal(true);
                 grafo.colorVertice(parada, "green");
+                JOptionPane.showMessageDialog(null, "Sucursal agregada con éxito.");
             }
         }else{
             JOptionPane.showMessageDialog(null,
-               ("La estación " + num1 + "no existe..."),
+               ("La estación \"" + num1 + "\" no existe..."),
                         "", JOptionPane.INFORMATION_MESSAGE);
         }
-        grafo.resetCobertura();
-        BusquedaBFS completo = new BusquedaBFS();
-        completo.BusquedaBFS_Unico(grafo, T, parada);
+
     }
     
     /**
@@ -58,30 +57,32 @@ public class Funcionalidades {
      * Resetea la cobertura para también actualizar las paradas que estaban dentro del rango de la sucursal eliminada como no cubiertas
      * Aplica un BFS completo para obtener la nueva cobertura total
      * @param grafo el grafo con las paradas obtenidas en el JSON
-     * @param nombre variable de tipo String que representa el nombre del vértice con la parada que se desea eliminar
+     * @param parada variable de tipo Vertice con la parada que se desea eliminar
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
      */
      
-    public void quitarSucursal(Grafo grafo, String nombre, int T){
-        Vertice parada = grafo.getListaParadas().buscarVertice(nombre);
+    public void quitarSucursal(Grafo grafo, Vertice parada, int T){
+        String num1 = "";
+        for(int i = 0; i < parada.getNombre().length; i++){
+            num1 = num1 + parada.getNombre()[i] + " ";
+        }
+        num1 = num1.trim();
         if(parada != null){
         if(!parada.isSucursal()){
             JOptionPane.showMessageDialog(null,
-               ("La estación " + nombre + "no posee una sucursal..."),
+               ("La estación \"" + num1 + "\" no posee una sucursal..."),
                         "", JOptionPane.INFORMATION_MESSAGE);
         }else{
             parada.setSucursal(false);
             grafo.colorVertice(parada, "red");
-            JOptionPane.showMessageDialog(null, "Sucursal eliminada con éxito");
+            JOptionPane.showMessageDialog(null, "Sucursal eliminada con éxito.");
         }
         }else{
             JOptionPane.showMessageDialog(null,
-               ("La estación " + nombre + "no existe..."),
+               ("La estación \"" + num1 + "\" no existe..."),
                         "", JOptionPane.INFORMATION_MESSAGE);
         }
-        grafo.resetCobertura();
-        BusquedaBFS completo = new BusquedaBFS();
-        completo.CompleteBFS(grafo, T);
+
     }
     
     /**

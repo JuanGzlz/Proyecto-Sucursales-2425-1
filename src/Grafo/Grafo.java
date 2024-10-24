@@ -170,7 +170,7 @@ public class Grafo {
     
     public void mostrarGrafo() {
         Viewer viewer = graph.display();
-        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.EXIT); 
+        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER); 
     }
     
     /**
