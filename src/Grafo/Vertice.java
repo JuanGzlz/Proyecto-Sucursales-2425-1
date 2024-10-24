@@ -13,11 +13,11 @@ package Grafo;
 
 public class Vertice {
     /**
-     * @param Adyacencia variable de tipo ListaAdyacencia que indica la lista ordenada de aristas del vértice
+     * @param Adyacencia variable privada de tipo ListaAdyacencia que indica la lista ordenada de aristas del vértice
      * @param nombre variable privada de un arreglo de Strings que contiene el nombre de la parada y en caso de que mantenga una conexión entre líneas, el nombre de ambas paradas
      * @param Covered variable privada booleana que indica si la parada está dentro del rango T de una sucursal
      * @param Sucursal variable privada booleana que indica si en la estación se encuentra una sucursal
-     * @param pNext variable de tipo Vertice que apunta a otro Vertice
+     * @param pNext variable privada de tipo Vertice que apunta a otro Vertice
      */
     
     private ListaAdyacencia Adyacencia;

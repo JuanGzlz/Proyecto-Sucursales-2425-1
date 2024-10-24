@@ -6,7 +6,10 @@ package Interfaces;
 
 import Funciones.Funcionalidades;
 import Grafo.Grafo; 
+import Grafo.Vertice;
+import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 /**
@@ -19,6 +22,10 @@ public class AgregarLinea extends javax.swing.JFrame {
      * Creates new form AgregarLinea
      */
     private Grafo g;
+    private String newInicio;
+    private String newFinal;
+    
+    
     public AgregarLinea() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -36,14 +43,8 @@ public class AgregarLinea extends javax.swing.JFrame {
 
         volver = new javax.swing.JButton();
         agregarlinea = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        termina = new javax.swing.JTextArea();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        inicia = new javax.swing.JTextArea();
+        nuevoInicio = new javax.swing.JButton();
+        nuevoFinal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,31 +70,21 @@ public class AgregarLinea extends javax.swing.JFrame {
         });
         getContentPane().add(agregarlinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        nuevoInicio.setText("INICIO");
+        nuevoInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevoInicioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nuevoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
-        termina.setColumns(20);
-        termina.setRows(5);
-        jScrollPane2.setViewportView(termina);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 42, 230, 30));
-
-        jLabel3.setText("Escribe la parada donde termina tu linea");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 250, 100));
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Escribe la parada donde inicia tu linea");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-
-        inicia.setColumns(20);
-        inicia.setRows(5);
-        jScrollPane1.setViewportView(inicia);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 42, 230, 32));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 260, 100));
+        nuevoFinal.setText("FINAL");
+        nuevoFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevoFinalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nuevoFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1421606828-612x612.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -108,20 +99,81 @@ public class AgregarLinea extends javax.swing.JFrame {
 
     private void agregarlineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarlineaActionPerformed
         this.g = InterfazFunciones.getGrafo();
-        String inicio = inicia.getText();
-        String finallinea = termina.getText();
         if (g != null) {
+            String inicioP = newInicio;
+            String finalP = newFinal;
             Funcionalidades f = new Funcionalidades();
-            if (f.posibleAgregar(g, inicio, finallinea) == false){
-                f.agregarLinea(g, inicio, finallinea);
-                g.mostrarGrafo();
+            if (inicioP == null || finalP == null){
+                JOptionPane.showMessageDialog(rootPane, "Falta por seleccionar uno o ambos de los puntos para la nueva línea...");
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Estas paradas ya están conectadas directamente.");
-            }   
+                if (f.posibleAgregar(g, inicioP, finalP) == false){
+                    f.agregarLinea(g, inicioP, finalP);
+                    JOptionPane.showMessageDialog(rootPane, "Una nueva línea ha sido añadida con éxito.");
+                    g.mostrarGrafo();
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Estas paradas ya están conectadas directamente.");
+                } 
+            }
         }else {
             JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
         }
     }//GEN-LAST:event_agregarlineaActionPerformed
+
+    private void nuevoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoInicioActionPerformed
+        int i = 0;
+        this.g = InterfazFunciones.getGrafo();
+        if (g != null) {
+            Vertice v = g.getListaParadas().getpFirst();
+            while(v != null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String[] A = new String[i];
+            i = 0;
+            v = g.getListaParadas().getpFirst();
+            while(v!=null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    A[i] = v.getNombre()[j];
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String I = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una parada:", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
+            newInicio = I;
+        }else {
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
+        }
+    }//GEN-LAST:event_nuevoInicioActionPerformed
+
+    private void nuevoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoFinalActionPerformed
+        int i = 0;
+        this.g = InterfazFunciones.getGrafo();
+        if (g != null) {
+            Vertice v = g.getListaParadas().getpFirst();
+            while(v!= null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String[] A = new String[i];
+            i = 0;
+            v = g.getListaParadas().getpFirst();
+            while(v!=null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    A[i] = v.getNombre()[j];
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String F = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una parada:", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
+            newFinal = F;
+        }else {
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
+        }
+    }//GEN-LAST:event_nuevoFinalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,15 +212,9 @@ public class AgregarLinea extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarlinea;
-    private javax.swing.JTextArea inicia;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea termina;
+    private javax.swing.JButton nuevoFinal;
+    private javax.swing.JButton nuevoInicio;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 

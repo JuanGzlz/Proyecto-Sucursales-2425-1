@@ -23,7 +23,7 @@ public class Pila {
 
      /**
      * Constructor de la clase pila, no recibe ninguna entrada
-     * asigna automáticamente cero al tamaño de la pila y pFirst apunta a null
+     * Asigna automáticamente cero al tamaño de la pila y pFirst apunta a null
      */
     
     public Pila() {
@@ -32,7 +32,7 @@ public class Pila {
     }
 
     /**
-     * Funcion que indica si la pila es vacía
+     * Función que indica si la pila es vacía
      * @return true si la pila es vacía y false si la pila no es vacía
      */
     
@@ -57,7 +57,7 @@ public class Pila {
     }
     
     /**
-     * Método que desapila el último elemento de la pila
+     * Función que desapila el último elemento de la pila
      * @return Nodo desapilado
      */
     

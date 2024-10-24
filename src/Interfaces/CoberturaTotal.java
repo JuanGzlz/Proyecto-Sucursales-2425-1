@@ -22,6 +22,8 @@ public class CoberturaTotal extends javax.swing.JFrame {
      */
     private Grafo x;
     private int T;
+    
+    
     public CoberturaTotal() {
         this.T = 0;
         initComponents();
@@ -88,6 +90,11 @@ public class CoberturaTotal extends javax.swing.JFrame {
         getContentPane().add(puntoesfecíficoBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         puntoespecificoDFS.setText("Punto Específico");
+        puntoespecificoDFS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                puntoespecificoDFSActionPerformed(evt);
+            }
+        });
         getContentPane().add(puntoespecificoDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
@@ -97,91 +104,162 @@ public class CoberturaTotal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void coberturatotalBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturatotalBFSActionPerformed
         this.T = InterfazFunciones.getT();
         this.x = InterfazFunciones.getGrafo();
-        x.resetCobertura();
         if (T > 0 && x != null){
-            BusquedaBFS buscar = new BusquedaBFS();
-            buscar.CompleteBFS(x, T);
+            x.resetCobertura();
             Funcionalidades f = new Funcionalidades();
-            Vertice v = f.sugerirSucursal(x, T);
-            JOptionPane.showMessageDialog(rootPane, "Te suguiero que coloques una parada en: " + v.getNombre()[0]);
+            if (f.coberturaTotal(x) == false){
+                Vertice v = f.sugerirSucursal(x, T);
+                JOptionPane.showMessageDialog(rootPane, "SUGERENCIA: Coloque una sucursal en \"" + v.getNombre()[0] + "\"");
+                BusquedaBFS buscar = new BusquedaBFS();
+                buscar.CompleteBFS(x, T);
+                x.mostrarGrafo();
+            } else{
+                JOptionPane.showMessageDialog(rootPane, "¡El sistema ya cubre toda la ciudad!");
+                x.mostrarGrafo();
+            }
         }else {
             if (T <= 0) {
-                JOptionPane.showMessageDialog(rootPane, " Tu rango no puede es inbálido o no lo has definido");
+                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
             }
-            if (x != null) {
-                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningun grafo");
+            if (x == null) {
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
             }
-            
         }          
     }//GEN-LAST:event_coberturatotalBFSActionPerformed
 
+    
+    
     private void coberturatotalDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturatotalDFSActionPerformed
         this.T = InterfazFunciones.getT();
         this.x = InterfazFunciones.getGrafo();
         if (T > 0 && x != null){
-            BusquedaDFS busqueda= new BusquedaDFS();
-            busqueda.CompleteDFS( x , T);
             Funcionalidades f = new Funcionalidades();
-            Vertice v = f.sugerirSucursal(x, T);
-            JOptionPane.showMessageDialog(rootPane, "Te siguiero que coloques una parada en: " + v.getNombre()[0]);
+            if (f.coberturaTotal(x) == false){
+                Vertice v = f.sugerirSucursal(x, T);
+                JOptionPane.showMessageDialog(rootPane, "SUGERENCIA: Coloque una sucursal en \"" + v.getNombre()[0] + "\"");
+                BusquedaDFS busqueda = new BusquedaDFS();
+                busqueda.CompleteDFS(x, T);
+                x.mostrarGrafo();
+            } else{
+                JOptionPane.showMessageDialog(rootPane, "¡El sistema ya cubre toda la ciudad!");
+                x.mostrarGrafo();
+            }
         }else {
             if (T <= 0) {
-                JOptionPane.showMessageDialog(rootPane, " Tu rango no puede es inb[alido o no lo has definido");
+                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
             }
-            if (x != null) {
-                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningun grafo");
+            if (x == null) {
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
             }
-            
-        }    
+        }
     }//GEN-LAST:event_coberturatotalDFSActionPerformed
 
+    
+    
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         InterfazFunciones.VolverCobertura();
     }//GEN-LAST:event_volverActionPerformed
 
+    
+    
     private void puntoesfecíficoBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puntoesfecíficoBFSActionPerformed
-        Funcionalidades f = new Funcionalidades();
         this.T = InterfazFunciones.getT();
         this.x = InterfazFunciones.getGrafo();
-        int i = 0;
-        int T = InterfazFunciones.getT();
-        Vertice v = x.getListaParadas().getpFirst();
-        while(v!= null){
-            for(int j = 0; j < v.getNombre().length; j++){
-                i++;
-            }
-            v = v.getpNext();
-        }
-        String[] A = new String[i];
-        i = 0;
-        v = x.getListaParadas().getpFirst();
-        while(v!=null){
-            for(int j = 0; j < v.getNombre().length; j++){
-                A[i] = v.getNombre()[j];
-                i++;
-            }
-            v = v.getpNext();
-        }
-        String S = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una sucursal", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
-        v = x.busquedaInicial(S);
-        x.resetCobertura();
         if (T > 0 && x != null){
-            BusquedaBFS buscar = new BusquedaBFS();
-            buscar.BusquedaBFS_Unico(x, T, v);
-            x.mostrarGrafo();
+            int i = 0;
+            x.resetCobertura();
+            Vertice v = x.getListaParadas().getpFirst();
+            while(v!= null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String[] A = new String[i];
+            i = 0;
+            v = x.getListaParadas().getpFirst();
+            while(v!=null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    A[i] = v.getNombre()[j];
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String S = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una Sucursal:", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
+            if (S != null){
+                v = x.busquedaInicial(S);
+                if (v.isSucursal() == true){
+                    BusquedaBFS buscar = new BusquedaBFS();
+                    buscar.BusquedaBFS_Unico(x, T, v);
+                    x.mostrarGrafo();
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "La parada seleccionada no es una sucursal...");
+                }
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente...");
+            }
         }else {
             if (T <= 0) {
-                JOptionPane.showMessageDialog(rootPane, " Tu rango es inválido o no lo has definido...");
+                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
             }
-            if (x != null) {
+            if (x == null) {
                 JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
             }
-            
         }
     }//GEN-LAST:event_puntoesfecíficoBFSActionPerformed
+
+    
+    
+    private void puntoespecificoDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puntoespecificoDFSActionPerformed
+        this.T = InterfazFunciones.getT();
+        this.x = InterfazFunciones.getGrafo();
+        if (T > 0 && x != null){
+            x.resetCobertura();
+            int i = 0;
+            Vertice v = x.getListaParadas().getpFirst();
+            while(v!= null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String[] A = new String[i];
+            i = 0;
+            v = x.getListaParadas().getpFirst();
+            while(v!=null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    A[i] = v.getNombre()[j];
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String S = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una sucursal:", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
+            if (S != null){
+                v = x.busquedaInicial(S);
+                if (v.isSucursal() == true){
+                    BusquedaDFS buscar = new BusquedaDFS();
+                    buscar.BusquedaDFS_Unico(x, T, v);
+                    x.mostrarGrafo();
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "La parada seleccionada no es una sucursal...");
+                }
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente...");
+            }
+        }else {
+            if (T <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
+            }
+            if (x == null) {
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
+            }
+        }
+    }//GEN-LAST:event_puntoespecificoDFSActionPerformed
 
     /**
      * @param args the command line arguments

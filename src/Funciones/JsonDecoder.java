@@ -13,13 +13,17 @@ import java.io.IOException;
 
 /**
  * Clase JsonDecoder
- * Incluye 
+ * Incluye toda la decodificación del archivo json para convertir las paradas en Strings y así luego en vértices para la creación del grado
  * @author Juan González
  * @version 1.0
  */
 
 public class JsonDecoder {
-    
+    /**
+    * @param file variable privada de tipo File que indica el archivo seleccionada en la carpeta de archivos del usuario
+    * @param NewBufferedReader 
+    * @param text
+    */
     
     private File file;
     private BufferedReader NewBufferedReader;

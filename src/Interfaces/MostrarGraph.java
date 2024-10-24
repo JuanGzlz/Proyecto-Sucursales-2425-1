@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaces;
-
 import Grafo.Grafo;
 import javax.swing.JOptionPane;
 
@@ -83,7 +82,7 @@ public class MostrarGraph extends javax.swing.JFrame {
             g.resetCobertura();
             this.g.mostrarGrafo();
         }else {
-            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer");
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
         }
     }//GEN-LAST:event_mostrargrafoActionPerformed
 

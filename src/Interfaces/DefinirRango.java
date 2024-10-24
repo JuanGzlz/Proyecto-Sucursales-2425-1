@@ -92,7 +92,7 @@ public class DefinirRango extends javax.swing.JFrame {
         if (g != null) {  
             int T = Integer.parseInt(valorT.getText()); 
             InterfazFunciones.setT(T); 
-            JOptionPane.showMessageDialog(null, "Su rango a sido definido exitósamente, corra el DFS o BFS para que sea visible.");
+            JOptionPane.showMessageDialog(null, "Su rango ha sido definido exitosamente, corra el DFS o BFS para que sea visible.");
             this.valorT.setText("");
         }else {
             JOptionPane.showMessageDialog(null, "No hay ningún archivo al cual definir rango, cargue uno...");

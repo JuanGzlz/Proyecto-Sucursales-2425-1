@@ -103,33 +103,72 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         Grafo g = InterfazFunciones.getGrafo();
-        Funcionalidades f = new Funcionalidades();
-        int i = 0;
         int T = InterfazFunciones.getT();
-        Vertice v = g.getListaParadas().getpFirst();
-        while(v!= null){
-            for(int j = 0; j < v.getNombre().length; j++){
-                i++;
+        if (g != null){
+            Funcionalidades f = new Funcionalidades();
+            int i = 0;
+            Vertice v = g.getListaParadas().getpFirst();
+            while(v!= null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    i++;
+                }
+                v = v.getpNext();
             }
-            v = v.getpNext();
-        }
-        String[] A = new String[i];
-        i = 0;
-        v = g.getListaParadas().getpFirst();
-        while(v!=null){
-            for(int j = 0; j < v.getNombre().length; j++){
-                A[i] = v.getNombre()[j];
-                i++;
+            String[] A = new String[i];
+            i = 0;
+            v = g.getListaParadas().getpFirst();
+            while(v!=null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    A[i] = v.getNombre()[j];
+                    i++;
+                }
+                v = v.getpNext();
             }
-            v = v.getpNext();
+            String S = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una parada:", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
+            if (S != null){
+                v = g.busquedaInicial(S);
+                f.seleccionarSucursal(g, v, T);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente...");
+            }
+        }else {
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
         }
-        String S = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una sucursal", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
-        v = g.busquedaInicial(S);
-        f.seleccionarSucursal(g, v, T);
     }//GEN-LAST:event_agregarActionPerformed
 
     private void quitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarActionPerformed
-        // TODO add your handling code here:
+        Grafo g = InterfazFunciones.getGrafo();
+        int T = InterfazFunciones.getT();
+        if (g != null){
+            Funcionalidades f = new Funcionalidades();
+            int i = 0;
+            Vertice v = g.getListaParadas().getpFirst();
+            while(v!= null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String[] A = new String[i];
+            i = 0;
+            v = g.getListaParadas().getpFirst();
+            while(v!=null){
+                for(int j = 0; j < v.getNombre().length; j++){
+                    A[i] = v.getNombre()[j];
+                    i++;
+                }
+                v = v.getpNext();
+            }
+            String S = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una parada con sucursal:", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
+            if (S != null){
+                v = g.busquedaInicial(S);
+                f.quitarSucursal(g, v, T);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente...");
+            }
+        }else {
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
+        }
     }//GEN-LAST:event_quitarActionPerformed
 
     /**
