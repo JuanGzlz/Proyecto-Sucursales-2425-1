@@ -25,7 +25,7 @@ public class Cola {
 
     /**
      * Constructor de la clase Cola, no recibe parámetro de entrada
-     * automáticamente asigna valores de null a first y last, y 0 a size
+     * Automáticamente asigna valores de null a pFirst y pLast, y 0 a size
      */
     
     public Cola() {
@@ -35,7 +35,7 @@ public class Cola {
     }
 
      /**
-     * Funcion que indica si la cola es vacía
+     * Función que indica si la cola es vacía
      * @return true si la cola es vacía y false si la lista no es vacía
      */
     
@@ -44,7 +44,7 @@ public class Cola {
     }
     
     /**
-     * encola en la lista la viable de entrada
+     * Método que encola en la lista la viable de entrada
      * @param v variable de tipo Vertice que se desea encolar
      */
     
@@ -61,7 +61,7 @@ public class Cola {
     }
     
     /**
-     * desencola el primer elemento de la cola
+     * Función que desencola el primer elemento de la cola
      * @return Nodo desencolado
      */
     

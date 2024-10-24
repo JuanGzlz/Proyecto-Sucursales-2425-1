@@ -7,15 +7,36 @@ import EDD.Cola;
 import EDD.Lista;
 import EDD.Nodo;
 
-
+/**
+ * Clase BusquedaBFS
+ * Incluye lo referente a la metodología de búsqueda en anchura (BFS)
+ * Esta clase depende de la clase Cola ya que se prefirió trabajar con ella para este tipo de búsqueda
+ * @author Juan González
+ * @version 1.0
+ */
 
 public class BusquedaBFS {
+    /**
+     * @param Seen variable privada de tipo Lista que 
+     */
     
     private Lista Seen;
     
+    /**
+     * Constructor de la clase BúsquedaBFS, no recibe parámetros de entrada
+     * Inicializa una Lista nueva con 0 nodos
+     */
+    
     public BusquedaBFS(){
-        Seen = new Lista();
+        this.Seen = new Lista();
     }
+    
+    /**
+     * Método que 
+     * @param cola
+     * @param T variable de tipo entero definida por el rango que ingresó el usuario
+     * @param P
+     */
     
     public void BFS(Cola cola, int T, int P) {
     if (T > 0 && cola.isEmpty() == false){
@@ -41,6 +62,13 @@ public class BusquedaBFS {
     }
    }
     
+    /**
+     * Método que 
+     * @param grafo el grafo con las paradas obtenidas en el JSON
+     * @param T variable de tipo entero definida por el rango que ingresó el usuario
+     * @param inicial
+     */
+    
     public void BusquedaBFS_Unico(Grafo grafo, int T, Vertice inicial) {
         if(T > 0){
         inicial.setCovered(true);
@@ -60,6 +88,12 @@ public class BusquedaBFS {
         grafo.colorCovered();
         
     }
+    
+    /**
+     * Método que 
+     * @param grafo el grafo con las paradas obtenidas en el JSON
+     * @param T variable de tipo entero definida por el rango que ingresó el usuario
+     */
     
     public void CompleteBFS(Grafo grafo, int T){
         Vertice v = grafo.getListaParadas().getpFirst();

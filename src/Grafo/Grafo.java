@@ -16,13 +16,20 @@ import org.graphstream.ui.view.Viewer;
  */
 
 public class Grafo {
-    
+    /**
+     * @param graph variable privada de tipo Grafo que contiene el sistema de paradas obtenido en el JSON
+     * @param Nombre variable privada de 
+     * @param ListaParadas variable privada 
+     * @param T variable privada de tipo entero que indica el rango de paradas (definido por el usuario) a las cuales alcanza una sucursal
+     */
     
     private Graph graph;
     private String Nombre;
     private ListaVertices ListaParadas;
     private int T;
 
+    
+    
     public Grafo(String Nombre) {
         this.Nombre = Nombre;
         this.ListaParadas = new ListaVertices();
@@ -31,29 +38,53 @@ public class Grafo {
         System.setProperty("org.graphstream.ui", "swing");
     }
 
+    /**
+     * @return variable interna ListaParadas
+     */
+    
     public ListaVertices getListaParadas() {
         return ListaParadas;
     }
 
+    
+    
     public void setListaParadas(ListaVertices ListaParadas) {
         this.ListaParadas = ListaParadas;
     }
 
+    /**
+     * @return variable interna graph
+     */
+    
     public Graph getGraph() {
         return graph;
     }
 
+    
+    
     public void setGraph(Graph graph) {
         this.graph = graph;
     }
+    
+    /**
+     * @return variable interna T
+     */
     
     public int getT() {
         return T;
     }
 
+    
+    
     public void setT(int T) {
         this.T = T;
     }
+    
+    /**
+     * Función que 
+     * @param nombre
+     * @return variable de tipo Vertice
+     */
     
     public Vertice busquedaInicial(String nombre){
         Vertice current = ListaParadas.getpFirst();
@@ -69,6 +100,11 @@ public class Grafo {
         return current;
     }
     
+    /**
+     * Método que 
+     * @param parada
+     */
+    
     public void crearVertice (String[] parada){
         for(int i = 0; i < parada.length; i++){
         if(busquedaInicial(parada[i])==null){
@@ -78,6 +114,10 @@ public class Grafo {
         }
         }
     }
+    
+    /**
+     * Método que 
+     */
     
     public void addGraphstream(){
         Vertice v = this.getListaParadas().getpFirst();
@@ -94,6 +134,12 @@ public class Grafo {
             v = v.getpNext();
         }
     }
+    
+    /**
+     * Método que 
+     * @param inicio
+     * @param destino
+     */
     
     public void crearConexion(String inicio, String destino){
         Vertice aux1 = busquedaInicial(inicio);
@@ -118,10 +164,20 @@ public class Grafo {
         }
     }
     
+    /**
+     * Método que 
+     */
+    
     public void mostrarGrafo() {
         Viewer viewer = graph.display();
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.EXIT); 
     }
+    
+    /**
+     * Método que 
+     * @param v
+     * @param color
+     */
     
     public void colorVertice(Vertice v, String color) {
         String num1 = "";
@@ -136,6 +192,10 @@ public class Grafo {
         }
     }
     
+    /**
+     * Método que 
+     */
+    
     public void colorCovered(){
         Vertice v = this.ListaParadas.getpFirst();
         while(v != null){
@@ -145,6 +205,10 @@ public class Grafo {
             v = v.getpNext();
         }
     }
+    
+    /**
+     * Método que 
+     */
     
     public void resetCobertura(){
         Vertice v = this.ListaParadas.getpFirst();
@@ -156,6 +220,11 @@ public class Grafo {
             v = v.getpNext(); 
     }
     }
+    
+    /**
+     * Función que 
+     * @return variable de tipo entero
+     */
     
     public int verCubiertos(){
         Vertice v = this.ListaParadas.getpFirst();
