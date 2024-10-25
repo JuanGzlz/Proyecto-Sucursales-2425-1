@@ -10,20 +10,31 @@ import Grafo.Vertice;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.*;
+
 /**
- *
- * @author User
+ * Clase interfaz AgregarLínea 
+ * Estructura de datos de tipo interfaz con sus distintos botones
+ * @author María Correa
+ * @version 1.0
  */
+
 public class AgregarLinea extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AgregarLinea
-     */
+   /**
+    * @param g variable privada de tipo Grafo que obtiene el grafo que se cargue en el programa
+    * @param newInicio variable privada de tipo String que indica donde va a empezar la nueva línea en el grafo
+    * @param newFinal variable privada de tipo String que indica donde va a finalizar la nueva línea en el grafo
+    */
+    
     private Grafo g;
     private String newInicio;
     private String newFinal;
+    
+    
+    /**
+     * Constructor de la clase interfaz AgregarLinea, no recibe parámetro de entrada
+     * Crea una ventana de AgregarLinea
+     */
     
     
     public AgregarLinea() {
@@ -131,10 +142,26 @@ public class AgregarLinea extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    /**
+     * @param evt
+     * Se cierra esta interfaz y se regresa a la que contiene al Menú Principal
+     */
+    
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
-
+    
+    
+    /**
+     * @param evt
+     * Se valida que si se haya cargado un grafo
+     * Se crean dos variables de tipo string inicioP y finalP, que son igualadas a a las variables 
+     que indican donde empiza y donde termina la nueva línea
+     * Valida que se haya ingresado tanto un inicio como un final a la línea
+     * Valida que las paradas que ingresó el usuario no estén ya creadas
+     */
     private void agregarlineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarlineaActionPerformed
         this.g = InterfazFunciones.getGrafo();
         if (g != null) {
@@ -156,7 +183,14 @@ public class AgregarLinea extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
         }
     }//GEN-LAST:event_agregarlineaActionPerformed
-
+    
+     /**
+     * @param evt
+     * Se valida que si se haya cargado un grafo
+     * Se crea un vértice v, que va a llamar a la lista de todas las paradas
+     * Mientras "v" sea distinto de null se va 
+     * 
+     */
     private void nuevoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoInicioActionPerformed
         int i = 0;
         this.g = InterfazFunciones.getGrafo();

@@ -135,7 +135,6 @@ public class InterfazFunciones {
         getCargarJson().setVisible(false);
         getAgregarQuitarSucursal().setVisible(false);
         getCoberturaTotal().setVisible(false);
-        getCoberturaTotal().setVisible(false);
         getMostrarGraph().setVisible(false);
         getDefinirRango().setVisible(false);
         getAgregarLinea().setVisible(false);
