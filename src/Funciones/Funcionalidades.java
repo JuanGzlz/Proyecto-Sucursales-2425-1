@@ -20,7 +20,6 @@ public class Funcionalidades {
     /**
      * Función que selecciona una parada para colocar una sucursal en esta
      * Modifica a true el atributo Sucursal de la parada y a verde su color en el grafo
-     * Resetea la cobertura para verificar que la sucursal está bien implementada aplicando el BFS y así mostrar en el grafo el rango de la misma
      * @param grafo el grafo con las paradas obtenidas en el JSON
      * @param parada variable de tipo vértice sobre la cual se colocará la sucursal
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
@@ -54,8 +53,6 @@ public class Funcionalidades {
     /**
      * Función que selecciona una parada para eliminar la sucursal que esta posee
      * Modifica a false el atributo Sucursal de la parada y a rojo su color en el grafo
-     * Resetea la cobertura para también actualizar las paradas que estaban dentro del rango de la sucursal eliminada como no cubiertas
-     * Aplica un BFS completo para obtener la nueva cobertura total
      * @param grafo el grafo con las paradas obtenidas en el JSON
      * @param parada variable de tipo Vertice con la parada que se desea eliminar
      * @param T variable de tipo entero definida por el rango que ingresó el usuario

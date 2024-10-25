@@ -21,8 +21,8 @@ import java.io.IOException;
 public class JsonDecoder {
     /**
     * @param file variable privada de tipo File que indica el archivo seleccionada en la carpeta de archivos del usuario
-    * @param NewBufferedReader 
-    * @param text
+    * @param NewBufferedReader variable de tipo BufferedReader que permite leer el json por caracteres, matrices y cadenas de manera eficiente
+    * @param text variable de 
     */
     
     private File file;
