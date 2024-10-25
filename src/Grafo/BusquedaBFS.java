@@ -17,7 +17,7 @@ import EDD.Nodo;
 
 public class BusquedaBFS {
     /**
-     * @param Seen variable privada de tipo Lista que 
+     * @param Seen variable privada de tipo Lista que se usará para comparar los nodos y evitar que una parada se agregue dos veces
      */
     
     private Lista Seen;
@@ -32,10 +32,11 @@ public class BusquedaBFS {
     }
     
     /**
-     * Método que 
-     * @param cola
+     * Método que utiliza el algoritmo de búsqueda BFS para recorrer las paradas del grafo
+     * Implementa una cola y lista, funcionando de manera recursiva para obtener cada vez las paradas visitadas 
+     * @param cola variable de tipo Cola con las paradas del grafo
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
-     * @param P
+     * @param P variable de tipo entero que indica las paradas en un nivel "T" (rango) de profundidad
      */
     
     public void BFS(Cola cola, int T, int P) {
@@ -63,34 +64,36 @@ public class BusquedaBFS {
    }
     
     /**
-     * Método que 
+     * Método que permite por medio del método BFS revisar la cobertura desde una única sucursal
      * @param grafo el grafo con las paradas obtenidas en el JSON
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
-     * @param inicial
+     * @param inicial variable de tipo Vertice que representa la parada tomada como sucursal para iniciar desde ella la búsqueda
      */
     
     public void BusquedaBFS_Unico(Grafo grafo, int T, Vertice inicial) {
         if(T > 0){
-        inicial.setCovered(true);
-        Cola cola = new Cola();
-        this.Seen.addNodo(inicial);
-        ListaAdyacencia adyacentes = inicial.getAdyacencia();
-        Arista A = adyacentes.getpFirst();
-        int P = 0;
-        while(A != null){
-            cola.encolar(A.getDir());
-            P++;
-            this.Seen.addNodo(A.getDir());
-            A = A.getpNext();
-            }
-        BFS(cola, T, P);
+            inicial.setCovered(true);
+            Cola cola = new Cola();
+            this.Seen = new Lista();
+            this.Seen.addNodo(inicial);
+            ListaAdyacencia adyacentes = inicial.getAdyacencia();
+            Arista A = adyacentes.getpFirst();
+            int P = 0;
+            while(A != null){
+                cola.encolar(A.getDir());
+                P++;
+                this.Seen.addNodo(A.getDir());
+                A = A.getpNext();
+                }
+            BFS(cola, T, P);
         }
         grafo.colorCovered();
         
     }
     
     /**
-     * Método que 
+     * Método que revisa la cobertura completa de todas la sucursales
+     * Por cada vértice aplica la BusquedaBFS_Unico aplicando el algoritmo BFS por cada parada que cumpla con ser sucursal
      * @param grafo el grafo con las paradas obtenidas en el JSON
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
      */

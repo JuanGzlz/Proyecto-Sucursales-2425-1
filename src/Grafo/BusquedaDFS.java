@@ -17,7 +17,7 @@ import EDD.Nodo;
 
 public class BusquedaDFS {
     /**
-     * @param Seen variable privada de tipo Lista que 
+     * @param Seen variable privada de tipo Lista que se usará para comparar los nodos y evitar que una parada se agregue dos veces
      */
     
     private Lista Seen;
@@ -32,8 +32,9 @@ public class BusquedaDFS {
     }
     
     /**
-     * Método que 
-     * @param pila
+     * Método que utiliza el algoritmo de búsqueda DFS para recorrer las paradas del grafo
+     * Implementa una pila y lista, funcionando de manera recursiva para obtener cada vez las paradas visitadas 
+     * @param pila variable de tipo Pila con las paradas del grafo
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
      */
     
@@ -56,16 +57,17 @@ public class BusquedaDFS {
     }
     
     /**
-     * Método que 
+     * Método que permite por medio del método DFS revisar la cobertura desde una única sucursal
      * @param grafo el grafo con las paradas obtenidas en el JSON
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
-     * @param inicial
+     * @param inicial variable de tipo Vertice que representa la parada tomada como sucursal para iniciar desde ella la búsqueda
      */
     
     public void BusquedaDFS_Unico(Grafo grafo, int T, Vertice inicial){
         if (T > 0){
             Pila pila = new Pila();
             inicial.setCovered(true);
+            this.Seen = new Lista();
             this.Seen.addNodo(inicial);
             ListaAdyacencia adyacentes = inicial.getAdyacencia();
             Arista A = adyacentes.getpFirst();
@@ -80,7 +82,8 @@ public class BusquedaDFS {
     }
     
     /**
-     * Método que 
+     * Método que revisa la cobertura completa de todas la sucursales
+     * Por cada vértice aplica la BusquedaDFS_Unico aplicando el algoritmo DFS por cada parada que cumpla con ser sucursal
      * @param grafo el grafo con las paradas obtenidas en el JSON
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
      */

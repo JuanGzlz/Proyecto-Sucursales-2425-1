@@ -17,9 +17,9 @@ import org.graphstream.ui.view.Viewer;
 
 public class Grafo {
     /**
-     * @param graph variable privada de tipo Grafo que contiene el sistema de paradas obtenido en el JSON
-     * @param Nombre variable privada de 
-     * @param ListaParadas variable privada 
+     * @param graph variable privada de tipo Graph (librería GraphStream) que contiene la representación gráfica del sistema de paradas
+     * @param Nombre variable privada de tipo String por si se nombra el grafo de otra manera (uso no definido)
+     * @param ListaParadas variable privada de tipo ListaVertices que contendrá todas las paradas cargadas a partir del json
      * @param T variable privada de tipo entero que indica el rango de paradas (definido por el usuario) a las cuales alcanza una sucursal
      */
     
@@ -28,7 +28,12 @@ public class Grafo {
     private ListaVertices ListaParadas;
     private int T;
 
-    
+    /**
+     * Constructor de la clase Grafo
+     * Automáticamente asigna Nombre a la variable de entrada y 0 a T
+     * Inicializa un MultiGraph como nuevo objeto y una ListaVertices con 0 valores para colocar en ella las paradas del json
+     * @param Nombre variable de tipo String que será definido según el parámetro de entrada
+     */
     
     public Grafo(String Nombre) {
         this.Nombre = Nombre;
@@ -46,7 +51,10 @@ public class Grafo {
         return ListaParadas;
     }
 
-    
+    /**
+     * Constituye la lista de vértices para la creación del grafo
+     * @param ListaParadas variable de tipo ListaVertices que sobreescribe la lista que se tiene
+     */
     
     public void setListaParadas(ListaVertices ListaParadas) {
         this.ListaParadas = ListaParadas;
@@ -60,7 +68,10 @@ public class Grafo {
         return graph;
     }
 
-    
+    /**
+     * Constituye el objeto Graph para la creación del grafo con GraphStream
+     * @param graph variable de tipo Graph que establece una nueva estructura del grafo
+     */
     
     public void setGraph(Graph graph) {
         this.graph = graph;
@@ -74,16 +85,19 @@ public class Grafo {
         return T;
     }
 
-    
+    /**
+     * Modifica el número de paradas a las que alcanza una sucursal
+     * @param T variable de tipo entero que establece el rango de alcance de una sucursal
+     */
     
     public void setT(int T) {
         this.T = T;
     }
     
     /**
-     * Función que 
-     * @param nombre
-     * @return variable de tipo Vertice
+     * Función que busca por toda la lista de paradas para encontrar el vértice con el nombre entregado en el parámetro
+     * @param nombre variable de tipo String que indica el nombre del vértice que se desea buscar
+     * @return variable de tipo Vertice que devuelve el vértice con el nombre de la parada pasado por parámetro
      */
     
     public Vertice busquedaInicial(String nombre){
@@ -101,8 +115,8 @@ public class Grafo {
     }
     
     /**
-     * Método que 
-     * @param parada
+     * Método que establece las paradas como vértices y las añade una a una en la lista de vértices para el grafo
+     * @param parada variable con un arreglo de Strings (por las paradas que conectan las línea) que permite crear el vértice por cada parada
      */
     
     public void crearVertice (String[] parada){
@@ -116,7 +130,7 @@ public class Grafo {
     }
     
     /**
-     * Método que 
+     * Método que crea la estructura gráfica del Grafo con los métodos getNode y addNode, otorgándole a su vez los atributos a los vértices
      */
     
     public void addGraphstream(){
@@ -129,16 +143,17 @@ public class Grafo {
             num1 = num1.trim();
             if (graph.getNode(num1) == null){
                 graph.addNode(num1).setAttribute("ui.label", num1);
-                this.graph.getNode(num1).setAttribute("ui.style", "fill-color: red; shape: circle; size: 25px;");
+                this.graph.getNode(num1).setAttribute("ui.style", "fill-color: red; shape: circle; size: 20px;");
             }
             v = v.getpNext();
         }
     }
     
     /**
-     * Método que 
-     * @param inicio
-     * @param destino
+     * Método que crea las conexiones entre los vértices mediante las aristas que permiten trazar su adyacencia
+     * Al final se utiliza el método addEdge para crear estas conexiones y mostrarlas gráficamente en GraphStream
+     * @param inicio variable de tipo String que representa un punto A de la conexión entre dos vértices
+     * @param destino variable de tipo String que representa un punto B de la conexión entre dos vértices
      */
     
     public void crearConexion(String inicio, String destino){
@@ -165,7 +180,7 @@ public class Grafo {
     }
     
     /**
-     * Método que 
+     * Método que muestra el grafo creado a partir del json con la librería GraphStream
      */
     
     public void mostrarGrafo() {
@@ -174,9 +189,10 @@ public class Grafo {
     }
     
     /**
-     * Método que 
-     * @param v
-     * @param color
+     * Método que cambia el color del vertice de la parada al mostrar el grafo con la librería GraphStream
+     * @param v variable de tipo Vertice cuyo color va a ser cambiado para indicar si está cubierto, es una sucursal o ninguna
+     * @param color variable de tipo String que indica el color al que será cambiado el vértice
+     * Verde: Sucursal; Amarillo: Cubierto; Rojo: No Cubierto
      */
     
     public void colorVertice(Vertice v, String color) {
@@ -186,14 +202,14 @@ public class Grafo {
         }
         num1 = num1.trim();
         if (graph.getNode(num1) != null) {
-            graph.getNode(num1).setAttribute("ui.style", "fill-color: " + color + "; size: 25px; shape: circle;");
+            graph.getNode(num1).setAttribute("ui.style", "fill-color: " + color + "; size: 20px; shape: circle;");
         }else{
             JOptionPane.showMessageDialog(null, "En el grafo obtenido no existe este vértice...");
         }
     }
     
     /**
-     * Método que 
+     * Método que únicamente es utilizado para cambiar el color de las paradas cubiertas por una sucursal a amarillo
      */
     
     public void colorCovered(){
@@ -207,7 +223,10 @@ public class Grafo {
     }
     
     /**
-     * Método que 
+     * Método que reinicia la cobertura de las sucursales, manteniendo marcadas solo estas últimas en caso de:
+     * Eliminar una sucursal y actualizar las paradas cubiertas
+     * Cambiar el rango de cobertura de la sucursal
+     * Querer observar la cobertura únicamente de una sucursal específica
      */
     
     public void resetCobertura(){
@@ -222,8 +241,8 @@ public class Grafo {
     }
     
     /**
-     * Función que 
-     * @return variable de tipo entero
+     * Función que itera todas las paradas del grafo para ir contando cuáles están cubiertas por las sucursales colocadas
+     * @return variable de tipo entero que indica la cantidad de paradas cubiertas en todo el sistema de estaciones
      */
     
     public int verCubiertos(){
