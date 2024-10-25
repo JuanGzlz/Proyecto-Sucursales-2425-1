@@ -7,16 +7,17 @@ package Interfaces;
 import Grafo.Grafo;
 import javax.swing.JOptionPane;
 /**
- *
- * @author User
+ * Clase interfaz DefinirRango
+ * @author Macorre21
+ * @version 1.0
  */
 public class DefinirRango extends javax.swing.JFrame {
 
-    private Grafo g;
-
     /**
-     * Creates new form DefinirRango
+     * Constructor de la clase DefinirRango
+     * @param g variable interna de tipo Grafo
      */
+    private Grafo g;
     public DefinirRango() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -91,10 +92,21 @@ public class DefinirRango extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param evt
+     * Al presionar el botón se llama a la función de la Clase InterfazFunciones "VolverMenu" para salir de esta ventana al Menú.
+     */
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
        InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
 
+    /**
+     * @param evt
+     * Ésta función comprueba que haya un grafo al cual definirle un rango "T", si hay uno se le asigna el valorT, 
+     * se utiliza InterfazFunciones "setT()" con parámetro T para poder guardar la T más reciente en el programa 
+     * y usarla en el resto de interfaces.
+     * Una vez guardado el rango se borra del TextArea.
+     */
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
         this.g = InterfazFunciones.getGrafo();
         try{

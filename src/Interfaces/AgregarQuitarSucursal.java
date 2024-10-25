@@ -10,13 +10,14 @@ import Grafo.Vertice;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author User
+ * Clase interfaz AgregarQuitarSucursal
+ * @author Macorre21
+ * @version 1.0
  */
 public class AgregarQuitarSucursal extends javax.swing.JFrame {
     
     /**
-     * Creates new form AgregarSucursal
+     * Contador de la clase interfaz AgregarSucursal, no reciber parámetro de entrada
      */
     public AgregarQuitarSucursal() {
         initComponents();
@@ -116,10 +117,20 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param evt
+     * Función que permite regresar a la ventana de Menu y cerrar en la que se encontraba el usuario
+     */
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
        InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
 
+    /**
+     * @param evt
+     * En principio se genera una lista desplegable con todas las paradas que se encuentren en el Json para que 
+     * el usuario pueda seleccionar el punto específico donde quieras agregar la sucursal.
+     * Función que te permite agregar una parada en el grafo que fue cargado previamente.
+     */
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         Grafo g = InterfazFunciones.getGrafo();
         int T = InterfazFunciones.getT();
@@ -155,6 +166,12 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_agregarActionPerformed
 
+    /**
+     * @param evt
+     * En principio se genera una lista desplegable con todas las paradas que se encuentren en el Json para que 
+     * el usuario pueda seleccionar el punto específico donde quiera eliminar la sucursal.
+     * Función que te permite eliminar una parada que haya sido agregada previamente.
+     */
     private void quitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarActionPerformed
         Grafo g = InterfazFunciones.getGrafo();
         int T = InterfazFunciones.getT();

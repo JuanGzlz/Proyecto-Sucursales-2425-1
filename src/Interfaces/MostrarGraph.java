@@ -7,15 +7,17 @@ import Grafo.Grafo;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author User
+ * Clase interfaz MostrarGraph
+ * @author Macorre21
+ * @version 1.0
  */
 public class MostrarGraph extends javax.swing.JFrame {
     
-    private Grafo g;
     /**
-     * Creates new form MostrarGraph
+     * Constructor de la clase MostrarGraph
+     * @param g variable interna de tipo Grafo
      */
+    private Grafo g;
     public MostrarGraph() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -82,10 +84,19 @@ public class MostrarGraph extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param evt
+     * Al presionar el botón se llama a la función de la Clase InterfazFunciones "VolverMenu" para salir de esta ventana al Menú
+     */
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
 
+    /**
+     * @param evt
+     * Al presionar el botón se llama a la función de la Clase InterfazFunciones "getGrafo" y si ésta 
+     * no es igual a null se muestra el grafo
+     */
     private void mostrargrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrargrafoActionPerformed
         this.g = InterfazFunciones.getGrafo();
         if (this.g != null) {

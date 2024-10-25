@@ -5,11 +5,26 @@
 package Interfaces;
 
 import Grafo.Grafo;
+
 /**
- *
- * @author María Correa
+ * Clase InterfazFunciones
+ * @author Macorre21
+ * @version 1.0
  */
 public class InterfazFunciones {
+    
+    /**
+    * @param grafo variable privada de tipo Grafo que es declarada en un principio como null
+    * @param T variable privada de tipo Entero que es declarada en un principio como 0
+    * @param paginaprincipal variable privada que es declarada una nueva variable de la clase interfaz Bienvenida
+    * @param menu variable privada que es declarada como una nueva variable de la clase interfaz Menu
+    * @param cargarjson variable privada que es declarada como una nueva variable de la clase interfaz CargarJson
+    * @param agregarsucursal variable privada que es declarada como una nueva variable de la clase interfaz AgregarSucursal
+    * @param mostrargrafo variable privada que es declarada como una nueva variable de la clase interfaz MostrarGrafo
+    * @param definirrango variable privada que es declarada como una nueva variable de la clase interfaz DefinirRango
+    * @param agregarlinea variable privada que es declarada como una nueva variable de la clase interfaz AgregarLinea
+    * @param coberturatotal variable privada que es declarada como una nueva variable de la clase interfaz CoberturaTotal
+    */
     private static Grafo grafo = null;
     private static int  T = 0;
     private static final Bienvenida paginaprincipal= new Bienvenida(); 
@@ -22,90 +37,126 @@ public class InterfazFunciones {
     private static final CoberturaTotal coberturatotal = new CoberturaTotal();
     
     /**
-     * Metodo para que la clase de interfaz Bienvenida sea visible al llamar el metodo
+     * Función para que la clase de interfaz Bienvenida sea visible al llamar el método
      */
     public static void openBienvenida(){
         getBienvenida().setVisible(true);
         
     }
     
-    //Metodo para obtener la Bienvenida ya que es un atributo privado
-      public static Bienvenida getBienvenida() {
+    /**
+     * @return variable interna paginaprincipal
+     */      
+    
+    public static Bienvenida getBienvenida() {
         return paginaprincipal;
     }
     
-    //Metodo para que la clase de interfaz Menu sea visible al llamar el metodo
+    /**
+     * Función para que la clase de interfaz Menú sea visible al llamar el método
+     */
     public static void openMenu() {
         getMenuPrincipal().setVisible(true);
     }
-    
-    //Metodo para obtener el menu ya que es un atributo privado
+     /**
+     * @return variable interna menu
+     */  
       public static Menu getMenuPrincipal() {
         return menu;
     }
      
-  //Metodo para que la clase de interfaz CargarJson sea visible al llamar el metodo 
-   public static CargarJson getCargarJson(){
+    /**
+     * @return variable interna cargarjson
+     */    
+    public static CargarJson getCargarJson(){
        return cargarjson;
    }
-    //Metodo para obtener el CargarJson ya que es un atributo privado
-   public static void openCargarJson(){
+   
+    /**
+     * Función para que la clase de interfaz CargarJson sea visible al llamar el método
+     */
+    public static void openCargarJson(){
        getCargarJson().setVisible(true);
        getMenuPrincipal().setVisible(false);
    }
    
-    
-    //Metodo para que la clase de interfaz AgregarSucursal sea visible al llamar el metodo 
+    /**
+     * @return variable interna agregarsucursal
+     */  
    public static AgregarQuitarSucursal getAgregarQuitarSucursal(){
        return agregarsucursal;
    }
-    //Metodo para obtener el AgregarSucusal ya que es un atributo privado
+    
+    /**
+     * Función para que la clase de interfaz AgregarQuitarSucursal sea visible al llamar el método
+     */
    public static void openAgregarQuitarSucursal(){
        getAgregarQuitarSucursal().setVisible(true);
        getMenuPrincipal().setVisible(false);
    }
-     
-     //Metodo para que la clase de interfaz MostrarGrafo sea visible al llamar el metodo 
+   
+    /**
+     * @return variable interna mostrargrafo
+     */  
    public static MostrarGraph getMostrarGraph(){
        return mostrargrafo;
    }
-    //Metodo para obtener el MostrarGrafo ya que es un atributo privado
+   
+    /**
+     * Función para que la clase de interfaz MostraGarph sea visible al llamar el método
+     */
    public static void openMostarGraph(){
        getMostrarGraph().setVisible(true);
        getMenuPrincipal().setVisible(false);
-   }
-
-   //Metodo para que la clase interfaz DefinirRango sea visible al llamar el metodo
+   }    
+     
+    /**
+     * @return variable interna definirrango
+     */  
     public static DefinirRango getDefinirRango(){
        return definirrango;
    }
-    //Metodo para obtener el DefinirRango ya que es un atributo privado
-   public static void openDefinirRango(){
+    
+    /**
+     * Función para que la clase de interfaz DefinirRango sea visible al llamar el método
+     */   
+    public static void openDefinirRango(){
        getDefinirRango().setVisible(true);
        getMenuPrincipal().setVisible(false);   
    }
-       
-     //Metodo para que la clase de interfaz AgregarLinea sea visible al llamar el metodo 
+   
+    /**
+     * @return variable interna agregarlinea
+     */      
     public static AgregarLinea getAgregarLinea() {
         return agregarlinea;
     }
-   //Metodo para obtener AgregarLinea ya que es un atributo privado
+   
+    /**
+     * Función para que la clase de interfaz AgregarLinea sea visible al llamar el método
+     */    
     public static void openAgregarLinea() {
         getAgregarLinea().setVisible(true);
         getMenuPrincipal().setVisible(false);
     }
     
+    /**
+     * @return variable interna coberturatotal
+     */  
     public static CoberturaTotal getCoberturaTotal(){
         return coberturatotal;
     }
     
+    /**
+     * Función para que la clase de interfaz CoberturaTotal sea visible al llamar el método
+     */
     public static void openCoberturaTotal(){
         getCoberturaTotal().setVisible(true);
         getMenuPrincipal().setVisible(false);
     }
-     /**
-     * @return the T
-     */
+    /**
+     * @return variable interna T
+     */  
     public static int getT() {
         return T;
     }
@@ -117,6 +168,9 @@ public class InterfazFunciones {
         T = P;
     }
     
+    /**
+     * @return variable interna grafo
+     */  
     public static Grafo getGrafo(){
         return grafo;
     }
@@ -128,13 +182,14 @@ public class InterfazFunciones {
         InterfazFunciones.grafo = grafo ;
     }
    
+    /**
+     * Función para que la clase de interfaz Menú sea visible la única visible cuado el usuario salga
+     de las otras interfaces y vuelva al origen
+     */
     public static void VolverMenu(){
-       //Muestro solamente el menu principal
         getMenuPrincipal().setVisible(true);
-       //Logrando que las ventanas abiertas ya no se muestren
         getCargarJson().setVisible(false);
         getAgregarQuitarSucursal().setVisible(false);
-        getCoberturaTotal().setVisible(false);
         getCoberturaTotal().setVisible(false);
         getMostrarGraph().setVisible(false);
         getDefinirRango().setVisible(false);

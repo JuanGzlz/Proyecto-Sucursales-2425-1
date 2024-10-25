@@ -16,13 +16,15 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
- * @author User
+ * Clase interfaz CargarJson
+ * @author Macorre21
+ * @version 1.0
  */
 public class CargarJson extends javax.swing.JFrame {
 
     /**
-     * Creates new form CargarJson
+     * Constructor de la clase interfaz CargarJson
+     * @param g variable privada de tipo Grafo que fue declarada como null
      */
     private Grafo g;
     public CargarJson() {
@@ -97,10 +99,19 @@ public class CargarJson extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Función para que la clase de interfaz Menu sea visible al pulsar el botón y se cierre la ventana CargarJson
+     */
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
-
+    
+    /**
+     * @param evt
+     * @param file nueva variable de tipo JsonChooser
+     * Función que permite la cargar un archivo Json mediante el uso de una ventana de archivos del computador
+     * Se guarda este grafo "g" en la clase InterfazFunciones para poder llamarlo en las distintas interfaces
+     */
     private void guardarjsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarjsonActionPerformed
         JsonChooser file = new JsonChooser();
         file.chooseFile();
@@ -165,7 +176,7 @@ public class CargarJson extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * @return the grafo
+     * @return variable interna g
      */
     public Grafo getGrafo() {
         return g;

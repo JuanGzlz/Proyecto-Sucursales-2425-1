@@ -10,21 +10,28 @@ import Grafo.Vertice;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.*;
+
 /**
- *
- * @author User
+ * Clase interfaz AgregarLínea 
+ * @author Macorre21
+ * @version 1.0
  */
+
 public class AgregarLinea extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AgregarLinea
-     */
+   /**
+    * @param g variable privada de tipo Grafo que obtiene el grafo que se cargue en el programa
+    * @param newInicio variable privada de tipo String que indica donde va a empezar la nueva línea en el grafo
+    * @param newFinal variable privada de tipo String que indica donde va a finalizar la nueva línea en el grafo
+    */
     private Grafo g;
     private String newInicio;
     private String newFinal;
     
+    
+    /**
+     * Constructor del JFrame Form AgregarLinea, no recibe parámetro de entrada
+     */
     
     public AgregarLinea() {
         initComponents();
@@ -131,10 +138,22 @@ public class AgregarLinea extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    /**
+     * @param evt
+     * Se cierra esta ventana y se regresa a la que contiene al Menú Principal
+     */
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
-
+    
+    
+    /**
+     * @param evt
+     * Función que permite al usuario elegir un punto de inicio y final para la nueva línea, ésta solo puede
+     * realizarse si el archivo Json fue cargado y se creó un grafo previamente.
+     */
     private void agregarlineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarlineaActionPerformed
         this.g = InterfazFunciones.getGrafo();
         if (g != null) {
@@ -156,7 +175,13 @@ public class AgregarLinea extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
         }
     }//GEN-LAST:event_agregarlineaActionPerformed
-
+    
+  /**
+     * @param evt
+     * En principio se genera una lista desplegable con todas las paradas que se encuentren en el Json para que el usuario pueda
+     * seleccionar el punto específico donde quiera que inicie su nueva línea.
+     * Función que te permite agregar una nueva línea entre paradas.
+     */
     private void nuevoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoInicioActionPerformed
         int i = 0;
         this.g = InterfazFunciones.getGrafo();
@@ -185,6 +210,12 @@ public class AgregarLinea extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nuevoInicioActionPerformed
 
+      /**
+     * @param evt
+     * En principio se genera una lista desplegable con todas las paradas que se encuentren en el Json para que el usuario pueda
+     * seleccionar el punto específico donde quiera que finalice su nueva línea.
+     * Función que te permite agregar una nueva línea entre paradas.
+     */
     private void nuevoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoFinalActionPerformed
         int i = 0;
         this.g = InterfazFunciones.getGrafo();

@@ -12,17 +12,19 @@ import Funciones.Funcionalidades;
 import Grafo.Vertice;
 
 /**
- *
- * @author User
+ * Clase interfaz CoberturaTotal
+ * @author Macorrea21
+ * @version 1.0
  */
 public class CoberturaTotal extends javax.swing.JFrame {
 
     /**
-     * Creates new form CoberturaTotal
+     * Constructor de la clase interfaz Cobertura Total
+     * @param x variable interna de tipo Grafo
+     * @param T variable de tipo Entero que se declara incialmente como "0"
      */
     private Grafo x;
     private int T;
-    
     
     public CoberturaTotal() {
         this.T = 0;
@@ -139,7 +141,14 @@ public class CoberturaTotal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * @param evt
+     * Esta función es mediante un BFS que recorre todos los enlaces desde el punto de origen para hallar el camino más 
+     * eficiente, va recorrriendo el grafo por los niveles que se declararon cómo "T".
+     * Función que observa la cobertura total en el grafo, esta corre cuando las variables "x" y "T" 
+     * son distinta de null y mayor que 0, seguidamente el programa recorre el grafo para sugerir una sucursal,
+     * para finalmente mostrar un grafo con la cobertura total.
+     */
     
     private void coberturatotalBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturatotalBFSActionPerformed
         this.T = InterfazFunciones.getT();
@@ -167,7 +176,14 @@ public class CoberturaTotal extends javax.swing.JFrame {
         }          
     }//GEN-LAST:event_coberturatotalBFSActionPerformed
 
-    
+      /**
+     * @param evt
+     * Aquí se utiliza el método de Búsqueda DFS donde va a recorrer uno por uno las ramas que se encuentren enlazadas 
+     * con el punto de origen.
+     * Función que observa la cobertura total en el grafo, esta corre cuando las variables "x" y "T" 
+     * son distinta de null y mayor que 0, seguidamente el programa recorre el grafo para sugerir una sucursal,
+     * para finalmente mostrar un grafo con la cobertura total.
+     */
     
     private void coberturatotalDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturatotalDFSActionPerformed
         this.T = InterfazFunciones.getT();
@@ -195,11 +211,23 @@ public class CoberturaTotal extends javax.swing.JFrame {
     }//GEN-LAST:event_coberturatotalDFSActionPerformed
 
     
-    
+    /**
+     * @param evt
+     * Al presionar el botón se llama a la función de la Clase InterfazFunciones "VolverMenu" para salir de esta ventana al Menú
+     */
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
 
+    
+    /**
+     * @param evt
+     * En principio se genera una lista desplegable con todas las paradas que se encuentren en el Json para que puedas
+     * seleccionar el punto específico donde está la sucursal y así mostrar su "T".
+     * Función que utiliza el método de Búsqueda BFS donde va a recorrer uno por uno los niveles las ramas que se encuentren 
+     * enlazadas con el punto de origen hasta llegar a que T = 0.
+     */
+  
     private void puntoesfecíficoBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puntoesfecíficoBFSActionPerformed
         this.T = InterfazFunciones.getT();
         this.x = InterfazFunciones.getGrafo();
@@ -247,6 +275,13 @@ public class CoberturaTotal extends javax.swing.JFrame {
     }//GEN-LAST:event_puntoesfecíficoBFSActionPerformed
 
     
+      /**
+     * @param evt
+     * En principio se genera una lista desplegable con todas las paradas que se encuentren en el Json para que puedas
+     * seleccionar el punto específico donde está la sucursal y así mostrar su "T".
+     * Función que utiliza el método de Búsqueda DFS donde va a recorrer una por una las ramas que se encuentren enlazadas 
+     * con el punto de origen hasta llegar a que T = 0.
+     */
     
     private void puntoespecificoDFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puntoespecificoDFSActionPerformed
         this.T = InterfazFunciones.getT();
