@@ -34,6 +34,8 @@ public class MostrarGraph extends javax.swing.JFrame {
         volver = new javax.swing.JButton();
         mostrargrafo = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,7 +53,7 @@ public class MostrarGraph extends javax.swing.JFrame {
         getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         mostrargrafo.setBackground(new java.awt.Color(255, 204, 102));
-        mostrargrafo.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        mostrargrafo.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 36)); // NOI18N
         mostrargrafo.setForeground(new java.awt.Color(255, 255, 255));
         mostrargrafo.setText("Mostrar");
         mostrargrafo.addActionListener(new java.awt.event.ActionListener() {
@@ -59,11 +61,19 @@ public class MostrarGraph extends javax.swing.JFrame {
                 mostrargrafoActionPerformed(evt);
             }
         });
-        getContentPane().add(mostrargrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        getContentPane().add(mostrargrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/vqclwylpTGlxQDbT.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 110, -1));
+        jLabel2.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        jLabel2.setText("Al darle al botón de mostrar, podrás ");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 410, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        jLabel3.setText("observar tu grafo!!!");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 430, 110));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -124,6 +134,8 @@ public class MostrarGraph extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mostrargrafo;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables

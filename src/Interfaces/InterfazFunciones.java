@@ -15,7 +15,6 @@ public class InterfazFunciones {
     private static final Bienvenida paginaprincipal= new Bienvenida(); 
     private static final Menu menu =new Menu();
     private static final CargarJson cargarjson= new CargarJson();
-    private static final Cobertura eliminarsucursal= new Cobertura();
     private static final AgregarQuitarSucursal agregarsucursal= new AgregarQuitarSucursal();
     private static final MostrarGraph mostrargrafo = new MostrarGraph();
     private static final DefinirRango definirrango= new DefinirRango();
@@ -55,15 +54,6 @@ public class InterfazFunciones {
        getMenuPrincipal().setVisible(false);
    }
    
-    //Metodo para que la clase de interfaz EliminarSucursal sea visible al llamar el metodo 
-   public static Cobertura getCobertura(){
-       return eliminarsucursal;
-   }
-    //Metodo para obtener el EliminarSucursal ya que es un atributo privado
-   public static void openCobertura(){
-       getCobertura().setVisible(true);
-       getMenuPrincipal().setVisible(false);
-   }
     
     //Metodo para que la clase de interfaz AgregarSucursal sea visible al llamar el metodo 
    public static AgregarQuitarSucursal getAgregarQuitarSucursal(){
@@ -111,7 +101,7 @@ public class InterfazFunciones {
     
     public static void openCoberturaTotal(){
         getCoberturaTotal().setVisible(true);
-        getCobertura().setVisible(false);
+        getMenuPrincipal().setVisible(false);
     }
      /**
      * @return the T
@@ -144,17 +134,13 @@ public class InterfazFunciones {
        //Logrando que las ventanas abiertas ya no se muestren
         getCargarJson().setVisible(false);
         getAgregarQuitarSucursal().setVisible(false);
-        getCobertura().setVisible(false);
+        getCoberturaTotal().setVisible(false);
         getCoberturaTotal().setVisible(false);
         getMostrarGraph().setVisible(false);
         getDefinirRango().setVisible(false);
         getAgregarLinea().setVisible(false);
         
    }
-    
-    public static void VolverCobertura(){
-        getCobertura().setVisible(true);
-        getCoberturaTotal().setVisible(false);
-    }
+
 
 }

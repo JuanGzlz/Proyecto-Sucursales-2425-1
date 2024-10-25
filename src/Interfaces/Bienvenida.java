@@ -46,7 +46,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 startActionPerformed(evt);
             }
         });
-        getContentPane().add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 170, 50));
+        getContentPane().add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 170, 50));
 
         jTextArea1.setBackground(new java.awt.Color(153, 153, 255));
         jTextArea1.setColumns(20);
