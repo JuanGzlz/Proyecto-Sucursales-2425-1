@@ -22,7 +22,7 @@ public class JsonDecoder {
     /**
     * @param file variable privada de tipo File que indica el archivo seleccionada en la carpeta de archivos del usuario
     * @param NewBufferedReader variable de tipo BufferedReader que permite leer el json por caracteres, matrices y cadenas de manera eficiente
-    * @param text variable de 
+    * @param text variable de tipo String que representa un texto para realizar pruebas de este decodificador (uso no definido)
     */
     
     private File file;
@@ -37,22 +37,29 @@ public class JsonDecoder {
         this.NewBufferedReader = new BufferedReader(NewFileReader);
     }
     
+    /**
+     * Función que entrega una sola línea de texto del archivo json
+     * @return variable de tipo String con una única línea de texto (la respectiva parada del archivo json)
+     */
     
-    
-    public String Read() throws FileNotFoundException, IOException{ //Da una sola línea
+    public String Read() throws FileNotFoundException, IOException{
         return this.NewBufferedReader.readLine();
     }
     
+    /**
+     * Método que devuelve la función Read() al inicio, es decir, la primera línea de texto del archivo
+     */
     
-    
-    public void Reset() throws FileNotFoundException{ //Devuelve la función Read() al inicio
+    public void Reset() throws FileNotFoundException{
         FileReader NewFileReader = new FileReader(this.file);
         this.NewBufferedReader = new BufferedReader(NewFileReader);
     }
     
+    /**
+     * Método que lee cada línea del json exactamente una vez
+     */
     
-    
-    public void ReadAll() throws FileNotFoundException, IOException{ //Te lee cada línea del json exactamente una vez
+    public void ReadAll() throws FileNotFoundException, IOException{
         FileReader NewFileReader = new FileReader(this.file);
         BufferedReader MyBuffer = new BufferedReader(NewFileReader);
         String mystr = MyBuffer.readLine();
@@ -62,7 +69,10 @@ public class JsonDecoder {
         }
     }
     
-    
+    /**
+     * Función que entrega exactamente el nombre del sistema de metro completo al estar siempre en la segunda línea del archivo json
+     * @return variable de tipo String con el nombre de la red de transporte
+     */
     
     public String GrafoNombre() throws FileNotFoundException, IOException{
         this.Reset();
@@ -73,7 +83,12 @@ public class JsonDecoder {
         return Nombre;
     }
     
-    
+    /**
+     * Función que gestiona la obtención del grafo mediante dos vueltas...
+     * 1era Vuelta: Crea los vértices con el nombre de cada parada, quitando todos los caracteres innecesarios y así obteniendo el grafo en sí
+     * 2da Vuelta: Crea las conexiones entre los vértices, revisando diversas condiciones según la parada sea una que conecta con otra línea o si es una parada común y fija
+     * @return variable de tipo Grafo que representa el grafo del sistema de transporte en su totalidad y ya estructurado gráficamente
+     */
     
     public Grafo CrearGrafo() throws IOException{
         String N = this.GrafoNombre();

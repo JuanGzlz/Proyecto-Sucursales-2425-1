@@ -95,9 +95,9 @@ public class Grafo {
     }
     
     /**
-     * Función que 
-     * @param nombre
-     * @return variable de tipo Vertice
+     * Función que busca por toda la lista de paradas para encontrar el vértice con el nombre entregado en el parámetro
+     * @param nombre variable de tipo String que indica el nombre del vértice que se desea buscar
+     * @return variable de tipo Vertice que devuelve el vértice con el nombre de la parada pasado por parámetro
      */
     
     public Vertice busquedaInicial(String nombre){
@@ -115,8 +115,8 @@ public class Grafo {
     }
     
     /**
-     * Método que 
-     * @param parada
+     * Método que establece las paradas como vértices y las añade una a una en la lista de vértices para el grafo
+     * @param parada variable con un arreglo de Strings (por las paradas que conectan las línea) que permite crear el vértice por cada parada
      */
     
     public void crearVertice (String[] parada){
@@ -143,7 +143,7 @@ public class Grafo {
             num1 = num1.trim();
             if (graph.getNode(num1) == null){
                 graph.addNode(num1).setAttribute("ui.label", num1);
-                this.graph.getNode(num1).setAttribute("ui.style", "fill-color: red; shape: circle; size: 25px;");
+                this.graph.getNode(num1).setAttribute("ui.style", "fill-color: red; shape: circle; size: 20px;");
             }
             v = v.getpNext();
         }
@@ -202,7 +202,7 @@ public class Grafo {
         }
         num1 = num1.trim();
         if (graph.getNode(num1) != null) {
-            graph.getNode(num1).setAttribute("ui.style", "fill-color: " + color + "; size: 25px; shape: circle;");
+            graph.getNode(num1).setAttribute("ui.style", "fill-color: " + color + "; size: 20px; shape: circle;");
         }else{
             JOptionPane.showMessageDialog(null, "En el grafo obtenido no existe este vértice...");
         }

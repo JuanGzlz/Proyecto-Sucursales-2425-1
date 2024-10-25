@@ -47,6 +47,8 @@ public class CargarJson extends javax.swing.JFrame {
         volver = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,17 +56,16 @@ public class CargarJson extends javax.swing.JFrame {
 
         guardarjson.setBackground(new java.awt.Color(204, 204, 255));
         guardarjson.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 48)); // NOI18N
-        guardarjson.setForeground(new java.awt.Color(255, 255, 255));
         guardarjson.setText("Cargar");
         guardarjson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarjsonActionPerformed(evt);
             }
         });
-        getContentPane().add(guardarjson, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
+        getContentPane().add(guardarjson, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, -1));
 
         volver.setBackground(new java.awt.Color(204, 204, 255));
-        volver.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
+        volver.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 18)); // NOI18N
         volver.setForeground(new java.awt.Color(255, 255, 255));
         volver.setText("< Atras ");
         volver.addActionListener(new java.awt.event.ActionListener() {
@@ -76,11 +77,18 @@ public class CargarJson extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel2.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
-        jLabel2.setText("Si deseas cargar un archivo dale al botón ");
+        jLabel2.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        jLabel2.setText("Para cargar un archivo, presione el botón ");
         jPanel1.add(jLabel2);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 320, 40));
+        jLabel3.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        jLabel3.setText("cargar que se encuentra abajo");
+        jPanel1.add(jLabel3);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 530, 80));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/10964543.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -150,6 +158,8 @@ public class CargarJson extends javax.swing.JFrame {
     private javax.swing.JButton guardarjson;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables

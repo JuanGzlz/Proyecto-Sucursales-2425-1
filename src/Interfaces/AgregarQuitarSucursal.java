@@ -38,8 +38,10 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
         quitar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,7 +58,7 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
         });
         getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        agregar.setBackground(new java.awt.Color(255, 153, 51));
+        agregar.setBackground(new java.awt.Color(204, 204, 255));
         agregar.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
         agregar.setForeground(new java.awt.Color(255, 255, 255));
         agregar.setText("Agregar");
@@ -65,9 +67,9 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
                 agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+        getContentPane().add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
 
-        quitar.setBackground(new java.awt.Color(255, 153, 51));
+        quitar.setBackground(new java.awt.Color(204, 204, 255));
         quitar.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
         quitar.setForeground(new java.awt.Color(255, 255, 255));
         quitar.setText("Eliminar");
@@ -76,19 +78,36 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
                 quitarActionPerformed(evt);
             }
         });
-        getContentPane().add(quitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, -1, -1));
+        getContentPane().add(quitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, -1, -1));
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel4.setText("Ingrese el nombre de la parada a la que le quiere agregar sucursal");
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Si deseas agregar una sucursal, presiona el boton agregar");
         jPanel1.add(jLabel4);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 370, 20));
+        jLabel2.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("que se encuentra abajo. ");
+        jPanel1.add(jLabel2);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 550, 70));
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 310, 20));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+
+        jLabel3.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Si buscas eliminar una sucursal, presiona el boton eliminar");
+        jPanel2.add(jLabel3);
+
+        jLabel5.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("que se encuentra abajo.");
+        jPanel2.add(jLabel5);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 550, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -210,10 +229,12 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton quitar;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables

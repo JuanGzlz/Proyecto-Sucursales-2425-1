@@ -36,8 +36,9 @@ public class DefinirRango extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         valorT = new javax.swing.JTextArea();
         guardar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,22 +59,30 @@ public class DefinirRango extends javax.swing.JFrame {
         valorT.setRows(5);
         jScrollPane1.setViewportView(valorT);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 210, 240, 90));
 
-        guardar.setBackground(new java.awt.Color(255, 204, 102));
-        guardar.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
-        guardar.setForeground(new java.awt.Color(255, 255, 255));
+        guardar.setBackground(new java.awt.Color(255, 204, 153));
+        guardar.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 30)); // NOI18N
         guardar.setText("Guardar");
         guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarActionPerformed(evt);
             }
         });
-        getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
-        jLabel2.setText("Ingrese su rango de distancia entre sucursales,  recuerde es un entero");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 410, 30));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        jLabel2.setText("Escribe el rango en el área blanca, luego  ");
+        jPanel1.add(jLabel2);
+
+        jLabel3.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        jLabel3.setText("presiona el botón guardar");
+        jPanel1.add(jLabel3);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 490, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -143,6 +152,7 @@ public class DefinirRango extends javax.swing.JFrame {
     private javax.swing.JButton guardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea valorT;

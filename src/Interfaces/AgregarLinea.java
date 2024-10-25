@@ -45,6 +45,14 @@ public class AgregarLinea extends javax.swing.JFrame {
         agregarlinea = new javax.swing.JButton();
         nuevoInicio = new javax.swing.JButton();
         nuevoFinal = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,7 +66,7 @@ public class AgregarLinea extends javax.swing.JFrame {
                 volverActionPerformed(evt);
             }
         });
-        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 30));
+        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 30));
 
         agregarlinea.setBackground(new java.awt.Color(255, 204, 102));
         agregarlinea.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
@@ -68,25 +76,55 @@ public class AgregarLinea extends javax.swing.JFrame {
                 agregarlineaActionPerformed(evt);
             }
         });
-        getContentPane().add(agregarlinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
+        getContentPane().add(agregarlinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
 
+        nuevoInicio.setBackground(new java.awt.Color(204, 204, 255));
+        nuevoInicio.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 20)); // NOI18N
         nuevoInicio.setText("INICIO");
         nuevoInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nuevoInicioActionPerformed(evt);
             }
         });
-        getContentPane().add(nuevoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        getContentPane().add(nuevoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
+        nuevoFinal.setBackground(new java.awt.Color(204, 204, 255));
+        nuevoFinal.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 20)); // NOI18N
         nuevoFinal.setText("FINAL");
         nuevoFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nuevoFinalActionPerformed(evt);
             }
         });
-        getContentPane().add(nuevoFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, -1));
+        getContentPane().add(nuevoFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1421606828-612x612.jpg"))); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 18)); // NOI18N
+        jLabel1.setText("Presiona inicio, para elegir la ");
+        jPanel1.add(jLabel1);
+
+        jLabel3.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 18)); // NOI18N
+        jLabel3.setText("sucursal de origen");
+        jPanel1.add(jLabel3);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 270, 70));
+
+        jLabel4.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 18)); // NOI18N
+        jLabel4.setText("Presiona final, para elegir la ");
+        jPanel2.add(jLabel4);
+
+        jLabel5.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 18)); // NOI18N
+        jLabel5.setText("sucursal donde termina");
+        jPanel2.add(jLabel5);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 250, 70));
+
+        jLabel6.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 18)); // NOI18N
+        jLabel6.setText("Ahora dale a este botón para finalizar!");
+        jPanel3.add(jLabel6);
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 360, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 390));
 
@@ -212,7 +250,15 @@ public class AgregarLinea extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarlinea;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton nuevoFinal;
     private javax.swing.JButton nuevoInicio;
     private javax.swing.JButton volver;
