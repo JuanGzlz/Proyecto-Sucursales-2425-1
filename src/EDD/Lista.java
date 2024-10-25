@@ -24,7 +24,7 @@ public class Lista {
     private int size;
 
     /**
-     * constructor de la clase Lista
+     * Constructor de la clase Lista
      * automáticamente asigna 0 a size y apunta a pFirst y pLast a null
      */
     

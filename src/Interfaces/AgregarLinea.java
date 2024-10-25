@@ -13,8 +13,7 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  * Clase interfaz AgregarLínea 
- * Estructura de datos de tipo interfaz con sus distintos botones
- * @author María Correa
+ * @author Macorre21
  * @version 1.0
  */
 
@@ -25,17 +24,14 @@ public class AgregarLinea extends javax.swing.JFrame {
     * @param newInicio variable privada de tipo String que indica donde va a empezar la nueva línea en el grafo
     * @param newFinal variable privada de tipo String que indica donde va a finalizar la nueva línea en el grafo
     */
-    
     private Grafo g;
     private String newInicio;
     private String newFinal;
     
     
     /**
-     * Constructor de la clase interfaz AgregarLinea, no recibe parámetro de entrada
-     * Crea una ventana de AgregarLinea
+     * Constructor del JFrame Form AgregarLinea, no recibe parámetro de entrada
      */
-    
     
     public AgregarLinea() {
         initComponents();
@@ -146,9 +142,8 @@ public class AgregarLinea extends javax.swing.JFrame {
     
     /**
      * @param evt
-     * Se cierra esta interfaz y se regresa a la que contiene al Menú Principal
+     * Se cierra esta ventana y se regresa a la que contiene al Menú Principal
      */
-    
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
@@ -156,11 +151,8 @@ public class AgregarLinea extends javax.swing.JFrame {
     
     /**
      * @param evt
-     * Se valida que si se haya cargado un grafo
-     * Se crean dos variables de tipo string inicioP y finalP, que son igualadas a a las variables 
-     que indican donde empiza y donde termina la nueva línea
-     * Valida que se haya ingresado tanto un inicio como un final a la línea
-     * Valida que las paradas que ingresó el usuario no estén ya creadas
+     * Función que permite al usuario elegir un punto de inicio y final para la nueva línea, ésta solo puede
+     * realizarse si el archivo Json fue cargado y se creó un grafo previamente.
      */
     private void agregarlineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarlineaActionPerformed
         this.g = InterfazFunciones.getGrafo();
@@ -184,12 +176,11 @@ public class AgregarLinea extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_agregarlineaActionPerformed
     
-     /**
+  /**
      * @param evt
-     * Se valida que si se haya cargado un grafo
-     * Se crea un vértice v, que va a llamar a la lista de todas las paradas
-     * Mientras "v" sea distinto de null se va 
-     * 
+     * En principio se genera una lista desplegable con todas las paradas que se encuentren en el Json para que el usuario pueda
+     * seleccionar el punto específico donde quiera que inicie su nueva línea.
+     * Función que te permite agregar una nueva línea entre paradas.
      */
     private void nuevoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoInicioActionPerformed
         int i = 0;
@@ -219,6 +210,12 @@ public class AgregarLinea extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nuevoInicioActionPerformed
 
+      /**
+     * @param evt
+     * En principio se genera una lista desplegable con todas las paradas que se encuentren en el Json para que el usuario pueda
+     * seleccionar el punto específico donde quiera que finalice su nueva línea.
+     * Función que te permite agregar una nueva línea entre paradas.
+     */
     private void nuevoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoFinalActionPerformed
         int i = 0;
         this.g = InterfazFunciones.getGrafo();

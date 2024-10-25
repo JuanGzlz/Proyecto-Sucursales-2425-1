@@ -5,13 +5,14 @@
 package Interfaces;
 
 /**
- *
- * @author User
+ * Clase Interfaz Menu
+ * @author Macorre21
+ * @version 1.0
  */
 public class Menu extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu
+     * Constructor de la clase interfaz Menu, no recibe parámetro de entrada
      */
     public Menu() {
         initComponents();
@@ -32,7 +33,7 @@ public class Menu extends javax.swing.JFrame {
         cargarjson = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         agregarsucursal = new javax.swing.JButton();
-        eliminarsucursal = new javax.swing.JButton();
+        cobertura = new javax.swing.JButton();
         mostrargrafo = new javax.swing.JButton();
         definirrango = new javax.swing.JButton();
         agregarlinea = new javax.swing.JButton();
@@ -47,6 +48,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,14 +85,14 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(agregarsucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
-        eliminarsucursal.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
-        eliminarsucursal.setText("Revisar Cobertura");
-        eliminarsucursal.addActionListener(new java.awt.event.ActionListener() {
+        cobertura.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
+        cobertura.setText("Revisar Cobertura");
+        cobertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarsucursalActionPerformed(evt);
+                coberturaActionPerformed(evt);
             }
         });
-        getContentPane().add(eliminarsucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
+        getContentPane().add(cobertura, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
 
         mostrargrafo.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 14)); // NOI18N
         mostrargrafo.setText("Mostrar Grafo");
@@ -155,6 +157,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/images-removebg-preview (1).png"))); // NOI18N
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, -1));
 
+        jLabel14.setText("jLabel14");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 460));
@@ -162,32 +167,60 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param evt
+     * Función para que la clase interfaz CargarJson sea visible al llamar el método
+     */
     private void cargarjsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarjsonActionPerformed
         InterfazFunciones.openCargarJson();
     }//GEN-LAST:event_cargarjsonActionPerformed
 
+    /**
+     * @param evt
+     * Función para que termine la corrida del programa
+     */
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
 
+    /**
+     * @param evt
+     * Función para que la clase interfaz AgregarSucursal sea visible al llamar el método
+     */
     private void agregarsucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarsucursalActionPerformed
         InterfazFunciones.openAgregarQuitarSucursal();
     }//GEN-LAST:event_agregarsucursalActionPerformed
 
-    private void eliminarsucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarsucursalActionPerformed
+    /**
+     * @param evt
+     * Función para que la clase interfaz CoberturaTotal sea visible al llamar el método
+     */
+    private void coberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coberturaActionPerformed
         InterfazFunciones.openCoberturaTotal();
-    }//GEN-LAST:event_eliminarsucursalActionPerformed
+    }//GEN-LAST:event_coberturaActionPerformed
 
+    /**
+     * @param evt
+     * Función para que la clase interfaz MostrarGrafo sea visible al llamar el método
+     */
     private void mostrargrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrargrafoActionPerformed
        InterfazFunciones.openMostarGraph();
     }//GEN-LAST:event_mostrargrafoActionPerformed
 
+    /**
+     * @param evt
+     * Función para que la clase interfaz DefinirRango sea visible al llamar el método
+     */
     private void definirrangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_definirrangoActionPerformed
         InterfazFunciones.openDefinirRango();
         
     }//GEN-LAST:event_definirrangoActionPerformed
 
+    /**
+     * @param evt
+     * Función para que la clase interfaz AgregarLinea sea visible al llamar el método
+     */
     private void agregarlineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarlineaActionPerformed
         InterfazFunciones.openAgregarLinea();
     }//GEN-LAST:event_agregarlineaActionPerformed
@@ -231,14 +264,15 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton agregarlinea;
     private javax.swing.JButton agregarsucursal;
     private javax.swing.JButton cargarjson;
+    private javax.swing.JButton cobertura;
     private javax.swing.JButton definirrango;
-    private javax.swing.JButton eliminarsucursal;
     private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

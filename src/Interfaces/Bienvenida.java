@@ -5,13 +5,14 @@
 package Interfaces;
 
 /**
- *
- * @author User
+ * Clase interfaz Bienvenida
+ * @author Macorre21
+ * @version 1.0
  */
 public class Bienvenida extends javax.swing.JFrame {
 
     /**
-     * Creates new form Bienvenida
+     * Constructor de la clase interfaz Bienvenida, no recibe parámetro de entrada
      */
     public Bienvenida() {
         initComponents();
@@ -64,6 +65,10 @@ public class Bienvenida extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param evt
+     * Función para que la clase de interfaz Menú sea visible al llamar el método y esta ventana se cierre.
+     */
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
          InterfazFunciones.openMenu();
          this.dispose();
