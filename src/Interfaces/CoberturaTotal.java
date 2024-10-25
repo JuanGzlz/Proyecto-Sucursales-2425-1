@@ -40,12 +40,21 @@ public class CoberturaTotal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
         volver = new javax.swing.JButton();
         coberturatotalDFS = new javax.swing.JButton();
         coberturatotalBFS = new javax.swing.JButton();
         puntoesfecíficoBFS = new javax.swing.JButton();
         puntoespecificoDFS = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+
+        jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,7 +78,7 @@ public class CoberturaTotal extends javax.swing.JFrame {
                 coberturatotalDFSActionPerformed(evt);
             }
         });
-        getContentPane().add(coberturatotalDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
+        getContentPane().add(coberturatotalDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
 
         coberturatotalBFS.setBackground(new java.awt.Color(255, 204, 102));
         coberturatotalBFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
@@ -81,21 +90,47 @@ public class CoberturaTotal extends javax.swing.JFrame {
         });
         getContentPane().add(coberturatotalBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
 
+        puntoesfecíficoBFS.setBackground(new java.awt.Color(255, 204, 153));
+        puntoesfecíficoBFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        puntoesfecíficoBFS.setForeground(new java.awt.Color(255, 255, 255));
         puntoesfecíficoBFS.setText("Punto Específico");
         puntoesfecíficoBFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 puntoesfecíficoBFSActionPerformed(evt);
             }
         });
-        getContentPane().add(puntoesfecíficoBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        getContentPane().add(puntoesfecíficoBFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
+        puntoespecificoDFS.setBackground(new java.awt.Color(255, 204, 153));
+        puntoespecificoDFS.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        puntoespecificoDFS.setForeground(new java.awt.Color(255, 255, 255));
         puntoespecificoDFS.setText("Punto Específico");
         puntoespecificoDFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 puntoespecificoDFSActionPerformed(evt);
             }
         });
-        getContentPane().add(puntoespecificoDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
+        getContentPane().add(puntoespecificoDFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel2.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 22)); // NOI18N
+        jLabel2.setText("Revisar cobertura por : ");
+        jPanel1.add(jLabel2);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 300, 40));
+
+        jLabel4.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        jLabel4.setText("DFS");
+        jPanel2.add(jLabel4);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 90, 40));
+
+        jLabel3.setFont(new java.awt.Font("Dutch801 XBd BT", 0, 24)); // NOI18N
+        jLabel3.setText("BFS ");
+        jPanel3.add(jLabel3);
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 80, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/istockphoto-1297178665-612x612.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -162,11 +197,9 @@ public class CoberturaTotal extends javax.swing.JFrame {
     
     
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        InterfazFunciones.VolverCobertura();
+        InterfazFunciones.VolverMenu();
     }//GEN-LAST:event_volverActionPerformed
 
-    
-    
     private void puntoesfecíficoBFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puntoesfecíficoBFSActionPerformed
         this.T = InterfazFunciones.getT();
         this.x = InterfazFunciones.getGrafo();
@@ -300,6 +333,13 @@ public class CoberturaTotal extends javax.swing.JFrame {
     private javax.swing.JButton coberturatotalBFS;
     private javax.swing.JButton coberturatotalDFS;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton puntoesfecíficoBFS;
     private javax.swing.JButton puntoespecificoDFS;
     private javax.swing.JButton volver;
