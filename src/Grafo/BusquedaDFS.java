@@ -16,19 +16,13 @@ import EDD.Nodo;
  */
 
 public class BusquedaDFS {
-    /**
-     * @param Seen variable privada de tipo Lista que se usará para comparar los nodos y evitar que una parada se agregue dos veces
-     */
-    
-    private Lista Seen;
     
     /**
      * Constructor de la clase BúsquedaDFS, no recibe parámetros de entrada
-     * Inicializa una Lista nueva con 0 nodos
+     * No posee parámetros ni atributos ya que el DFS varía y reasignar sus atributos rompe con la funcionalidad de la búsqueda
      */
     
     public BusquedaDFS(){
-        this.Seen = new Lista();
     }
     
     /**
@@ -36,23 +30,42 @@ public class BusquedaDFS {
      * Implementa una pila y lista, funcionando de manera recursiva para obtener cada vez las paradas visitadas 
      * @param pila variable de tipo Pila con las paradas del grafo
      * @param T variable de tipo entero definida por el rango que ingresó el usuario
+     * @param L variable de tipo Lista que fue creada para considerar los vertices con más de dos aristas (intersecciones)
+     * Al ser una búsqueda en profundidad, el parámetro de tipo Lista permite considerar todas las vías con la lista Valida
      */
     
-    public void DFS(Pila pila, int T) {
+    public void DFS(Pila pila, int T, Lista L) {
         if (T > 0 && pila.isEmpty() == false){
             Nodo auxNodo = pila.desapilar();
             Vertice auxVertice = auxNodo.getData();
             ListaAdyacencia auxLista = auxVertice.getAdyacencia();
             auxVertice.setCovered(true);
             Arista current = auxLista.getpFirst();
+            int i = 0;
+            Lista NewLista = new Lista();
             while (current != null){
-                Nodo N = this.Seen.buscarNodo(current.getDir());
-                if(N == null){
-                pila.apilar(current.getDir());
-                DFS(pila, T - 1);
+                i++;
+                if (L.buscarNodo(current.getDir()) != null){
+                    NewLista.addNodo(current.getDir());
                 }
                 current = current.getpNext();
             }
+            Lista Valida = null;
+            if (i > 2){
+                Valida = NewLista;
+            }else{
+                Valida = L;
+            }
+                current = auxLista.getpFirst();
+                while (current != null){
+                    Nodo N = Valida.buscarNodo(current.getDir());
+                    if(N == null){
+                        pila.apilar(current.getDir());
+                        Valida.addNodo(current.getDir());
+                        DFS(pila, T - 1, Valida);
+                    }
+                    current = current.getpNext();
+                }
         } 
     }
     
@@ -67,14 +80,14 @@ public class BusquedaDFS {
         if (T > 0){
             Pila pila = new Pila();
             inicial.setCovered(true);
-            this.Seen = new Lista();
-            this.Seen.addNodo(inicial);
+            Lista L = new Lista();
+            L.addNodo(inicial);
             ListaAdyacencia adyacentes = inicial.getAdyacencia();
             Arista A = adyacentes.getpFirst();
             while(A != null){
                 pila.apilar(A.getDir());
-                this.Seen.addNodo(A.getDir());
-                DFS(pila, T);
+                L.addNodo(A.getDir());
+                DFS(pila, T, L);
                 A = A.getpNext();
             }
         }
