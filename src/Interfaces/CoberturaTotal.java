@@ -156,16 +156,15 @@ public class CoberturaTotal extends javax.swing.JFrame {
         if (T > 0 && x != null){
             x.resetCobertura();
             Funcionalidades f = new Funcionalidades();
-            if (f.coberturaTotal(x) == false){
-                Vertice v = f.sugerirSucursal(x, T);
+            Vertice v = f.sugerirSucursal(x, T);
+            if (v != null){
                 JOptionPane.showMessageDialog(rootPane, "SUGERENCIA: Coloque una sucursal en \"" + v.getNombre()[0] + "\"");
-                BusquedaBFS buscar = new BusquedaBFS();
-                buscar.CompleteBFS(x, T);
-                x.mostrarGrafo();
             } else{
                 JOptionPane.showMessageDialog(rootPane, "¡El sistema ya cubre toda la ciudad!");
-                x.mostrarGrafo();
             }
+            BusquedaBFS buscar = new BusquedaBFS();
+            buscar.CompleteBFS(x, T);
+            x.mostrarGrafo();
         }else {
             if (T <= 0) {
                 JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
@@ -189,17 +188,17 @@ public class CoberturaTotal extends javax.swing.JFrame {
         this.T = InterfazFunciones.getT();
         this.x = InterfazFunciones.getGrafo();
         if (T > 0 && x != null){
+            x.resetCobertura();
             Funcionalidades f = new Funcionalidades();
-            if (f.coberturaTotal(x) == false){
-                Vertice v = f.sugerirSucursal(x, T);
+            Vertice v = f.sugerirSucursal(x, T);
+            if (v != null){
                 JOptionPane.showMessageDialog(rootPane, "SUGERENCIA: Coloque una sucursal en \"" + v.getNombre()[0] + "\"");
-                BusquedaDFS busqueda = new BusquedaDFS();
-                busqueda.CompleteDFS(x, T);
-                x.mostrarGrafo();
             } else{
                 JOptionPane.showMessageDialog(rootPane, "¡El sistema ya cubre toda la ciudad!");
-                x.mostrarGrafo();
             }
+            BusquedaDFS busqueda = new BusquedaDFS();
+            busqueda.CompleteDFS(x, T);
+            x.mostrarGrafo();
         }else {
             if (T <= 0) {
                 JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
