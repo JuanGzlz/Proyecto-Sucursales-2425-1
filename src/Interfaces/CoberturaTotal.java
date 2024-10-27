@@ -167,10 +167,10 @@ public class CoberturaTotal extends javax.swing.JFrame {
             x.mostrarGrafo();
         }else {
             if (T <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
+                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido.");
             }
             if (x == null) {
-                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo.");
             }
         }          
     }//GEN-LAST:event_coberturatotalBFSActionPerformed
@@ -201,10 +201,10 @@ public class CoberturaTotal extends javax.swing.JFrame {
             x.mostrarGrafo();
         }else {
             if (T <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
+                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido.");
             }
             if (x == null) {
-                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo.");
             }
         }
     }//GEN-LAST:event_coberturatotalDFSActionPerformed
@@ -258,17 +258,17 @@ public class CoberturaTotal extends javax.swing.JFrame {
                     buscar.BusquedaBFS_Unico(x, T, v);
                     x.mostrarGrafo();
                 }else{
-                    JOptionPane.showMessageDialog(rootPane, "La parada seleccionada no es una sucursal...");
+                    JOptionPane.showMessageDialog(rootPane, "La parada seleccionada no es una sucursal.");
                 }
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente...");
+                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente.");
             }
         }else {
             if (T <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
+                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido.");
             }
             if (x == null) {
-                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo.");
             }
         }
     }//GEN-LAST:event_puntoesfecíficoBFSActionPerformed
@@ -313,17 +313,17 @@ public class CoberturaTotal extends javax.swing.JFrame {
                     buscar.BusquedaDFS_Unico(x, T, v);
                     x.mostrarGrafo();
                 }else{
-                    JOptionPane.showMessageDialog(rootPane, "La parada seleccionada no es una sucursal...");
+                    JOptionPane.showMessageDialog(rootPane, "La parada seleccionada no es una sucursal.");
                 }
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente...");
+                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente.");
             }
         }else {
             if (T <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido...");
+                JOptionPane.showMessageDialog(rootPane, "Tu rango es inválido o no lo has definido.");
             }
             if (x == null) {
-                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
+                JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo.");
             }
         }
     }//GEN-LAST:event_puntoespecificoDFSActionPerformed

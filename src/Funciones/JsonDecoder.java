@@ -29,7 +29,11 @@ public class JsonDecoder {
     private BufferedReader NewBufferedReader;
     private String text;
     
-    
+    /**
+     * Constructor de la clase JsonDecoder, recibiendo el archivo elegido en JsonChooser como parámetro de entrada
+     * Automáticamente asigna la variable file al valor de la entrada
+     * Los Readers son asignados a la lectura del propio file que representa el archivo ingresado
+     */
     
     public JsonDecoder(File file) throws FileNotFoundException{
         this.file = file;

@@ -115,19 +115,22 @@ public class CargarJson extends javax.swing.JFrame {
     private void guardarjsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarjsonActionPerformed
         JsonChooser file = new JsonChooser();
         file.chooseFile();
-        JsonDecoder json;
-        JOptionPane.showMessageDialog(null, "Su archivo fue cargado exitosamente.");
-        try {
-            json = new JsonDecoder(file.getJson());
-            this.g = json.CrearGrafo();
-            InterfazFunciones.setGrafo(g);
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CargarJson.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(CargarJson.class.getName()).log(Level.SEVERE, null, ex);
+        if (file.getJson() != null){
+            JsonDecoder json;
+            JOptionPane.showMessageDialog(null, "Su archivo fue cargado exitosamente.");
+            try {
+                json = new JsonDecoder(file.getJson());
+                this.g = json.CrearGrafo();
+                InterfazFunciones.setGrafo(g);
+
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(CargarJson.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(CargarJson.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Seleccione un archivo correctamente.");
         }
-        
     }//GEN-LAST:event_guardarjsonActionPerformed
 
     /**

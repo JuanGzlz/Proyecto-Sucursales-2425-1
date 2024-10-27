@@ -35,7 +35,7 @@ public class Funcionalidades {
         if(parada != null){
             if(parada.isSucursal()){
                 JOptionPane.showMessageDialog(null,
-                    ("La estación \"" + num1 + "\" ya posee una sucursal..."),
+                    ("La estación \"" + num1 + "\" ya posee una sucursal."),
                             "", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 parada.setSucursal(true);
@@ -44,7 +44,7 @@ public class Funcionalidades {
             }
         }else{
             JOptionPane.showMessageDialog(null,
-               ("La estación \"" + num1 + "\" no existe..."),
+               ("La estación \"" + num1 + "\" no existe."),
                         "", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -67,7 +67,7 @@ public class Funcionalidades {
         if(parada != null){
         if(!parada.isSucursal()){
             JOptionPane.showMessageDialog(null,
-               ("La estación \"" + num1 + "\" no posee una sucursal..."),
+               ("La estación \"" + num1 + "\" no posee una sucursal."),
                         "", JOptionPane.INFORMATION_MESSAGE);
         }else{
             parada.setSucursal(false);
@@ -76,7 +76,7 @@ public class Funcionalidades {
         }
         }else{
             JOptionPane.showMessageDialog(null,
-               ("La estación \"" + num1 + "\" no existe..."),
+               ("La estación \"" + num1 + "\" no existe."),
                         "", JOptionPane.INFORMATION_MESSAGE);
         }
 

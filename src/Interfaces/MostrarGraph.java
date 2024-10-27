@@ -103,7 +103,7 @@ public class MostrarGraph extends javax.swing.JFrame {
             g.resetCobertura();
             this.g.mostrarGrafo();
         }else {
-            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer.");
         }
     }//GEN-LAST:event_mostrargrafoActionPerformed
 
