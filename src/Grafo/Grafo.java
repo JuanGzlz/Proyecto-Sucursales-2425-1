@@ -204,7 +204,7 @@ public class Grafo {
         if (graph.getNode(num1) != null) {
             graph.getNode(num1).setAttribute("ui.style", "fill-color: " + color + "; size: 20px; shape: circle;");
         }else{
-            JOptionPane.showMessageDialog(null, "En el grafo obtenido no existe este vértice...");
+            JOptionPane.showMessageDialog(null, "En el grafo obtenido no existe este vértice.");
         }
     }
     

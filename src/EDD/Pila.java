@@ -71,4 +71,34 @@ public class Pila {
             return NewNodo;
         }
     } 
+    
+    /**
+     * Función que permite revisar la cima sin eliminar la pila
+     * @return variable de tipo Nodo que representa la cima de la pila
+     */
+    
+    public Nodo peek(){
+        return pCima;
+    }
+    
+    /**
+     * Función recursiva que permite gestionar si en una pila dada ya se ha pasado por un punto
+     * @param v variable de tipo Vertice utilizada para comparar con los demás vértices
+     * @return variable de tipo Vertice dada para generar la comparación entre puntos y realizar la recursividad
+     */
+    
+    public Vertice Conseguir(Vertice v){
+        if(isEmpty()==false){
+            Vertice NewV= desapilar().getData();
+            Vertice answer;
+            if(NewV == v){
+                answer = v;
+            } else{
+                answer = Conseguir(v);
+            }
+            apilar(NewV);
+            return answer;
+        }
+        return null;
+    }
 }

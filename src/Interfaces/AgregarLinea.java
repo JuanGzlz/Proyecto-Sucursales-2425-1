@@ -161,18 +161,19 @@ public class AgregarLinea extends javax.swing.JFrame {
             String finalP = newFinal;
             Funcionalidades f = new Funcionalidades();
             if (inicioP == null || finalP == null){
-                JOptionPane.showMessageDialog(rootPane, "Falta por seleccionar uno o ambos de los puntos para la nueva línea...");
+                JOptionPane.showMessageDialog(rootPane, "Falta por seleccionar uno o ambos de los puntos para la nueva línea.");
             }else{
                 if (f.posibleAgregar(g, inicioP, finalP) == false){
                     f.agregarLinea(g, inicioP, finalP);
                     JOptionPane.showMessageDialog(rootPane, "Una nueva línea ha sido añadida con éxito.");
+                    g.resetCobertura();
                     g.mostrarGrafo();
                 }else{
                     JOptionPane.showMessageDialog(rootPane, "Estas paradas ya están conectadas directamente.");
                 } 
             }
         }else {
-            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer.");
         }
     }//GEN-LAST:event_agregarlineaActionPerformed
     
@@ -206,7 +207,7 @@ public class AgregarLinea extends javax.swing.JFrame {
             String I = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una parada:", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
             newInicio = I;
         }else {
-            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer.");
         }
     }//GEN-LAST:event_nuevoInicioActionPerformed
 
@@ -240,7 +241,7 @@ public class AgregarLinea extends javax.swing.JFrame {
             String F = (String) JOptionPane.showInputDialog(rootPane, "Seleccione una parada:", "", HEIGHT, null, A, DISPOSE_ON_CLOSE);
             newFinal = F;
         }else {
-            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer...");
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún archivo Json para leer.");
         }
     }//GEN-LAST:event_nuevoFinalActionPerformed
 

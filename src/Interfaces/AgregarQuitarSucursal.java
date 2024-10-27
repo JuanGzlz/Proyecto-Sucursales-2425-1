@@ -159,10 +159,10 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
                 v = g.busquedaInicial(S);
                 f.seleccionarSucursal(g, v, T);
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente...");
+                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente.");
             }
         }else {
-            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo.");
         }
     }//GEN-LAST:event_agregarActionPerformed
 
@@ -200,10 +200,10 @@ public class AgregarQuitarSucursal extends javax.swing.JFrame {
                 v = g.busquedaInicial(S);
                 f.quitarSucursal(g, v, T);
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente...");
+                JOptionPane.showMessageDialog(rootPane, "Seleccione una parada correctamente.");
             }
         }else {
-            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo...");
+            JOptionPane.showMessageDialog(rootPane, "No ha ingresado ningún grafo.");
         }
     }//GEN-LAST:event_quitarActionPerformed
 
